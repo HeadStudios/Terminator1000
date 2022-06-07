@@ -44,4 +44,3 @@ for (let record of query.records) {
 
 
 }
-
