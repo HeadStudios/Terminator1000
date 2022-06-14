@@ -1,8 +1,8 @@
 <?php
-
+require("vendor/autoload.php");
 require("connects.php");
 require("env.php"); // this is in Gitignore for security reasons, ask me for access and I can provide
-require("parsedown.php"); // This is the convert AirTable rich text field to HTML to pass to new WP post function
+//require("parsedown.php"); // This is the convert AirTable rich text field to HTML to pass to new WP post function
 
 /* In the section below I comment the line for file_get_contents if I am testing so I could supply my own data and check output to speed up development. Makes sense?
 Below I will include format currently sent from AirTable to update the array for testing
