@@ -26,7 +26,7 @@ foreach ($click_array as $click) {
   
   }
 
-  foreach ( $airtable_array as $index=> $link ) {
+  foreach ( $airtable_array as $index=> $link ) { 
     
     if($airtable_array[ $index ]['clicks'] == 0) {
         unset($airtable_array[ $index ]);
