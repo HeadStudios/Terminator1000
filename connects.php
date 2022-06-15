@@ -2,6 +2,9 @@
 
 // This is where all the API connect scripts will go to make it easier to read
 
+
+
+
 function newCustomPost($custom_title, $content) {
 
     // All the globals are found in env.php which is in .gitignore so ask me for the codes otherwise this won't work, codes are on need to know basis to reduce risk - hope you understand
