@@ -28,6 +28,17 @@
 require 'vendor/autoload.php';
 //require 'fpdf/fpdf.php';
 
+$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-15T11%3A37%3A03.7806646Z\'\"","Clientcompany":"Adronis Corporation","CommentsOrQuestions":null,"Clientname":"Michael Bashford","WebsiteURL":null,"Products":[{"Id":"65hao","ProductName":null,"ProductFeature":null,"ProductBenefit":null,"ItemNumber":1}],"Emailbody":"Hi Michael,\n\nThank you - the question is. Is this one line or two? \n\nThis is your email body - it\'s been formatting with new line characters I presume.\n\nThank you,\nKosta","Execsummary":"At Broadbeach you are having a project which is not working well. There are many problems. This executive \nsummary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best.","Clientaddress":"123 Adronis Corp. Bigwig Ashadonia","Date":"2022-06-15","Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/6","DateCreated":"2022-06-15T11:37:03.555Z","DateSubmitted":"2022-06-15T11:37:03.508Z","DateUpdated":"2022-06-15T11:37:03.555Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#rQoyx7az1zzyLK_5-1sqw46gtMUtLbhhcc4EhmjhN_g$*","IsBeta":true,"LastPageViewed":null,"Number":6,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-15T11:37:03.508Z","Version":1,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#kojo4pkwAj9pUBZmpQevqLOCl_zfo6OEv8kRtnEjg5M$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=-BEwDpBYEKx4JGVIlg_ihhwj9P8Iy8auM4mi2w3QvIo$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=itgVTJtGVndwIvAbzubUFMt2Cs7gy-XuY-BjGQBijJw$"},"Id":"1-6"}';
+$json_loader = json_decode($json_loader, true);
+$json_loader = array_change_key_case($json_loader,CASE_LOWER);
+//var_dump($json_loader);
+//die();
+/* echo '<pre>';
+var_dump(json_decode($json_loader, true));
+echo '</pre>';
+
+die(); */
+
 $array_input = array(
 
     'client_name' => 'Andrew Coronis',
@@ -43,7 +54,7 @@ $product_array = [['name' => 'Product Name 1', 'feature' => 'Product Feature 1',
 
 
 
-$beveller = new In_n_Out($array_input);
+$beveller = new In_n_Out($json_loader);
 //$beveller->talk_your_shit();
 
 class In_n_Out {
@@ -52,13 +63,13 @@ class In_n_Out {
    
     function __construct($the_cut) {
 
-        if(isset($the_cut['client_name'])) {
+        
 
             //echo "I see you Mr. Sharpe!";
 
             $this->its_all_mine = $the_cut;
 
-        }
+        
     
     }
 
@@ -93,12 +104,19 @@ function in_n_out($html) {
 
     $my_html = $html;
 
-    if(isset($this->its_all_mine['client_name'])) {
+    //if(isset($this->its_all_mine['clientname'])) {
 
         // Provides: <body text='black'>
-        $my_html = str_replace("{{client_name}}", $this->its_all_mine['client_name'] , $my_html);
+        // Use this as a key code for naming of form fields in Incognito or anyone that submits
+        $my_html = str_replace("{{client_name}}", $this->its_all_mine['clientname'] , $my_html);
+        //echo "Client name is....".$this->its_all_mine['clientname'];
+        $my_html = str_replace("{{client_company}}", $this->its_all_mine['clientcompany'] , $my_html);
+        $my_html = str_replace("{{date}}", $this->its_all_mine['date'] , $my_html);
+        $my_html = str_replace("{{client_address}}", $this->its_all_mine['clientaddress'] , $my_html);
+        $my_html = str_replace("{{{email_body}}", $this->its_all_mine['emailbody'] , $my_html);
+        $my_html = str_replace("{{executive_summary}}", $this->its_all_mine['execsummary'] , $my_html);
 
-    }
+    //}
 
     return $my_html;
 
@@ -501,7 +519,9 @@ $pdf->lastPage();
 // ---------------------------------------------------------
 
 //Close and output PDF document
+$pdf->Output(__DIR__.'/verynice.pdf', 'F');
 $pdf->Output('example_006.pdf', 'I');
+
 
 //============================================================+
 // END OF FILE

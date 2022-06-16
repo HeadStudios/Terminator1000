@@ -1,9 +1,6 @@
 <?php
 
-// This is where all the API connect scripts will go to make it easier to read
-
-
-
+// This is where all the API connect scripts will go to make it easier to rea
 
 function newCustomPost($custom_title, $content) {
 

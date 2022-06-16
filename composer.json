@@ -3,6 +3,7 @@
         "guzzlehttp/guzzle": "^7.4",
         "erusev/parsedown": "^1.7",
         "fpdf/fpdf": "^1.84",
-        "tecnickcom/tcpdf": "^6.4"
+        "tecnickcom/tcpdf": "^6.4",
+        "smottt/wideimage": "^1.1"
     }
 }

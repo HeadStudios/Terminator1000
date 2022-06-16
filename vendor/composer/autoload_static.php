@@ -60,6 +60,13 @@ class ComposerStaticInitf4cd6c5259193ab5b7e01b69e02fb0e9
     );
 
     public static $prefixesPsr0 = array (
+        'W' => 
+        array (
+            'WideImage' => 
+            array (
+                0 => __DIR__ . '/..' . '/smottt/wideimage/lib',
+            ),
+        ),
         'P' => 
         array (
             'Parsedown' => 
