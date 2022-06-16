@@ -17,32 +17,64 @@ set_error_handler("myErrorHandler");
 
 global $wp_bearer;
 
-$client = new GuzzleHttp\Client();
 
-$custom_title = 'How he do that';
-$content = 'How he get that way';
 
-$post_data = [
-    "title" => $custom_title,
-    "content" => $content,
-    "excerpt" => "Excerpt goes here",
-    "status" => "publish"
-];
+class Connector {
 
-$auth = 'Authorization: Basic '.$wp_bearer;
+    function newPost($input) {
 
-$response = $client->post('https://staging2.conveyancingqld.com/wp-json/wp/v2/for-you', [
-    'headers' => [
-        'Content-Type' => 'application/json',
-        'Authorization' => 'Basic Y29yb25pc0BoZWFkc3R1ZGlvcy5jb20uYXU6cGFzc3dvcmQ3Nw=='
-    ],
-    'json' => $post_data,
-    'timeout' => 5
-]);
 
-echo "Status is: ".$response->getStatusCode()."<p></p>";
 
-var_dump(json_decode($response->getBody(),true));
+        $client = new GuzzleHttp\Client();
+
+        $custom_title = 'How he do that';
+        $content = 'How he get that way';
+
+        $post_data = [
+            "title" => $custom_title,
+            "content" => $content,
+            "excerpt" => "Excerpt goes here",
+            "status" => "publish"
+        ];
+
+        $auth = 'Authorization: Basic '.$wp_bearer;
+
+        $response = $client->post('https://staging2.conveyancingqld.com/wp-json/wp/v2/for-you', [
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Basic Y29yb25pc0BoZWFkc3R1ZGlvcy5jb20uYXU6cGFzc3dvcmQ3Nw=='
+            ],
+            'json' => $post_data,
+            'timeout' => 5
+        ]);
+
+        echo "Status is: ".$response->getStatusCode()."<p></p>";
+
+        var_dump(json_decode($response->getBody(),true));
+
+    }
+
+
+}
+
+class Interfacer {
+
+    static function array_keys($required, $data) {
+        //$required = array('key1', 'key2', 'key3');
+
+        /*$data = array(
+            'key1' => 10,
+            'key2' => 20,
+            'key3' => 30,
+            'key4' => 40,
+        );*/ 
+
+        if (count(array_intersect_key(array_flip($required), $data)) === count($required)) {
+            throw new Exception('Division by zero.');
+        }
+    }
+
+}
 
 /*
 

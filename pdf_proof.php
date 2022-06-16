@@ -28,7 +28,7 @@
 require 'vendor/autoload.php';
 //require 'fpdf/fpdf.php';
 
-$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-15T11%3A37%3A03.7806646Z\'\"","Clientcompany":"Adronis Corporation","CommentsOrQuestions":null,"Clientname":"Michael Bashford","WebsiteURL":null,"Products":[{"Id":"65hao","ProductName":null,"ProductFeature":null,"ProductBenefit":null,"ItemNumber":1}],"Emailbody":"Hi Michael,\n\nThank you - the question is. Is this one line or two? \n\nThis is your email body - it\'s been formatting with new line characters I presume.\n\nThank you,\nKosta","Execsummary":"At Broadbeach you are having a project which is not working well. There are many problems. This executive \nsummary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best.","Clientaddress":"123 Adronis Corp. Bigwig Ashadonia","Date":"2022-06-15","Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/6","DateCreated":"2022-06-15T11:37:03.555Z","DateSubmitted":"2022-06-15T11:37:03.508Z","DateUpdated":"2022-06-15T11:37:03.555Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#rQoyx7az1zzyLK_5-1sqw46gtMUtLbhhcc4EhmjhN_g$*","IsBeta":true,"LastPageViewed":null,"Number":6,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-15T11:37:03.508Z","Version":1,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#kojo4pkwAj9pUBZmpQevqLOCl_zfo6OEv8kRtnEjg5M$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=-BEwDpBYEKx4JGVIlg_ihhwj9P8Iy8auM4mi2w3QvIo$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=itgVTJtGVndwIvAbzubUFMt2Cs7gy-XuY-BjGQBijJw$"},"Id":"1-6"}';
+$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-16T12%3A24%3A38.7944336Z\'\"","Clientcompany":null,"CommentsOrQuestions":null,"Clientname":"Michael","WebsiteURL":null,"Products":[{"Id":"31OXcc","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","Personal":"1","ItemNumber":1},{"Id":"4v7bUd","ProductName":"Product 3 Name","ProductFeature":"Product 3 Feature","ProductBenefit":"Product 3 Benefit","Items":"Product 3","Personal":"1","ItemNumber":2}],"Emailbody":"Email body\n\nHello","Execsummary":"Email body\n\nWhy are you *there*","Clientaddress":null,"Date":null,"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/7","DateCreated":"2022-06-16T12:24:38.516Z","DateSubmitted":"2022-06-16T12:24:38.485Z","DateUpdated":"2022-06-16T12:24:38.516Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#c036KbzR-88kGCyvhNQH-FEceqcg-52QYJtLblgJ4dU$*","IsBeta":true,"LastPageViewed":null,"Number":7,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-16T12:24:38.485Z","Version":1,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ly1GoQhb_teB8MgnQgb6xzhm8TMt5kOq8SHC2xnrQj4$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=zHBQGlFxcahP-In_hAOh2_AStktfnMDmsNyXSxZlO3U$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=aR5O8njFk24n_Vn1k0HOj_PLb62Dh36wh2XvDjgj0-E$"},"Id":"1-7"}';
 $json_loader = json_decode($json_loader, true);
 $json_loader = array_change_key_case($json_loader,CASE_LOWER);
 //var_dump($json_loader);
@@ -46,12 +46,19 @@ $array_input = array(
 
 );
 
-$product_array = [['name' => 'Product Name 1', 'feature' => 'Product Feature 1', 'benefit' => 'Product Benefit 1'],
+$product_array = [['name' => 'Product Namerrr 1', 'feature' => 'Product Feature 1', 'benefit' => 'Product Benefit 1'],
                     ['name' => 'Product Name 2', 'feature' => 'Product Feature 2', 'benefit' => 'Product Benefit 2'],
                     ['name' => 'Product Name 3', 'feature' => 'Product Feature 3', 'benefit' => 'Product Benefit 3']];
 
+/*
+echo '<pre>';
+var_dump($product_array);
+echo '</pre>';
 
-
+echo '<pre>';
+var_dump($json_loader['products']);
+echo '</pre>';
+*/
 
 
 $beveller = new In_n_Out($json_loader);
@@ -86,9 +93,9 @@ class In_n_Out {
        foreach($table_array as $keybit) {
 
             $table .= '<tr>';
-            $table .= '<td>'.$keybit['name'].'</td>';
-            $table .= '<td>'.$keybit['feature'].'</td>';
-            $table .= '<td>'.$keybit['benefit'].'</td>';
+            $table .= '<td>'.$keybit['ProductName'].'</td>';
+            $table .= '<td>'.$keybit['ProductFeature'].'</td>';
+            $table .= '<td>'.$keybit['ProductBenefit'].'</td>';
             $table .= '</tr>';
 
         }
@@ -110,10 +117,10 @@ function in_n_out($html) {
         // Use this as a key code for naming of form fields in Incognito or anyone that submits
         $my_html = str_replace("{{client_name}}", $this->its_all_mine['clientname'] , $my_html);
         //echo "Client name is....".$this->its_all_mine['clientname'];
-        $my_html = str_replace("{{client_company}}", $this->its_all_mine['clientcompany'] , $my_html);
-        $my_html = str_replace("{{date}}", $this->its_all_mine['date'] , $my_html);
-        $my_html = str_replace("{{client_address}}", $this->its_all_mine['clientaddress'] , $my_html);
-        $my_html = str_replace("{{{email_body}}", $this->its_all_mine['emailbody'] , $my_html);
+        //$my_html = str_replace("{{client_company}}", $this->its_all_mine['clientcompany'] , $my_html);
+        //$my_html = str_replace("{{date}}", $this->its_all_mine['date'] , $my_html);
+        //$my_html = str_replace("{{client_address}}", $this->its_all_mine['clientaddress'] , $my_html);
+        $my_html = str_replace("{{email_body}}", nl2br($this->its_all_mine['emailbody']) , $my_html);
         $my_html = str_replace("{{executive_summary}}", $this->its_all_mine['execsummary'] , $my_html);
 
     //}
@@ -267,7 +274,7 @@ $html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleratio
 <td><span style="color: #ffffff;"><strong>Description</strong></span></td>
 <td><span style="color: #ffffff;"><strong>Benefit</strong></span></td>
 </tr>
-'.$beveller->table_spit($product_array).'
+'.$beveller->table_spit($json_loader['products']).'
 <tr>
 <td>Brand Branch</td>
 <td>Take a copy of your website and rebrand on new domain (e.g. yourname<strong>managements</strong>.com.au)&nbsp;</td>
