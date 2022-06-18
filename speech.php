@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require "vendor/autoload.php"; 
 
 $wehere = array("We" => "Are", "Here" => "Now");
@@ -8,7 +10,7 @@ echo json_encode($wehere);
 
 $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
 $connector->domain_id = '421680';
-$image_url = $connector->image_create('Blake Lively');
+$image_url = $connector->image_create('Blake_Lively');
 $connector->OGLinkStatus('lnk_1LHi_2kV0L0', 'Not About Not Offending', 'Its not about not offending', $image_url);
 
 
