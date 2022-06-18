@@ -5,6 +5,19 @@ have multiple AirTable js scripts in the GitHub repository.
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 let WPtable = base.getTable("New WP");
 // Prompt the user to pick a record 
 // If this script is run from a button field, this will use the button's record instead.

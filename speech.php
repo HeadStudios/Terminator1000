@@ -10,9 +10,11 @@ echo json_encode($wehere);
 
 $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
 $connector->domain_id = '421680';
-$image_url = $connector->image_create('Blake_Lively');
-$connector->OGLinkStatus('lnk_1LHi_2kV0L0', 'Not About Not Offending', 'Its not about not offending', $image_url);
+//$image_url = $connector->image_create('Blake_Lively');
+//$connector->OGLinkStatus('lnk_1LHi_2kV0L0', 'Not About Not Offending', 'Its not about not offending', $image_url);
+$short_response = $connector->short_It('https://www.google.com', 'your-search-man');
 
+var_dump($short_response);
 
 class ConnectorForMe extends ConcreteFoundation {
 
@@ -26,6 +28,7 @@ class ConnectorForMe extends ConcreteFoundation {
         $canvas->useFont('fonts/arialblack.ttf', 100, $image->allocateColor(76, 75, 75)); 
         $canvas->writeText('42', '135', $name);
         $file = 'images/'.$name.rand(1,100).'.jpg';
+        $file = str_replace(' ', '_', $file);
         $image->saveToFile($file);
         $complete = $this->url.$file;
         return $complete;
@@ -33,10 +36,6 @@ class ConnectorForMe extends ConcreteFoundation {
     }
 
     function short_It($url, $path) {
-
-        $og_image = $this->image_create('Mike');
-
-        echo "OG Image is: ".$og_image;
 
         $client = new GuzzleHttp\Client();
 
@@ -61,12 +60,9 @@ class ConnectorForMe extends ConcreteFoundation {
             'timeout' => 5
         ]);
 
-        var_dump(json_decode($response->getBody(),true));
-        echo "Ignore past here";
-
-        return $response;
+        return $response->getBody();
         
-        }
+    }
 
         function OGLinkStatus($link_id, $title, $description, $image) {
     

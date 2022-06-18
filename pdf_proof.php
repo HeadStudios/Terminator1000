@@ -28,7 +28,7 @@
 require 'vendor/autoload.php';
 //require 'fpdf/fpdf.php';
 
-$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-16T12%3A24%3A38.7944336Z\'\"","Clientcompany":null,"CommentsOrQuestions":null,"Clientname":"Michael","WebsiteURL":null,"Products":[{"Id":"31OXcc","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","Personal":"1","ItemNumber":1},{"Id":"4v7bUd","ProductName":"Product 3 Name","ProductFeature":"Product 3 Feature","ProductBenefit":"Product 3 Benefit","Items":"Product 3","Personal":"1","ItemNumber":2}],"Emailbody":"Email body\n\nHello","Execsummary":"Email body\n\nWhy are you *there*","Clientaddress":null,"Date":null,"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/7","DateCreated":"2022-06-16T12:24:38.516Z","DateSubmitted":"2022-06-16T12:24:38.485Z","DateUpdated":"2022-06-16T12:24:38.516Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#c036KbzR-88kGCyvhNQH-FEceqcg-52QYJtLblgJ4dU$*","IsBeta":true,"LastPageViewed":null,"Number":7,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-16T12:24:38.485Z","Version":1,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ly1GoQhb_teB8MgnQgb6xzhm8TMt5kOq8SHC2xnrQj4$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=zHBQGlFxcahP-In_hAOh2_AStktfnMDmsNyXSxZlO3U$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=aR5O8njFk24n_Vn1k0HOj_PLb62Dh36wh2XvDjgj0-E$"},"Id":"1-7"}';
+$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-18T06%3A20%3A22.0064827Z\'\"","Clientcompany":"Adronis Corporation","CommentsOrQuestions":null,"Clientname":"Michael Bashford","WebsiteURL":null,"Products":[{"Id":"65hao","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","Personal":"1","ItemNumber":1},{"Id":"oWe8F","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","Personal":"1","ItemNumber":2},{"Id":"31Im5A","ProductName":"Product 3 Name","ProductFeature":"Product 3 Feature","ProductBenefit":"Product 3 Benefit","Items":"Product 3","Personal":"1","ItemNumber":3}],"Emailbody":"Hi Michael,\n\nThank you - the question is. Is this one line or two? \n\nThis is your email body - it\'s been formatting with new line characters I presume.\n\nThank you,\nKosta","Execsummary":"At Broadbeach you are having a project which is not working well. There are many problems. This executive \nsummary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best.","Clientaddress":"123 Adronis Corp. Bigwig Ashadonia","Date":"2022-06-15","Stakeholders":[{"Id":"Zig6c","Name":"Michael Walden","Position":"Nobody","Contact":"041593234,j.smith@gmail.com","Responsibility":"Being a shit head","ItemNumber":1},{"Id":"o7m9P","Name":"Vedran","Position":"Cool Guy","Contact":"03344234,vedran@headstudios.com.au","Responsibility":"Cool guy","ItemNumber":2}],"Schedule":[{"Id":"28REnS","Activity":"Setup emails","Description":"Vroom vroom go the outreach","Date2":"2022-06-21","ItemNumber":1},{"Id":"2rfJ9D","Activity":"Setup CRO","Description":"Conversion go vroom","Date2":"2022-07-08","ItemNumber":2}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/6","DateCreated":"2022-06-15T11:37:03.555Z","DateSubmitted":"2022-06-15T11:37:03.508Z","DateUpdated":"2022-06-18T06:20:21.806Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#rQoyx7az1zzyLK_5-1sqw46gtMUtLbhhcc4EhmjhN_g$*","IsBeta":true,"LastPageViewed":null,"Number":6,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-15T11:37:03.508Z","Version":4,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#kojo4pkwAj9pUBZmpQevqLOCl_zfo6OEv8kRtnEjg5M$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=WCxAW6QrblJclF7GLtaH9iLU5qRz0tuDo_R7N7POKk0$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=cgHLNuxsviXiQYeNuIsZmR5A8b8g-J0LPnJPX4-EnmI$"},"Id":"1-6"}';
 $json_loader = json_decode($json_loader, true);
 $json_loader = array_change_key_case($json_loader,CASE_LOWER);
 //var_dump($json_loader);
@@ -86,9 +86,10 @@ class In_n_Out {
 
     }
 
-    function table_spit($table_array) {
+    function table_spit($table_array,$num=1) {
 
        //$table = '<table>';
+       if($num==1) {
        $table = '';
        foreach($table_array as $keybit) {
 
@@ -101,7 +102,38 @@ class In_n_Out {
         }
         //$table .= '</table>';
         return $table;
+        }
+        if($num==2) {
+        $table = '';
+        foreach($table_array as $keybit) {
 
+            $table .= '<tr>';
+            $table .= '<td>'.$keybit['Name'].'</td>';
+            $table .= '<td>'.$keybit['Position'].'</td>';
+            $table .= '<td>'.$keybit['Contact'].'</td>';
+            $table .= '<td>'.$keybit['Responsibility'].'</td>';
+            $table .= '</tr>';
+
+        }
+        //$table .= '</table>';
+        return $table;
+        }
+        if($num==3) {
+            $table = '';
+            foreach($table_array as $keybit) {
+    
+                $table .= '<tr>';
+                $table .= '<td>'.$keybit['Activity'].'</td>';
+                $table .= '<td>'.$keybit['Description'].'</td>';
+                $table .= '<td>'.$keybit['Date2'].'</td>';
+                $table .= '</tr>';
+    
+            }
+            //$table .= '</table>';
+            return $table;
+        }
+
+        
     }
 
 
@@ -137,6 +169,7 @@ function in_n_out($html) {
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM);
 
 // set document information
 /*
@@ -259,7 +292,7 @@ $html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleratio
 </table>
 </div>
 <style>table, th, td {
-    border: 1px solid black;
+    border: 0px solid black;
   }</style>
 <h1>1. Understanding the Challenge</h1>
 <p><span style="color: #424242;">[Company Name] wishes to accelerate its growth and increase the volume of outbound activity - however at the moment it doesn&rsquo;t know what those metrics are. Also - balancing outbound activity with operational activity is challenging as it&rsquo;s not easy to see how much availability staff has for the week.&nbsp;</span></p>
@@ -267,34 +300,14 @@ $html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleratio
 <h1>2. Proposed Solution</h1>
 <p><span style="color: #424242;">In order to understand [Company Name]&rsquo;s current situation the following 1st principle metrics will be made available in the following categories:</span></p>
 <div>
-<table style="border:3px black;">
+<table style="border:1px black !important;">
 <tbody>
 <tr>
-<td><span style="color: #ffffff;"><strong>Product</strong></span></td>
-<td><span style="color: #ffffff;"><strong>Description</strong></span></td>
-<td><span style="color: #ffffff;"><strong>Benefit</strong></span></td>
+<td><span><strong>Product</strong></span></td>
+<td><span><strong>Description</strong></span></td>
+<td><span><strong>Benefit</strong></span></td>
 </tr>
 '.$beveller->table_spit($json_loader['products']).'
-<tr>
-<td>Brand Branch</td>
-<td>Take a copy of your website and rebrand on new domain (e.g. yourname<strong>managements</strong>.com.au)&nbsp;</td>
-<td>Quick turnaround and begin receiving leads as quickly as possible without needing to involve IT and lengthen project, also reduce risk of any critical online business data like listings being compromisedProtect main company account from falling into Spam, ruining your online reputation and being unable to follow up with clients&nbsp;</td>
-</tr>
-<tr>
-<td>Personalised AI 24/7 Sales Videos x 2</td>
-<td>Sales bot, customised video with captions - capture attention, educate client and position your company as a knowledge expertBased on my research into investor psychology (from speaking to them) as well as learning how to stay &ldquo;top of mind&rdquo; - this bot will blow away your future clients and will be a great talking point to set yourself up to close the deal with them when it&rsquo;s time.Note: script approval will be sent for approval</td>
-<td>Great talking point, increase time on site (video statistic) which increases chance of becoming a customer (average time someone spends researching a company), positions you as a forward thinking property management company to allow you to charge a premium for your services and avoid giving up your &ldquo;management fee&rdquo; to close a client&nbsp;</td>
-</tr>
-<tr>
-<td>Email Campaign</td>
-<td>Send out email campaign from private server - with custom copy to engage the customer from your personalised domain</td>
-<td>Email warm up for maximum deliverability (open rates of 40%), staggered send out to control lead flow to your company&rsquo;s unique requirements and grow at the pace you wish - avoid staff overwork and maintain staff retention</td>
-</tr>
-<tr>
-<td>Video Blog Landing Page</td>
-<td>Call to action, personalised</td>
-<td>Call to action increases conversion by x%Pull and display reviews under the video blog from Google - increase conversions by social proof</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -304,41 +317,12 @@ $html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleratio
 <table>
 <tbody>
 <tr>
-<td><span style="color: #ffffff;"><strong>Stakeholder Name</strong></span></td>
-<td><span style="color: #ffffff;"><strong>Position</strong></span></td>
-<td><span style="color: #ffffff;"><strong>Best Contact Details</strong></span></td>
-<td><span style="color: #ffffff;"><strong>Responsibility</strong></span></td>
+<td><span><strong>Stakeholder Name</strong></span></td>
+<td><span><strong>Position</strong></span></td>
+<td><span><strong>Best Contact Details</strong></span></td>
+<td><span><strong>Responsibility</strong></span></td>
 </tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>0415932797j.smith@gmail.com</td>
-<td>Send data list, make follow up calls, social media manager, website manager, IT person,&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td>Kosta Kondratenko</td>
-<td>Real Estate Accelerator/Rent Roll Growth System Guy</td>
-<td>Mobile: 0412 826 569Email: <a href="mailto:kosta@headstudios.com.au" target="_blank" rel="noopener">kosta@headstudios.com.au</a>Skype: kostathehead</td>
-<td>Setting up the Dashboard, obtaining and following up with stakeholders above for required information to make this happens and interfacing and getting feedback&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
+'.$beveller->table_spit($json_loader['stakeholders'],2).'
 </tbody>
 </table>
 </div>
@@ -347,20 +331,11 @@ $html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleratio
 <table>
 <tbody>
 <tr>
-<td><span style="color: #ffffff;"><strong>Project Activity</strong></span></td>
-<td>&nbsp;</td>
-<td><span style="color: #ffffff;"><strong>Date of Completion</strong></span></td>
+<td><span><strong>Project Activity</strong></span></td>
+<td><strong>Description</strong></td>
+<td><span><strong>Date of Completion</strong></span></td>
 </tr>
-<tr>
-<td><strong>Receive data</strong><strong>Create sub brand</strong><strong>Warm up email list&nbsp;</strong><strong>Approve script</strong></td>
-<td>&nbsp;</td>
-<td>2 weeks0</td>
-</tr>
-<tr>
-<td><strong>Email Campaign</strong><strong>2 emails sent - leads delivered with hand off + follow up</strong></td>
-<td>&nbsp;</td>
-<td>6 weeks</td>
-</tr>
+'.$beveller->table_spit($json_loader['schedule'],3).'
 </tbody>
 </table>
 </div>
