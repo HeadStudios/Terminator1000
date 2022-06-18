@@ -83,7 +83,7 @@ class ConnectorForMe extends ConcreteFoundation {
                 "image:type" => 'image/jpg'
             ];
             //$shortnweird = '[["title","Is there anybody out there"],["description","'.$description.'"]]';
-            $shortnweird = '[["title","'.$title.'"],["description", "'.$description.'"],["image","'.$image.'"],["image:type","image/jpeeg"]]';
+            $shortnweird = '[["title","'.$title.'"],["description", "'.$description.'"],["image","'.$image.'"],["image:type","image/jpg"]]';
             var_dump($short_data);
 
             /*$response = $client->request('PUT', $post_url, [
