@@ -12,3 +12,5 @@ $canvas = $image->getCanvas();
 $canvas->useFont('fonts/beautiful.ttf', 60, $image->allocateColor(255, 255, 255)); 
 $canvas->writeText('center', 'center', 'I am ');
 $image->saveToFile('lifeisgrand.jpg');
+
+
