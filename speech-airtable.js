@@ -9,6 +9,34 @@ let query = await view.selectRecordsAsync({fields: ["Contact","Contact"]});
 
 console.log(query.records);
 
+// query for every record in "People"
+let table = base.getTable("SMS");
+let view = table.getView("All");
+let query = await view.selectRecordsAsync({fields: ["Contact","URL"]});
+
+var json_payload = [];
+
+let individual_injection = {};
+
+
+for (let record of query.records) {
+
+    let name = record.getCellValueAsString("Contact");
+    let URL = record.getCellValueAsString("URL");
+
+    individual_injection = {
+        'ID': record.id,
+        'Name': name,
+        'URL': URL
+    };
+
+    json_payload.push(individual_injection);
+}
+
+console.log(JSON.stringify(json_payload));
+
+console.log(query);
+
 //console.log(query);
 
 // print ID & "Priority" from each record:
