@@ -4,55 +4,24 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require "vendor/autoload.php"; 
 
-$input_json = '[{"ID":"recnAF3BRjiTngN7Q","Name":"COURTENAY  KITANOVSKI","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recM5zJV1KFvDbKBQ","Name":"Karina  Heinz","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recx1sDl19ybW4Fws","Name":"Lynette  Laming","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recLAPyn3AhOLD0ay","Name":"George  Savva","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"}]';
-$input_array = json_decode($input_json, true);
-echo '<pre>';
-var_dump($input_array);
-echo '</pre>';
+$input_array = json_decode(file_get_contents('php://input'), true);
+//$input_json = '[{"ID":"recnAF3BRjiTngN7Q","Name":"COURTENAY  KITANOVSKI","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recM5zJV1KFvDbKBQ","Name":"Karina  Heinz","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recx1sDl19ybW4Fws","Name":"Lynette  Laming","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recLAPyn3AhOLD0ay","Name":"George  Savva","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recrWiyWFTEeHFBAX","Name":"June  Frank","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recuLIZHMVUtKUTBW","Name":"Glenn  Ball","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recwCeTAJy38CN5lz","Name":"SAM  MCFARLAND","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"}]';
+//$input_array = json_decode($input_json, true);
 
 
-
-
-
-
-
-
-//$string = '{"links":[{"tags":["campaign1"],"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"https://headstudios.com.au/2022/03/15/5-just-around-the-corner-trends-that-will-make-99-of-property-management-companies-obsolete-in-5-years-and-how-you-can-ride-these-trends-to-complete-market-domination-for-your-real-estate-agency/","path":"johns-help"},{"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"https://headstudios.com.au/2022/03/15/5-just-around-the-corner-trends-that-will-make-99-of-property-management-companies-obsolete-in-5-years-and-how-you-can-ride-these-trends-to-complete-market-domination-for-your-real-estate-agency/","path":"michaels-help"}],"domain":"showme.headstudios.com.au"}';
-$string = '{"links":[{"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"headstudios.com.au","path":"for-mike"},{"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"https://headstudios.com.au/22","path":"for-lauren"}],"domain":"showme.headstudios.com.au"}';
-$array = json_decode($string, true);
-
-
-
-
-  $response = '[{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"courtenays-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.708Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.708Z","secureShortURL":"https://showme.headstudios.com.au/courtenays-terminator","idString":"lnk_1LHi_2lgKw3","shortURL":"https://showme.headstudios.com.au/courtenays-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"karinas-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.713Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.713Z","secureShortURL":"https://showme.headstudios.com.au/karinas-terminator","idString":"lnk_1LHi_2lgKw4","shortURL":"https://showme.headstudios.com.au/karinas-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"lynettes-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.721Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.721Z","secureShortURL":"https://showme.headstudios.com.au/lynettes-terminator","idString":"lnk_1LHi_2lgKw5","shortURL":"https://showme.headstudios.com.au/lynettes-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"georges-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.740Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.740Z","secureShortURL":"https://showme.headstudios.com.au/georges-terminator","idString":"lnk_1LHi_2lgKw6","shortURL":"https://showme.headstudios.com.au/georges-terminator","duplicate":false,"success":true}]';
-$r_array = json_decode($response,true);
-echo "Response from multi link create is: ";
-echo '<pre>';
-var_dump($r_array); // combine this with.. 
-echo '</pre>';
+//$response = '[{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"courtenays-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.708Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.708Z","secureShortURL":"https://showme.headstudios.com.au/courtenays-terminator","idString":"lnk_1LHi_2lgKw3","shortURL":"https://showme.headstudios.com.au/courtenays-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"karinas-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.713Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.713Z","secureShortURL":"https://showme.headstudios.com.au/karinas-terminator","idString":"lnk_1LHi_2lgKw4","shortURL":"https://showme.headstudios.com.au/karinas-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"lynettes-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.721Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.721Z","secureShortURL":"https://showme.headstudios.com.au/lynettes-terminator","idString":"lnk_1LHi_2lgKw5","shortURL":"https://showme.headstudios.com.au/lynettes-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"georges-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.740Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.740Z","secureShortURL":"https://showme.headstudios.com.au/georges-terminator","idString":"lnk_1LHi_2lgKw6","shortURL":"https://showme.headstudios.com.au/georges-terminator","duplicate":false,"success":true}]';
+//$r_array = json_decode($response,true);
 
 $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
 $connector->domain_id = '421680';
 $connector->domain_path = 'showme.headstudios.com.au';
 $injection = $connector->bulk_link_create($input_array);
-$return_airtable = $connector->link_combinator($r_array, $injection);
+$response = $connector->multi_short_it($injection);
+$return_airtable = $connector->link_combinator($response, $injection);
 $connector->og_combinator($return_airtable);
 
-echo "Return AirTable is:  ";
-echo '<pre>';
-var_dump($return_airtable); // need to combine this with response
-echo '</pre>';
-//$connector->multi_short_it($links_array);
 
-
-
-$links_array = ['links' => $injection,
-  'domain' => 'showme.headstudios.com.au'];
-
-  echo "Combined links array is: ";
-  echo '<pre>';
-  var_dump($links_array); 
-  echo '</pre>';
+echo json_encode($return_airtable);
 
 
 
@@ -160,11 +129,17 @@ class ConnectorForMe extends ConcreteFoundation {
 
         function multi_short_it($links_array) {
 
+          echo '<pre>';
+          var_dump($links_array);
+          echo '</pre>';
+
           $client = new \GuzzleHttp\Client();
+
+          $input_json = ['links' => $links_array, 'domain'=>'showme.headstudios.com.au'];
 
           $response = $client->request('POST', 'https://api.short.io/links/bulk', [
             //'body' => '{"links":[{"tags":["campaign1"],"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"https://headstudios.com.au/2022/03/15/5-just-around-the-corner-trends-that-will-make-99-of-property-management-companies-obsolete-in-5-years-and-how-you-can-ride-these-trends-to-complete-market-domination-for-your-real-estate-agency/","path":"johns-help"},{"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"https://headstudios.com.au/2022/03/15/5-just-around-the-corner-trends-that-will-make-99-of-property-management-companies-obsolete-in-5-years-and-how-you-can-ride-these-trends-to-complete-market-domination-for-your-real-estate-agency/","path":"michaels-help"}],"domain":"showme.headstudios.com.au"}',
-              'body' => json_encode($links_array),
+              'body' => json_encode($input_json),
             'headers' => [
               'Accept' => 'application/json',
               'Authorization' => 'sk_dr6h17exR4jZwOM7',
@@ -172,8 +147,7 @@ class ConnectorForMe extends ConcreteFoundation {
             ],
           ]);
 
-          echo "Below is the bulk shortlink response:";
-          echo $response->getBody();
+          return json_decode($response->getBody(),true);
 
 
         }
@@ -196,6 +170,7 @@ class ConnectorForMe extends ConcreteFoundation {
 
 
           }
+
           return $shortit_injection;
 
         }

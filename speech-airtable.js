@@ -35,6 +35,19 @@ for (let record of query.records) {
 
 console.log(JSON.stringify(json_payload));
 
+let response = await remoteFetchAsync('https://staging2.conveyancingqld.com/pickandchoose.php', {
+    method: 'POST',
+    body: JSON.stringify(json_payload),
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : 'Basic d2h5d29udHlvdWNvbm5lY3Q6Y2N1WSAxWWhkIDdsTmkgMzdWSSB5MVlyIDYySEs='
+    },
+    });
+
+    let body = await response.json();
+    console.log(body);
+
+
 console.log(query);
 
 //console.log(query);
