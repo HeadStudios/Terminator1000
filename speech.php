@@ -231,7 +231,7 @@ class ConnectorForMe extends ConcreteFoundation {
 
           foreach($injector as $inject) {
 
-            echo "Display name is: ".$inject['displayName']
+            echo "Display name is: ".$inject['displayName'];
             $img_url = $this->image_create($inject['displayName']);
             $link_id = $inject['linkID'];
             $this->OGLinkStatus($link_id, 'Campaign Title Goes Here', 'Campaign Description Goes Here', $img_url);
