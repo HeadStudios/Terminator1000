@@ -35,7 +35,7 @@ for (let record of query.records) {
 
 console.log(JSON.stringify(json_payload));
 
-let response = await remoteFetchAsync('https://staging2.conveyancingqld.com/pickandchoose.php', {
+let response = await remoteFetchAsync('http://147.182.192.192/speech.php', {
     method: 'POST',
     body: JSON.stringify(json_payload),
     headers: {
@@ -46,6 +46,10 @@ let response = await remoteFetchAsync('https://staging2.conveyancingqld.com/pick
 
     let body = await response.json();
     console.log(body);
+
+    console.log("Perhaps something more to your taste MASTER WAYNE");
+
+    console.log(JSON.stringify(body));
 
 
 console.log(query);
