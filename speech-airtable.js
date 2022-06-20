@@ -47,7 +47,17 @@ let response = await remoteFetchAsync('http://147.182.192.192/speech.php', {
     let body = await response.json();
     console.log(body);
 
-    console.log("Perhaps something more to your taste MASTER WAYNE");
+    for (let i = 0; i < body.length; i++) {
+        RecordID = body[i].recordID;
+        ShortLink = body[i].shortURL;
+        LinkID = body[i].linkID;
+        await table.updateRecordAsync(RecordID, {
+            "LinkID": LinkID,
+            "Shortlink": ShortLink
+        });       
+      }
+
+    console.log("If you see this we have made it home Master Wayne");
 
     console.log(JSON.stringify(body));
 

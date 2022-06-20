@@ -175,7 +175,7 @@ class ConnectorForMe extends ConcreteFoundation {
           $airtable_return = [];
           foreach($injector as $key=>$value) {
 
-            $recordId = $injector[0]['recordId'];
+            $recordId = $injector[$key]['recordId'];
             $shortUrl = $response[$key]['secureShortURL'];
            
             $name = $injector[$key]['displayName'];
