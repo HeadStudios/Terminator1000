@@ -86,7 +86,7 @@ class ConnectorForMe extends ConcreteFoundation {
 
         function OGLinkStatus($link_id, $title, $description, $image) {
             $log = "Inside OGLinkStatus function - link id is: ".$link_id;
-            $this->console_log($log);
+            //$this->console_log($log);
             $shortio_secret = $this->short_api;
             $domainid = $this->domain_id;
             $post_url = 'https://api.short.io/links/opengraph/'.$domainid.'/'.$link_id;
@@ -188,7 +188,7 @@ class ConnectorForMe extends ConcreteFoundation {
             $link_id = $response[$key]['idString'];
 
             $log = "Inside link combinator function. The key is: ".$key." the Record ID is: ".$recordId." the secureShort URL is: ".$shortUrl. "the display name is: ".$name." the linkID is: ".$link_id;
-            $this->console_log($log);
+            //$this->console_log($log);
             
             if(isset($recordId)&&isset($shortUrl)&&isset($link_id)) {
             $airtable_return[$key] = array('recordID' => $recordId,'shortURL' => $shortUrl, 'linkID' => $link_id, 'displayName' => $name);
