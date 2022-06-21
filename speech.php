@@ -161,7 +161,7 @@ class ConnectorForMe extends ConcreteFoundation {
             $display_name = $name;
             $name = strtolower($name);
             $name = $name.'s-terminator';
-            $url = $record['URL'];
+            $url = $record['URL'].'?name='.$name;
             $id = $record['ID'];
 
             $shortit_injection[] = ['allowDuplicates'=> false, 'displayName' => $display_name, 'recordId'=> $id, 'domain' => 'showme.headstudios.com.au', 'originalURL' => $url, 'path'=>$name];
