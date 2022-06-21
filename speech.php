@@ -1,18 +1,20 @@
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ERROR | E_PARSE);
 require "vendor/autoload.php"; 
 
-//$input_array = json_decode(file_get_contents('php://input'), true);
-$input_json = '[{"ID":"recHDyntkv19vb8yN","Name":"Barbara Kowenzowski","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recqj8Z3FqjuxHOYY","Name":"Oscar Bayard","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recCHXbqylDXPPHHs","Name":"John Gribbin","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recc6mCBZqWhN66Mz","Name":"Bronte Starkey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec6eSqzbgOxm2GsB","Name":"Patrick Woods","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"}]';
-$input_array = json_decode($input_json, true);
+$input_array = json_decode(file_get_contents('php://input'), true);
+//$input_json = '[{"ID":"recHDyntkv19vb8yN","Name":"Barbara Kowenzowski","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recqj8Z3FqjuxHOYY","Name":"Oscar Bayard","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recCHXbqylDXPPHHs","Name":"John Gribbin","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recc6mCBZqWhN66Mz","Name":"Bronte Starkey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec6eSqzbgOxm2GsB","Name":"Patrick Woods","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rech18E5icIqiuWR8","Name":"Karen Adams","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recmHeiKDHhJW6huD","Name":"Phil Elis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec1c79LXwhQlO0b8","Name":"Melina Brawley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"receyGGREN05Ad3jV","Name":"Richard Whiteley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recNqzmmN0sAxz4v1","Name":"Rory McElwee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec1CRfxM3HniGZqW","Name":"Peter  Darcy","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec27TtPe8vXltrs7","Name":"Jonzun Lee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec5xOLTebA0le08U","Name":"Fiona  Greene","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recYkd6vZknHFfjIA","Name":"Imogen Callister","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recC8hPGC7tnPzImT","Name":"Fiona Wishart","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recQ2QLRiGR7hu7F0","Name":"Tamara Borghardt","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec9cTHZgezufK0G0","Name":"Ralph Hohl","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recXezFYvvBh6uldC","Name":"Stephen Pahl","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recvlEsqaK6GeMU7G","Name":"Josh White","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recHKnPYyw9GESLX1","Name":"Mario Sultana","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recMACuO90XtDESEl","Name":"Scott Reid","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recCsephoO5a4xFXV","Name":"Anju Acharya","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recPgl1k6sq5ehkkk","Name":"Peter Hutton","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recx2gaE0I9kSsqjD","Name":"Val Dubishkina","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recKRWBNDdtx1r3pA","Name":"Robert Dean","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recZoZoa7v8imdcZW","Name":"Frankl Lombardi","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recvbvcVldjKz3XJQ","Name":"Taylor Kleinberg","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recyMgaXrQDa7NUWX","Name":"Luke Heeremans","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recxP3zjchq2I9Nmb","Name":"Gavin Moore","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"receRUvbK8nNB1v9m","Name":"Madeline Hicks","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"}]';
+//$input_array = json_decode($input_json, true);
 
 
 //$response = '[{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"courtenays-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.708Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.708Z","secureShortURL":"https://showme.headstudios.com.au/courtenays-terminator","idString":"lnk_1LHi_2lgKw3","shortURL":"https://showme.headstudios.com.au/courtenays-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"karinas-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.713Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.713Z","secureShortURL":"https://showme.headstudios.com.au/karinas-terminator","idString":"lnk_1LHi_2lgKw4","shortURL":"https://showme.headstudios.com.au/karinas-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"lynettes-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.721Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.721Z","secureShortURL":"https://showme.headstudios.com.au/lynettes-terminator","idString":"lnk_1LHi_2lgKw5","shortURL":"https://showme.headstudios.com.au/lynettes-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"georges-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.740Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.740Z","secureShortURL":"https://showme.headstudios.com.au/georges-terminator","idString":"lnk_1LHi_2lgKw6","shortURL":"https://showme.headstudios.com.au/georges-terminator","duplicate":false,"success":true}]';
 //$r_array = json_decode($response,true);
 
 $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+//$connector->printOut('We have a problem - things work');
+
 $connector->domain_id = '421680';
 $connector->domain_path = 'showme.headstudios.com.au';
 $injection = $connector->bulk_link_create($input_array);
@@ -21,7 +23,7 @@ $return_airtable = $connector->link_combinator($response, $injection);
 $connector->og_combinator($return_airtable);
 
 
-echo json_encode($return_airtable);
+echo json_encode($return_airtable); 
 
 
 
@@ -83,7 +85,8 @@ class ConnectorForMe extends ConcreteFoundation {
     }
 
         function OGLinkStatus($link_id, $title, $description, $image) {
-    
+            $log = "Inside OGLinkStatus function - link id is: ".$link_id;
+            $this->console_log($log);
             $shortio_secret = $this->short_api;
             $domainid = $this->domain_id;
             $post_url = 'https://api.short.io/links/opengraph/'.$domainid.'/'.$link_id;
@@ -175,14 +178,21 @@ class ConnectorForMe extends ConcreteFoundation {
           $airtable_return = [];
           foreach($injector as $key=>$value) {
 
+            
+
             $recordId = $injector[$key]['recordId'];
             $shortUrl = $response[$key]['secureShortURL'];
            
             $name = $injector[$key]['displayName'];
            
             $link_id = $response[$key]['idString'];
+
+            $log = "Inside link combinator function. The key is: ".$key." the Record ID is: ".$recordId." the secureShort URL is: ".$shortUrl. "the display name is: ".$name." the linkID is: ".$link_id;
+            $this->console_log($log);
             
+            if(isset($recordId)&&isset($shortUrl)&&isset($link_id)) {
             $airtable_return[$key] = array('recordID' => $recordId,'shortURL' => $shortUrl, 'linkID' => $link_id, 'displayName' => $name);
+            }
 
           }
 
@@ -194,14 +204,20 @@ class ConnectorForMe extends ConcreteFoundation {
 
           foreach($injector as $inject) {
 
+            if(isset($inject['displayName'])&&isset($inject['linkID'])) {
+
             $img_url = $this->image_create($inject['displayName']);
             $link_id = $inject['linkID'];
             $this->OGLinkStatus($link_id, 'Campaign Title Goes Here', 'Campaign Description Goes Here', $img_url);
 
           }
 
+          }
+
 
         }
+
+      
 
 }
 
@@ -220,6 +236,8 @@ abstract class ConcreteFoundation {
     public function getUrl() {
         echo "URL is: ".$this->url;
     }
+
+    
 
     // Create image - returns path to complete image using URL
     abstract protected function image_create($name);
@@ -242,6 +260,18 @@ abstract class ConcreteFoundation {
     // Setup OG dynamic image and campaign outline
     // Input: Output of link combinator
     abstract protected function og_combinator($injector);
+
+
+    public function console_log($output) {
+      //$output = 'complaining for no reason';
+      $with_script_tags = true;
+      $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+      ');';
+          if ($with_script_tags) {
+              $js_code = '<script>' . $js_code . '</script>';
+          }
+          echo $js_code;
+    }
 
 }
 
