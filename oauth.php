@@ -17,8 +17,8 @@ if (!isset($_GET['code'])) {
     // If we don't have an authorization code then get one
     $authUrl = $provider->getAuthorizationUrl([
         'scope' => [
-            'ZohoCRM.modules.ALL', //Important: Define your data accessability scope here
-            'ZohoCRM.settings.ALL',
+            'ZohoBooks.fullaccess.all' //Important: Define your data accessability scope here
+           
         ],
         'access_type' => 'offline' //Important: If you want to generate the refresh token, set this value as offline
     ]);
