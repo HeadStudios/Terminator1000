@@ -50,6 +50,6 @@ if (!isset($_GET['code'])) {
         echo $token->getExpires();
 
     } catch (\Exception $e) {
-        //handle you exception
+        var_dump($e);
     }
 
