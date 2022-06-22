@@ -4,6 +4,8 @@
 //error_reporting(E_ERROR | E_PARSE);
 require "vendor/autoload.php";
 require "env.php";
+global $zoho_clientid;
+global $zoho_clientsecret;
 
 use Asad\OAuth2\Client\Provider\Zoho;
 
