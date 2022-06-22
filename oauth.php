@@ -3,12 +3,13 @@
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ERROR | E_PARSE);
 require "vendor/autoload.php";
+require "env.php";
 
 use Asad\OAuth2\Client\Provider\Zoho;
 
 $provider = new Zoho([
-    'clientId' => '1000.Z78GI8PJZCQOPRBSOG7EALCF1BQCKP',
-    'clientSecret' => '69cf5fb6c0dfc447c698740f743a4e03f98673fcd3',
+    'clientId' => $zoho_clientid,
+    'clientSecret' => $zoho_clientsecret,
     'redirectUri' => 'http://147.182.192.192/oauth.php',
     'dc' => 'AU' // Is this right? It will be optional if your ZOHO are in US location
 ]);
