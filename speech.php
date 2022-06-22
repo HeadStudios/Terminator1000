@@ -3,6 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ERROR | E_PARSE);
 require "vendor/autoload.php"; 
+require "env.php";
+
+
 
 //$input_array = json_decode(file_get_contents('php://input'), true);
 $input_json = '[{"ID":"recHDyntkv19vb8yN","Name":"Barbara Kowenzowski","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recqj8Z3FqjuxHOYY","Name":"Oscar Bayard","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recCHXbqylDXPPHHs","Name":"John Gribbin","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recc6mCBZqWhN66Mz","Name":"Bronte Starkey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec6eSqzbgOxm2GsB","Name":"Patrick Woods","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rech18E5icIqiuWR8","Name":"Karen Adams","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recmHeiKDHhJW6huD","Name":"Phil Elis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec1c79LXwhQlO0b8","Name":"Melina Brawley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"receyGGREN05Ad3jV","Name":"Richard Whiteley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recNqzmmN0sAxz4v1","Name":"Rory McElwee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec1CRfxM3HniGZqW","Name":"Peter  Darcy","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec27TtPe8vXltrs7","Name":"Jonzun Lee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec5xOLTebA0le08U","Name":"Fiona  Greene","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recYkd6vZknHFfjIA","Name":"Imogen Callister","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recC8hPGC7tnPzImT","Name":"Fiona Wishart","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recQ2QLRiGR7hu7F0","Name":"Tamara Borghardt","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec9cTHZgezufK0G0","Name":"Ralph Hohl","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recXezFYvvBh6uldC","Name":"Stephen Pahl","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recvlEsqaK6GeMU7G","Name":"Josh White","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recHKnPYyw9GESLX1","Name":"Mario Sultana","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recMACuO90XtDESEl","Name":"Scott Reid","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recCsephoO5a4xFXV","Name":"Anju Acharya","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recPgl1k6sq5ehkkk","Name":"Peter Hutton","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recx2gaE0I9kSsqjD","Name":"Val Dubishkina","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recKRWBNDdtx1r3pA","Name":"Robert Dean","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recZoZoa7v8imdcZW","Name":"Frankl Lombardi","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recvbvcVldjKz3XJQ","Name":"Taylor Kleinberg","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recyMgaXrQDa7NUWX","Name":"Luke Heeremans","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recxP3zjchq2I9Nmb","Name":"Gavin Moore","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"receRUvbK8nNB1v9m","Name":"Madeline Hicks","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"}]';
@@ -13,6 +16,8 @@ $input_array = json_decode($input_json, true);
 //$r_array = json_decode($response,true);
 
 $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+$connector->SMS_Voyage_Guzzle('Sometimes you have to cheat, stay ahead', '61412826569');
+die();
 //$connector->printOut('We have a problem - things work');
 
 $connector->domain_id = '421680';
@@ -217,6 +222,26 @@ class ConnectorForMe extends ConcreteFoundation {
 
         }
 
+        function SMS_Voyage_Guzzle($message, $mobile) {
+
+          $client = new GuzzleHttp\Client();
+      
+          global $voyage_secret;
+          $params = ['query' => [
+              "from" => 'SMS Dummy',
+              "text" => $message,
+              "to" => $mobile,
+              "api_key" => "d3e293a6",
+              "api_secret" => $voyage_secret
+          ]
+          ];
+      
+          $response = $client->request('GET','https://rest.nexmo.com/sms/json',$params);
+      
+          //return $response->getBody();
+      
+      }
+
       
 
 }
@@ -260,6 +285,10 @@ abstract class ConcreteFoundation {
     // Setup OG dynamic image and campaign outline
     // Input: Output of link combinator
     abstract protected function og_combinator($injector);
+
+    // Simple function to send SMS messages - make sure mobiles are formatted as 61412..
+    abstract protected function SMS_Voyage_Guzzle($message, $mobile);
+  
 
 
     public function console_log($output) {

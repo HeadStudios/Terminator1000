@@ -5,6 +5,8 @@
         "fpdf/fpdf": "^1.84",
         "tecnickcom/tcpdf": "^6.4",
         "smottt/wideimage": "^1.1",
-        "swiftmailer/swiftmailer": "^6.0"
+        "swiftmailer/swiftmailer": "^6.0",
+        "league/oauth2-client": "^2.6",
+        "asad/oauth2-zoho": "^1.1"
     }
 }

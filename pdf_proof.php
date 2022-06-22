@@ -1,4 +1,9 @@
 <?php
+require "vendor/autoload.php";
+$Parsedown = new Parsedown();
+//$Parsedown = new Parsedown();
+//echo $Parsedown->text('Hello _Parsedown_!');
+//die();
 //============================================================+
 // File name   : example_005.php
 // Begin       : 2008-03-04
@@ -28,7 +33,7 @@
 require 'vendor/autoload.php';
 //require 'fpdf/fpdf.php';
 
-$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-18T06%3A20%3A22.0064827Z\'\"","Clientcompany":"Adronis Corporation","CommentsOrQuestions":null,"Clientname":"Michael Bashford","WebsiteURL":null,"Products":[{"Id":"65hao","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","Personal":"1","ItemNumber":1},{"Id":"oWe8F","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","Personal":"1","ItemNumber":2},{"Id":"31Im5A","ProductName":"Product 3 Name","ProductFeature":"Product 3 Feature","ProductBenefit":"Product 3 Benefit","Items":"Product 3","Personal":"1","ItemNumber":3}],"Emailbody":"Hi Michael,\n\nThank you - the question is. Is this one line or two? \n\nThis is your email body - it\'s been formatting with new line characters I presume.\n\nThank you,\nKosta","Execsummary":"At Broadbeach you are having a project which is not working well. There are many problems. This executive \nsummary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best. \n\nAt Broadbeach you are having a project which is not working well. There are many problems. This executive summary is multi line so you know you\'re dealing with the best.","Clientaddress":"123 Adronis Corp. Bigwig Ashadonia","Date":"2022-06-15","Stakeholders":[{"Id":"Zig6c","Name":"Michael Walden","Position":"Nobody","Contact":"041593234,j.smith@gmail.com","Responsibility":"Being a shit head","ItemNumber":1},{"Id":"o7m9P","Name":"Vedran","Position":"Cool Guy","Contact":"03344234,vedran@headstudios.com.au","Responsibility":"Cool guy","ItemNumber":2}],"Schedule":[{"Id":"28REnS","Activity":"Setup emails","Description":"Vroom vroom go the outreach","Date2":"2022-06-21","ItemNumber":1},{"Id":"2rfJ9D","Activity":"Setup CRO","Description":"Conversion go vroom","Date2":"2022-07-08","ItemNumber":2}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/6","DateCreated":"2022-06-15T11:37:03.555Z","DateSubmitted":"2022-06-15T11:37:03.508Z","DateUpdated":"2022-06-18T06:20:21.806Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#rQoyx7az1zzyLK_5-1sqw46gtMUtLbhhcc4EhmjhN_g$*","IsBeta":true,"LastPageViewed":null,"Number":6,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-15T11:37:03.508Z","Version":4,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#kojo4pkwAj9pUBZmpQevqLOCl_zfo6OEv8kRtnEjg5M$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=WCxAW6QrblJclF7GLtaH9iLU5qRz0tuDo_R7N7POKk0$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=cgHLNuxsviXiQYeNuIsZmR5A8b8g-J0LPnJPX4-EnmI$"},"Id":"1-6"}';
+$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-21T09%3A57%3A10.6132917Z\'\"","Clientcompany":"Brombie Place","CommentsOrQuestions":"WHat do you think?","Clientname":"John Michaels","WebsiteURL":"https://yourclientco.com.au","Products":[{"Id":"GVyrm","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","ItemNumber":1},{"Id":"4v4amR","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","ItemNumber":2}],"Emailbody":"Hi John,\n\nReady to get started *are you ready sir?*\n\nBecause the _party has just begun_ .\n\nGood luck!","Execsummary":"At John Michaels bad things are happening - and we are fixing those bad things!","Clientaddress":"132 Ashford Lane, Ashworth QLD 2000","Date":"2022-06-21","Stakeholders":[{"Id":"6ISd2","Name":"Michael","Position":"CEO","Contact":"Michael Brombery","Responsibility":"Look after everything","ItemNumber":1}],"Schedule":[{"Id":"1yYLtu","Activity":"Get it done","Description":"Get the whole thing done","Date2":"2022-06-21","ItemNumber":1}],"Terms":[{"Id":"GBtS0","Headline":"Video Length","Description":"Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.","Terms":"Video Length","ItemNumber":1},{"Id":"3CaZ5D","Headline":"Satisfaction Guarantee","Description":"As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I’ll even let you keep the sub brand.","Terms":"Satisfaction Guarantee","ItemNumber":2},{"Id":"2rvFN8","Headline":"Termination","Description":"This Agreement may be terminated by either Party at any time for any cause deemed reasonable,\nprovided that the terminating Party issues a termination notice to the other Party by email. Any\nlanding pages and domains created as part of this agreement then become property of Head\nStudios.","Terms":"Termination","ItemNumber":3}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/8","DateCreated":"2022-06-21T09:50:47.843Z","DateSubmitted":"2022-06-21T09:50:47.796Z","DateUpdated":"2022-06-21T09:57:10.38Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#VaTmgvSFTKhmt0ZnjpXnHv2-7YxG0fE7W4d-l3Rg1HI$*","IsBeta":true,"LastPageViewed":null,"Number":8,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-21T09:50:47.796Z","Version":2,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ww_b3bF2m-Zz7a78Jib2clcgkjzdJaNZV6MffK5fkUE$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=rAMNd0qOssIFsORUPVcdP4UsKDwJGyuI0nO5CZ_DrQ0$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=wAwdbhFarOZCZQUDPBbK4GestDhaLuO-bDKxyWRKYiE$"},"Id":"1-8"}';
 $json_loader = json_decode($json_loader, true);
 $json_loader = array_change_key_case($json_loader,CASE_LOWER);
 //var_dump($json_loader);
@@ -86,6 +91,23 @@ class In_n_Out {
 
     }
 
+    function terms_spit($terms_array) {
+
+        $terms_html = '';
+
+        foreach($terms_array as $term) {
+
+            $headline = $term['Headline'];
+            $description = $term['Description'];
+
+            $terms_html .= '<h3>'.$headline.'</h3>
+            <p>'.$description.'</p>';
+
+        }        
+        return $terms_html;
+
+    }
+
     function table_spit($table_array,$num=1) {
 
        //$table = '<table>';
@@ -137,9 +159,9 @@ class In_n_Out {
     }
 
 
-function in_n_out($html) {
+function in_n_out($html, $parser) {
 
-    
+   
 
     $my_html = $html;
 
@@ -149,11 +171,11 @@ function in_n_out($html) {
         // Use this as a key code for naming of form fields in Incognito or anyone that submits
         $my_html = str_replace("{{client_name}}", $this->its_all_mine['clientname'] , $my_html);
         //echo "Client name is....".$this->its_all_mine['clientname'];
-        //$my_html = str_replace("{{client_company}}", $this->its_all_mine['clientcompany'] , $my_html);
-        //$my_html = str_replace("{{date}}", $this->its_all_mine['date'] , $my_html);
-        //$my_html = str_replace("{{client_address}}", $this->its_all_mine['clientaddress'] , $my_html);
-        $my_html = str_replace("{{email_body}}", nl2br($this->its_all_mine['emailbody']) , $my_html);
-        $my_html = str_replace("{{executive_summary}}", $this->its_all_mine['execsummary'] , $my_html);
+        $my_html = str_replace("{{client_company}}", $this->its_all_mine['clientcompany'] , $my_html);
+        $my_html = str_replace("{{date}}", $this->its_all_mine['date'] , $my_html);
+        $my_html = str_replace("{{client_address}}", $this->its_all_mine['clientaddress'] , $my_html);
+        $my_html = str_replace("{{email_body}}", nl2br($parser->text($this->its_all_mine['emailbody'])) , $my_html);
+        $my_html = str_replace("{{executive_summary}}", $parser->text($this->its_all_mine['execsummary']) , $my_html);
 
     //}
 
@@ -340,17 +362,8 @@ $html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleratio
 </table>
 </div>
 <h1>7. Terms &amp; Conditions</h1>
-<h3>Privacy</h3>
-<p><span style="color: #424242;">Any and all contact data provided by the company by [Company Name] should remain its property and will be treated with utmost confidence. All ownership of customer data will remain with [Company Name].</span></p>
-<h3>Privacy</h3>
-<p><span style="color: #424242;">Any and all contact data provided by the company by [Company Name] should remain its property and will be treated with utmost confidence. All ownership of customer data will remain with [Company Name].&nbsp;</span></p>
-<h3>Video Length</h3>
-<p><span style="color: #424242;">Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.&nbsp;</span></p>
-<h3>Termination</h3>
-<p><span style="color: #424242;">This Agreement may be terminated by either Party at any time for any cause deemed reasonable, provided that the terminating Party issues a termination notice to the other Party by email. Any landing pages and domains created as part of this agreement then become property of Head Studios.</span></p>
-<h3>Satisfaction Guarantee&nbsp;</h3>
-<p><span style="color: #424242;">As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I&rsquo;ll even let you keep the sub brand.</span></p>';
-$pdf->writeHTML($beveller->in_n_out($html), true, false, true, false, '');
+'.$beveller->terms_spit($json_loader['terms']);
+$pdf->writeHTML($beveller->in_n_out($html, $Parsedown), true, false, true, false, '');
 //$pdf->writeHTML($html, true, false, true, false, '');
 //$pdf->AddPage();
 
