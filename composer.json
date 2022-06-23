@@ -7,6 +7,7 @@
         "smottt/wideimage": "^1.1",
         "swiftmailer/swiftmailer": "^6.0",
         "league/oauth2-client": "^2.6",
-        "asad/oauth2-zoho": "^1.1"
+        "asad/oauth2-zoho": "^1.1",
+        "shahariaazam/zoho-oauth2": "^1.0"
     }
 }

@@ -4,31 +4,37 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ERROR | E_PARSE);
 require "vendor/autoload.php"; 
 require "env.php";
+require "click-vars.php";
 
 
 
 //$input_array = json_decode(file_get_contents('php://input'), true);
-$input_json = '[{"ID":"recHDyntkv19vb8yN","Name":"Barbara Kowenzowski","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recqj8Z3FqjuxHOYY","Name":"Oscar Bayard","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recCHXbqylDXPPHHs","Name":"John Gribbin","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recc6mCBZqWhN66Mz","Name":"Bronte Starkey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec6eSqzbgOxm2GsB","Name":"Patrick Woods","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rech18E5icIqiuWR8","Name":"Karen Adams","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recmHeiKDHhJW6huD","Name":"Phil Elis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec1c79LXwhQlO0b8","Name":"Melina Brawley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"receyGGREN05Ad3jV","Name":"Richard Whiteley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recNqzmmN0sAxz4v1","Name":"Rory McElwee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec1CRfxM3HniGZqW","Name":"Peter  Darcy","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec27TtPe8vXltrs7","Name":"Jonzun Lee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec5xOLTebA0le08U","Name":"Fiona  Greene","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recYkd6vZknHFfjIA","Name":"Imogen Callister","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recC8hPGC7tnPzImT","Name":"Fiona Wishart","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recQ2QLRiGR7hu7F0","Name":"Tamara Borghardt","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"rec9cTHZgezufK0G0","Name":"Ralph Hohl","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recXezFYvvBh6uldC","Name":"Stephen Pahl","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recvlEsqaK6GeMU7G","Name":"Josh White","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recHKnPYyw9GESLX1","Name":"Mario Sultana","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recMACuO90XtDESEl","Name":"Scott Reid","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recCsephoO5a4xFXV","Name":"Anju Acharya","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recPgl1k6sq5ehkkk","Name":"Peter Hutton","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recx2gaE0I9kSsqjD","Name":"Val Dubishkina","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recKRWBNDdtx1r3pA","Name":"Robert Dean","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recZoZoa7v8imdcZW","Name":"Frankl Lombardi","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recvbvcVldjKz3XJQ","Name":"Taylor Kleinberg","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recyMgaXrQDa7NUWX","Name":"Luke Heeremans","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"recxP3zjchq2I9Nmb","Name":"Gavin Moore","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"},{"ID":"receRUvbK8nNB1v9m","Name":"Madeline Hicks","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/"}]';
+$input_json = '[{"action":"linkupdater"},{"ID":"recHDyntkv19vb8yN","Name":"Teng Li","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/barbaras-terminator","LinkID":"lnk_1LHi_2lTZMU"},{"ID":"recqj8Z3FqjuxHOYY","Name":"Marcus Blake","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/oscars-terminator","LinkID":"lnk_1LHi_2lTZMV"},{"ID":"recCHXbqylDXPPHHs","Name":"Mairi  Quinn","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/johns-terminator","LinkID":"lnk_1LHi_2lTZMW"},{"ID":"recc6mCBZqWhN66Mz","Name":"Peter  Fenwick","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/brontes-terminator","LinkID":"lnk_1LHi_2lTZMX"},{"ID":"rec6eSqzbgOxm2GsB","Name":"Ben  Jorgensen","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/patricks-terminator","LinkID":"lnk_1LHi_2lTZMY"},{"ID":"rech18E5icIqiuWR8","Name":"JIM  HART","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/karens-terminator","LinkID":"lnk_1LHi_2lTZMZ"},{"ID":"recmHeiKDHhJW6huD","Name":"JUSTIN  MILLER","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/phils-terminator","LinkID":"lnk_1LHi_2lTZN0"},{"ID":"rec1c79LXwhQlO0b8","Name":"KIERAN  KHANNA","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/kieran s-terminator","LinkID":"lnk_1LHi_2mcQwb"},{"ID":"receyGGREN05Ad3jV","Name":"Rudy  Grommen","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/richards-terminator","LinkID":"lnk_1LHi_2lTZN3"},{"ID":"recNqzmmN0sAxz4v1","Name":"Tony  Ghanem","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/rorys-terminator","LinkID":"lnk_1LHi_2lTZN4"},{"ID":"rec1CRfxM3HniGZqW","Name":"Azhar  Omar","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/peters-terminator","LinkID":"lnk_1LHi_2lTZN5"},{"ID":"rec27TtPe8vXltrs7","Name":"John  Ahern","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/jonzuns-terminator","LinkID":"lnk_1LHi_2lTZN6"},{"ID":"rec5xOLTebA0le08U","Name":"Jamie  Streten","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/fionas-terminator","LinkID":"lnk_1LHi_2lTZN7"},{"ID":"recYkd6vZknHFfjIA","Name":"David  Bruce","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/davids-terminator","LinkID":"lnk_1LHi_2mcRwk"},{"ID":"recC8hPGC7tnPzImT","Name":"CARLOS  HALIM","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/fionas-terminator","LinkID":"lnk_1LHi_2lTZN7"},{"ID":"recQ2QLRiGR7hu7F0","Name":"JAMIE  DOUGLAS","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/tamaras-terminator","LinkID":"lnk_1LHi_2lTZN9"},{"ID":"rec9cTHZgezufK0G0","Name":"Andrew  Carter","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/ralphs-terminator","LinkID":"lnk_1LHi_2lTZNa"},{"ID":"recXezFYvvBh6uldC","Name":"Benita  McMahon","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/stephens-terminator","LinkID":"lnk_1LHi_2lTZNb"},{"ID":"recvlEsqaK6GeMU7G","Name":"Ross Cattle","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/joshs-terminator","LinkID":"lnk_1LHi_2lTZNc"},{"ID":"recHKnPYyw9GESLX1","Name":"Gail & Ian Gobey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/marios-terminator","LinkID":"lnk_1LHi_2lTZNd"},{"ID":"recMACuO90XtDESEl","Name":"Michael  Young","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/scotts-terminator","LinkID":"lnk_1LHi_2lTZNe"},{"ID":"recCsephoO5a4xFXV","Name":"Tony  Fernandez","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/anjus-terminator","LinkID":"lnk_1LHi_2lTZNf"},{"ID":"recPgl1k6sq5ehkkk","Name":"Victoria  Nicholson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/peters-terminator","LinkID":"lnk_1LHi_2lTZN5"},{"ID":"recx2gaE0I9kSsqjD","Name":"Phil  Grant","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/vals-terminator","LinkID":"lnk_1LHi_2lTZNg"},{"ID":"recKRWBNDdtx1r3pA","Name":"Sirah  Robb","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/roberts-terminator","LinkID":"lnk_1LHi_2lTZNh"},{"ID":"recZoZoa7v8imdcZW","Name":"Nick  Buick","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/frankls-terminator","LinkID":"lnk_1LHi_2lTZNi"},{"ID":"recvbvcVldjKz3XJQ","Name":"Toni  Kuchtin","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/taylors-terminator","LinkID":"lnk_1LHi_2lTZNj"},{"ID":"recyMgaXrQDa7NUWX","Name":"Maria Lee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/lukes-terminator","LinkID":"lnk_1LHi_2lTZNk"},{"ID":"recxP3zjchq2I9Nmb","Name":"Karl  Melcheck","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/gavins-terminator","LinkID":"lnk_1LHi_2lTZNl"},{"ID":"receRUvbK8nNB1v9m","Name":"Solomon  Soner","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/madelines-terminator","LinkID":"lnk_1LHi_2lTZNn"},{"ID":"recfxg2gyjjHdb8t6","Name":"Adam  Scott","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/adams-terminator","LinkID":"lnk_1LHi_2lUWpv"},{"ID":"recCqqw4wnDQrVxeC","Name":"Nick  Kruger","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/nicks-terminator","LinkID":"lnk_1LHi_2lUWpw"},{"ID":"recLwOQqST0Y6vksD","Name":"Shirley  Rowles","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/shirleys-terminator","LinkID":"lnk_1LHi_2lUWpx"},{"ID":"recqr1kcqYRjbqleW","Name":"Vaughan  Keenan","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/vaughans-terminator","LinkID":"lnk_1LHi_2lUWpy"},{"ID":"recP6mhzOYXivMjgH","Name":"Brett  Gillespie","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/bretts-terminator","LinkID":"lnk_1LHi_2lUWpz"},{"ID":"recnf0cYECmP4pBUd","Name":"Stuart Moody","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/stuarts-terminator","LinkID":"lnk_1LHi_2lUWpA"},{"ID":"rec3KdsxX21g7Ahd8","Name":"Marie Moore","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/maries-terminator","LinkID":"lnk_1LHi_2lUZtT"},{"ID":"rec8PLqDFobkKG6JW","Name":"Lara Faliu","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/laras-terminator","LinkID":"lnk_1LHi_2lUZtU"},{"ID":"receFAaQhesBifqDC","Name":"Angie Wallwork","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/angies-terminator","LinkID":"lnk_1LHi_2lUZtV"},{"ID":"reciPiRnI26zqiahd","Name":"John Gribbin","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/johns-terminator","LinkID":"lnk_1LHi_2lTZMW"},{"ID":"rec0biCYUrETWkOzc","Name":"Patrick Woods","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/patricks-terminator","LinkID":"lnk_1LHi_2lTZMY"},{"ID":"recCww3Qdlp2OIysi","Name":"Todd Hayley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/todds-terminator","LinkID":"lnk_1LHi_2lUZtW"},{"ID":"rec78Aa5qhcmMofE7","Name":"Giovanni Spinella","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/giovannis-terminator","LinkID":"lnk_1LHi_2lUZtX"},{"ID":"recCOirpr3oQ7Wcce","Name":"Maxine Pemble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/maxines-terminator","LinkID":"lnk_1LHi_2lUZtY"},{"ID":"recSfir3HcdUEpsGp","Name":"Brad  Franks","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/brads-terminator","LinkID":"lnk_1LHi_2lUZtZ"},{"ID":"recm9r3wChxGKLonQ","Name":"Robyn  Pluis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/robyns-terminator","LinkID":"lnk_1LHi_2lUZu0"},{"ID":"recmK38NfeUgoxuJE","Name":"Melissa  Morgan","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/melissas-terminator","LinkID":"lnk_1LHi_2lUZu1"},{"ID":"recW8Del9vgmSwvtj","Name":"George  Savva","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/georges-terminator","LinkID":"lnk_1LHi_2lV05c"},{"ID":"rec69N1WoIfzlUXJ1","Name":"Courtney  Rumble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/courtneys-terminator","LinkID":"lnk_1LHi_2lV05d"},{"ID":"recYvSlAnAhCxz76y","Name":"Paul  Black","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/pauls-terminator","LinkID":"lnk_1LHi_2lV05e"},{"ID":"recQkEDmZWdJwq26a","Name":"Tennille  Mugridge","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/tennilles-terminator","LinkID":"lnk_1LHi_2lV05f"},{"ID":"recMfHQe9pvN9wUfc","Name":"Shaun  Hudson-Smith","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/shauns-terminator","LinkID":"lnk_1LHi_2lV05g"},{"ID":"recZcTBdD9lYaKbhS","Name":"James  Harvey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/jamess-terminator","LinkID":"lnk_1LHi_2lV05h"},{"ID":"recTo6iEHkNdPAfKH","Name":"daniel  gavan","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/daniels-terminator","LinkID":"lnk_1LHi_2lV05i"},{"ID":"rec9qtv4uWW3IR5cR","Name":"Tammy Stringer","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/tammys-terminator","LinkID":"lnk_1LHi_2lV08g"},{"ID":"recI92do8jMToycJh","Name":"Glen   Archer","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/glens-terminator","LinkID":"lnk_1LHi_2lV08h"},{"ID":"recZAbVBcNYk4gV19","Name":"Glenn  Ball","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/glenns-terminator","LinkID":"lnk_1LHi_2lV08i"},{"ID":"reckVrfVdBiuQrMv2","Name":"Justin  Watt","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/justins-terminator","LinkID":"lnk_1LHi_2lV08j"},{"ID":"rec8y2D0Lastfj5b9","Name":"Sally  Wrigley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/sallys-terminator","LinkID":"lnk_1LHi_2lV08k"},{"ID":"recXPevDoQb3OA89b","Name":"Johnny  Zakarian","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/johnnys-terminator","LinkID":"lnk_1LHi_2lV08m"},{"ID":"recrd16tBZnvgbhj5","Name":"Daniel  Makovec","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/daniels-terminator","LinkID":"lnk_1LHi_2lV05i"}]';
 $input_array = json_decode($input_json, true);
 
+
+
+// Class to handle incoming PHP endpoint requests 
 
 //$response = '[{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"courtenays-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.708Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.708Z","secureShortURL":"https://showme.headstudios.com.au/courtenays-terminator","idString":"lnk_1LHi_2lgKw3","shortURL":"https://showme.headstudios.com.au/courtenays-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"karinas-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.713Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.713Z","secureShortURL":"https://showme.headstudios.com.au/karinas-terminator","idString":"lnk_1LHi_2lgKw4","shortURL":"https://showme.headstudios.com.au/karinas-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"lynettes-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.721Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.721Z","secureShortURL":"https://showme.headstudios.com.au/lynettes-terminator","idString":"lnk_1LHi_2lgKw5","shortURL":"https://showme.headstudios.com.au/lynettes-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"georges-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.740Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.740Z","secureShortURL":"https://showme.headstudios.com.au/georges-terminator","idString":"lnk_1LHi_2lgKw6","shortURL":"https://showme.headstudios.com.au/georges-terminator","duplicate":false,"success":true}]';
 //$r_array = json_decode($response,true);
 
 $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
-$connector->SMS_Voyage_Guzzle('Sometimes you have to cheat, stay ahead', '61412826569');
-die();
+$benew = new FeedMe($input_array);
+
+//$connector->SMS_Voyage_Guzzle('Sometimes you have to cheat, stay ahead', '61412826569');
+
 //$connector->printOut('We have a problem - things work');
 
 $connector->domain_id = '421680';
 $connector->domain_path = 'showme.headstudios.com.au';
-$injection = $connector->bulk_link_create($input_array);
-$response = $connector->multi_short_it($injection);
-$return_airtable = $connector->link_combinator($response, $injection);
-$connector->og_combinator($return_airtable);
+//$injection = $connector->bulk_link_create($input_array);
+//$response = $connector->multi_short_it($injection);
+//$return_airtable = $connector->link_combinator($response, $injection);
+//$connector->og_combinator($return_airtable);
 
 
-echo json_encode($return_airtable); 
+//echo json_encode($return_airtable); 
 
 
 
@@ -40,6 +46,25 @@ echo json_encode($return_airtable);
 //$short_response = $connector->short_It('https://www.google.com', 'your-search-man');
 
 //var_dump($short_response);
+
+class FeedMe {
+
+  function __construct($input_array) {
+
+  
+
+  // function to return number of clicks
+  if($input_array[0]['action'] == 'linkupdater') {
+    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+    $connector->click_updater($input_array);
+    return;  
+
+  }
+  
+  
+  }
+}
+
 
 class ConnectorForMe extends ConcreteFoundation {
 
@@ -242,6 +267,45 @@ class ConnectorForMe extends ConcreteFoundation {
       
       }
 
+      function click_updater(array $input_array) {
+
+        $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+         global $click_data;
+        $click_data = json_decode($click_data, true);
+        
+    
+
+    
+    
+        foreach ( $input_array as $index=> $link ) {
+          $input_array[ $index ]['clicks'] = 0;
+      
+          $long_one = $input_array[$index]['Shortlink'];
+          $input_array[$index]['Shortlink'] = substr($long_one, strrpos($long_one, '/'));
+        }
+        
+        
+        $click_data = array_filter($click_data, function ($var) {
+          return ($var['human'] == true && $var['path'] != '/favicon.ico' && $var['path'] != '/');
+        }); 
+
+        foreach ($click_data as $click) {
+          $input_index = array_search($click['path'], array_column($input_array, 'Shortlink'));
+        
+          if ( $input_index ) {
+            $input_array[$input_index]['clicks'] ++;
+          }
+        
+        }
+
+    
+    echo json_encode($input_array);
+    
+    return;
+
+
+      }
+
       
 
 }
@@ -282,12 +346,16 @@ abstract class ConcreteFoundation {
     // This function combines short.io bulk link response and original injection with AirTable record id for a full JSON string to return to AirTable
     abstract protected function link_combinator($response, array $injector);
 
+    // This function takes in an input AirTable array and returns the array with clicks for the values that were entered
+    abstract protected function click_updater(array $input_array);
+
     // Setup OG dynamic image and campaign outline
     // Input: Output of link combinator
     abstract protected function og_combinator($injector);
 
     // Simple function to send SMS messages - make sure mobiles are formatted as 61412..
     abstract protected function SMS_Voyage_Guzzle($message, $mobile);
+
   
 
 
@@ -325,3 +393,5 @@ echo $response->getBody();
 echo $response->getBody();
 
 */
+
+// Class to handle eating of JSON passes

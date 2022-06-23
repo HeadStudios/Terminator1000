@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c1376e8e90c9ff9ef6f52d266a2357c",
+    "content-hash": "6fd03ac79be1e894e20bde6d52491d29",
     "packages": [
         {
             "name": "asad/oauth2-zoho",
@@ -206,6 +206,69 @@
                 }
             ],
             "time": "2022-05-28T22:19:18+00:00"
+        },
+        {
+            "name": "eloquent/phony",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/phony.git",
+                "reference": "bff87a1c7c302a05d29b0aa2149bed8fc9f7627b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/phony/zipball/bff87a1c7c302a05d29b0aa2149bed8fc9f7627b",
+                "reference": "bff87a1c7c302a05d29b0aa2149bed8fc9f7627b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "errors/exceptions": "^0.2",
+                "ext-pdo": "*",
+                "hamcrest/hamcrest-php": "^2",
+                "icecave/semver": "^3",
+                "phpunit/phpunit": "^4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Eloquent\\Phony\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "Mocks, stubs, and spies for PHP.",
+            "homepage": "http://eloquent-software.com/phony/",
+            "keywords": [
+                "Double",
+                "Dummy",
+                "fake",
+                "mock",
+                "mocking",
+                "spy",
+                "stub",
+                "stubbing",
+                "test"
+            ],
+            "support": {
+                "issues": "https://github.com/eloquent/phony/issues",
+                "source": "https://github.com/eloquent/phony/tree/deprecations"
+            },
+            "time": "2017-07-04T01:10:30+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -949,6 +1012,62 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "shahariaazam/zoho-oauth2",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shahariaazam/zoho-oauth2.git",
+                "reference": "c4f96ea741ade2308bfa96a9677563b55d64503c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shahariaazam/zoho-oauth2/zipball/c4f96ea741ade2308bfa96a9677563b55d64503c",
+                "reference": "c4f96ea741ade2308bfa96a9677563b55d64503c",
+                "shasum": ""
+            },
+            "require": {
+                "eloquent/phony": "^1.0",
+                "ext-json": "*",
+                "league/oauth2-client": "^2.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2",
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ShahariaAzam\\ZohoOAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shaharia Azam",
+                    "email": "mail@shaharia.com",
+                    "homepage": "https://github.com/shahariaazam"
+                }
+            ],
+            "description": "Zoho OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Zoho",
+                "authorisation",
+                "authorization",
+                "client",
+                "oauth",
+                "oauth2"
+            ],
+            "support": {
+                "issues": "https://github.com/shahariaazam/zoho-oauth2/issues",
+                "source": "https://github.com/shahariaazam/zoho-oauth2/tree/v1.0"
+            },
+            "time": "2019-10-10T21:50:53+00:00"
         },
         {
             "name": "smottt/wideimage",
