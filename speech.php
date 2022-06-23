@@ -20,14 +20,15 @@ $input_array = json_decode($input_json, true);
 //$r_array = json_decode($response,true);
 
 $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+$connector->domain_id = '421680';
+$connector->domain_path = 'showme.headstudios.com.au';
 $benew = new FeedMe($input_array);
 
 //$connector->SMS_Voyage_Guzzle('Sometimes you have to cheat, stay ahead', '61412826569');
 
 //$connector->printOut('We have a problem - things work');
 
-$connector->domain_id = '421680';
-$connector->domain_path = 'showme.headstudios.com.au';
+
 //$injection = $connector->bulk_link_create($input_array);
 //$response = $connector->multi_short_it($injection);
 //$return_airtable = $connector->link_combinator($response, $injection);
@@ -58,7 +59,15 @@ class FeedMe {
     $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
     $connector->click_updater($input_array);
     return;  
-
+  }
+  if($input_array[0]['action'] == 'linkcreator') {
+    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+    $injection = $connector->bulk_link_create($input_array);
+    $response = $connector->multi_short_it($injection);
+    $return_airtable = $connector->link_combinator($response, $injection);
+    $connector->og_combinator($return_airtable);
+    echo json_encode($return_airtable); 
+    return;  
   }
   
   
