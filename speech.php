@@ -254,7 +254,7 @@ class ConnectorForMe extends ConcreteFoundation {
 
             $img_url = $this->image_create($inject['displayName']);
             $link_id = $inject['linkID'];
-            $this->OGLinkStatus($link_id, 'Campaign Title Goes Here', 'Campaign Description Goes Here', $img_url);
+            $this->OGLinkStatus($link_id, 'Want some DFY Free Investor Leads?', 'What if I could generate you leads from your current past seller list to prioritise follow ups on AUTOPILOT', $img_url);
 
           }
 
