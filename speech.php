@@ -66,7 +66,8 @@ class FeedMe {
     $response = $connector->multi_short_it($injection);
     $return_airtable = $connector->link_combinator($response, $injection);
     $connector->og_combinator($return_airtable);
-    echo json_encode($return_airtable); 
+    array_unshift($return_airtable, array('action' => 'linkcreator'));
+    echo json_encode($return_airtable);
     return;  
   }
   
