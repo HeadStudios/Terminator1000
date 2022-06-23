@@ -2,7 +2,7 @@
 require("vendor/autoload.php");
 require("connects.php");
 require("env.php"); // this is in Gitignore for security reasons, ask me for access and I can provide
-//require("parsedown.php"); // This is the convert AirTable rich text field to HTML to pass to new WP post function
+require("parsedown.php"); // This is the convert AirTable rich text field to HTML to pass to new WP post function
 
 /* In the section below I comment the line for file_get_contents if I am testing so I could supply my own data and check output to speed up development. Makes sense?
 Below I will include format currently sent from AirTable to update the array for testing
@@ -12,7 +12,7 @@ Also this is where I will define all the variables to be used
 // Comment out the 3 lines below and uncomment everything underneath when doing testing directly at endpoint (vs sending from AirTable)
 //$data = json_decode(file_get_contents('php://input'), true);
 
-$temp_data = '{"title":"John Connor Returns","name":"Sarah Connor","function":1,"excerpt":"The short version","content":"This was generated with a beautiful shortlink. \n\nIt\'s because the woods are scary.\n\nThankfully - now you have... CATARACTS!\n\nWith cataracts you will be\n\n- Scared all the time\n- Never know what to do\n- Always try to find your way\n\nCataracts - sold where all **goods are sold!** \n","bannerhead":"Amazing Offer","headline":"Cataract Appointments Available","subheadline":"Your Doctor Will See You Now","cta_text":"Book your Cataracts Form","cta_link":"https://airtable.com","short_path":"for-you-michael-160"}';
+$temp_data = '{"title":"Let\'s Move","name":"Mike Humble","function":1,"excerpt":"The short version","content":"This was generated with \\*some amazing content\\*\t\n","bannerhead":"An Amazing Banner","headline":"Some Headline Here","subheadline":"A Subheadline Here","cta_text":"Let\'s Move it","cta_link":"https://airtable.com","short_path":"for-you-mike"}';
 $data = json_decode($temp_data, true);
 
 
@@ -34,19 +34,19 @@ $data['cta_link'] = "https://google.com";
 $data['short_path'] = "now-you-see-it";
 $content = $data['content'];
 */
-$Parsedown = new Parsedown();
-$content = $Parsedown->text($data["content"]);
+//$Parsedown = new Parsedown();
+//$content = $Parsedown->text($data["content"]);
 
 
 
 /* This is just a proof of concept of being able to call a specific function based on what data is passed... I know it seems but I'm just learning!
 Also... this is still technically part of the code even though the need to call a separate function based on arguments passed is not currently required */
-if($data["function"] == 1){
+/*if($data["function"] == 1){
 $arr = array('server' => 'This is the first', 'ashram' => $data["title"], 'hilltop' => 'Let us begin', 'machine' => 'And dance to dancers', 'array' => 'Unless we are human');
 } 
 if($data["function"] == 2){
 $arr = array('server' => 'And this is the second', 'ashram' => $data["title"], 'hilltop' => 'Let us begin', 'machine' => 'And dance to dancers', 'array' => 'Unless we are human');
-} 
+} */
 
 $ai_vid = robotUprising($data['name']);
 
