@@ -2,7 +2,7 @@
 require("vendor/autoload.php");
 require("connects.php");
 require("env.php"); // this is in Gitignore for security reasons, ask me for access and I can provide
-require("parsedown.php"); // This is the convert AirTable rich text field to HTML to pass to new WP post function
+//require("parsedown.php"); // This is the convert AirTable rich text field to HTML to pass to new WP post function
 
 /* In the section below I comment the line for file_get_contents if I am testing so I could supply my own data and check output to speed up development. Makes sense?
 Below I will include format currently sent from AirTable to update the array for testing
@@ -10,10 +10,10 @@ const data = { title: blogTitle, function: 1, excerpt: 'The short version', cont
 Also this is where I will define all the variables to be used 
 */
 // Comment out the 3 lines below and uncomment everything underneath when doing testing directly at endpoint (vs sending from AirTable)
-//$data = json_decode(file_get_contents('php://input'), true);
+$data = json_decode(file_get_contents('php://input'), true);
 
-$temp_data = '{"title":"Let\'s Move","name":"Mike Humble","function":1,"excerpt":"The short version","content":"This was generated with \\*some amazing content\\*\t\n","bannerhead":"An Amazing Banner","headline":"Some Headline Here","subheadline":"A Subheadline Here","cta_text":"Let\'s Move it","cta_link":"https://airtable.com","short_path":"for-you-mike"}';
-$data = json_decode($temp_data, true);
+//$temp_data = '{"title":"Move Product","name":"John Rhode","function":1,"excerpt":"The short version","content":"This was generated for Rhode\t\n","bannerhead":"Banner Type","headline":"Headline Here","subheadline":"Subheadline Goes Here","cta_text":"Let Us Do It","cta_link":"https://www.google.com","short_path":"for-you-jsdosdhnstd2on"}';
+//$data = json_decode($temp_data, true);
 
 
 // Below is just some code because I've noticed AirTable rich text formatting doesn't work if I have custom code - I need to test to see if I can remove this and have it still work
@@ -34,8 +34,8 @@ $data['cta_link'] = "https://google.com";
 $data['short_path'] = "now-you-see-it";
 $content = $data['content'];
 */
-//$Parsedown = new Parsedown();
-//$content = $Parsedown->text($data["content"]);
+$Parsedown = new Parsedown();
+$content = $Parsedown->text($data["content"]);
 
 
 
@@ -89,7 +89,6 @@ customFieldPush($id, $wp_custom);
 $link_result = short_it($arr['url'], $data['short_path']);
 $arr['shortlink'] = $link_result['shortURL'];
 $image_url = getBearImage($uid);
-echo "And we have an Image URL field and it is: ".$image_url." do you see it?";
 OGLinkStatus($link_result['idString'], $data['name'], $data['excerpt'], $image_url);
 
 

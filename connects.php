@@ -35,7 +35,7 @@ function newCustomPost($custom_title, $content) {
     curl_close($ch);
     
     //$id = $result['id'];
-    //$json_result = json_decode($result);
+    $json_result = json_decode($result, true);
     //return $json_result['link'];
     return $result;
     
@@ -55,7 +55,7 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 
 $headers = array();
 $auth = 'Authorization: Bearer '.$bb_bearer;
-echo "Header Banner Bear auth are: ".$auth; 
+//echo "Header Banner Bear auth are: ".$auth; 
 $headers[] = $auth;
 $headers[] = 'Content-Type: application/json';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -67,9 +67,6 @@ if (curl_errno($ch)) {
 curl_close($ch);
 
 $array_result = json_decode($result, true);
-
-echo "The results from banner pull are: ";
-var_dump($array_result);
 
 
 
@@ -145,13 +142,15 @@ function SMS_Voyage($text) {
 
 function short_It($url, $path) {
 
+    
+
     global $shortio_secret;
 
     $ch = curl_init();
     
     $short_data = [
         "allowDuplicates" => true,
-        "domain" => '4a4y.short.gy',
+        "domain" => 'showme.headstudios.com.au',
         "originalURL" => $url,
         "path" => $path,
         "title" => "PHP Campaign [You Have Arrived]",
@@ -176,6 +175,7 @@ function short_It($url, $path) {
     curl_close($ch);
     
     $array_result = json_decode($result, true);
+
     return $array_result;
     
     }
@@ -280,8 +280,8 @@ function short_It($url, $path) {
             $ch = curl_init();
             
             //var_dump ($post_data);
-            $json = json_encode($post_data);
-            echo $json;
+            //$json = json_encode($post_data);
+            //echo $json;
             
             curl_setopt($ch, CURLOPT_URL, 'https://api.synthesia.io/v2/videos');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -298,8 +298,7 @@ function short_It($url, $path) {
                 echo 'Error:' . curl_error($ch);
             }
             curl_close($ch);
-            echo "Synthesia return is: ";
-            var_dump($result);
+            
             $array_result = json_decode($result, true);
             return $array_result['id'];
             
