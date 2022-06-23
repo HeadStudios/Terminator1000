@@ -12,9 +12,8 @@ Also this is where I will define all the variables to be used
 // Comment out the 3 lines below and uncomment everything underneath when doing testing directly at endpoint (vs sending from AirTable)
 $data = json_decode(file_get_contents('php://input'), true);
 
-//$temp_data = '{"title":"Move Product","name":"John Rhode","function":1,"excerpt":"The short version","content":"This was generated for Rhode\t\n","bannerhead":"Banner Type","headline":"Headline Here","subheadline":"Subheadline Goes Here","cta_text":"Let Us Do It","cta_link":"https://www.google.com","short_path":"for-you-jsdosdhnstd2on"}';
+//$temp_data = '{"title":"AirBnBs Set to be Outlawed in Brisbane","name":"Bashir Ahmad","function":1,"excerpt":"The short version","content":"It seems like the time has come for AirBnBs to be banned in Queensland. \n\nWhat are the penalties to owning an AirBnB after the laws are introduced find out by clicking below. \n","bannerhead":"More Info","headline":"AirBnBs Set to be Outlawed in Brisbane","subheadline":"What You Need To Know","cta_text":"Find Out How to Keep Your Investment Safe","cta_link":"https://metrocity.com.au","short_path":"airbnb-protsdfaection-z"}';
 //$data = json_decode($temp_data, true);
-
 
 // Below is just some code because I've noticed AirTable rich text formatting doesn't work if I have custom code - I need to test to see if I can remove this and have it still work
 //$double_q = array('"');
@@ -32,10 +31,11 @@ $data['content'] = '<h1>Big Content</h1><ul><li>"One time"</li><li>Two time</li>
 $data['cta_text'] = "Just testing some waters";
 $data['cta_link'] = "https://google.com";
 $data['short_path'] = "now-you-see-it";
-$content = $data['content'];
+
 */
-$Parsedown = new Parsedown();
-$content = $Parsedown->text($data["content"]);
+//$Parsedown = new Parsedown();
+//$content = $Parsedown->text($data["content"]);
+$content = $data['content'];
 
 
 
