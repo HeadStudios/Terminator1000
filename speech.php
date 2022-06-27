@@ -1,15 +1,16 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ERROR | E_PARSE);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ERROR | E_PARSE);
 require "vendor/autoload.php"; 
 require "env.php";
 require "click-vars.php";
 
 
-$input_array = json_decode(file_get_contents('php://input'), true);
-//$input_json = '[{"action":"linkcreator"},{"ID":"recqj8Z3FqjuxHOYY","Name":"Marcus Blake","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/oscars-terminator","LinkID":"lnk_1LHi_2lTZMV"},{"ID":"recCHXbqylDXPPHHs","Name":"Mairi  Quinn","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/johns-terminator","LinkID":"lnk_1LHi_2lTZMW"},{"ID":"recfxg2gyjjHdb8t6","Name":"Adam  Scott","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/adams-terminator","LinkID":"lnk_1LHi_2lUWpv"},{"ID":"recCOirpr3oQ7Wcce","Name":"Maxine Pemble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/maxines-terminator","LinkID":"lnk_1LHi_2lUZtY"},{"ID":"recW8Del9vgmSwvtj","Name":"George  Savva","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/georges-terminator","LinkID":"lnk_1LHi_2lV05c"},{"ID":"rec69N1WoIfzlUXJ1","Name":"Courtney  Rumble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/courtneys-terminator","LinkID":"lnk_1LHi_2lV05d"},{"ID":"recZcTBdD9lYaKbhS","Name":"James  Harvey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/jamess-terminator","LinkID":"lnk_1LHi_2lV05h"},{"ID":"rec9qtv4uWW3IR5cR","Name":"Tammy Stringer","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"/tammys-terminator","LinkID":"lnk_1LHi_2lV08g"}]';
-//$input_array = json_decode($input_json, true);
+
+//$input_array = json_decode(file_get_contents('php://input'), true);
+$input_json = '[{"action":"linkcreator"},{"ID":"recfxg2gyjjHdb8t6","Name":"Adam  Scott","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recOoVKL01n7BKtIX","Name":"Greg  Brewster","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recCOirpr3oQ7Wcce","Name":"Maxine Pemble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recW8Del9vgmSwvtj","Name":"George  Savva","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recYI0ceAZkBQNHdS","Name":"Greg  McKinley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"rec69N1WoIfzlUXJ1","Name":"Courtney  Rumble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recZcTBdD9lYaKbhS","Name":"James  Harvey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"rec9qtv4uWW3IR5cR","Name":"Tammy Stringer","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recXpbdiYnzJkPMLC","Name":"Melina Brawley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recoiUCZq5x70Ebo6","Name":"Richard Whiteley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"rec2VnfgbyosRz4Py","Name":"Rory McElwee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recUV9XFREY8USsCM","Name":"Peter  Darcy","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recT0i6B1deicfQ3A","Name":"Jonzun Lee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"reckFTxKxzqWHxH4t","Name":"Fiona  Greene","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recjDpkCmvVQcq3hj","Name":"Imogen Callister","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recb7oQIaUx3573lS","Name":"Michael Mills","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"}]';
+$input_array = json_decode($input_json, true);
 
 
 
@@ -18,7 +19,11 @@ $input_array = json_decode(file_get_contents('php://input'), true);
 //$response = '[{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"courtenays-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.708Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.708Z","secureShortURL":"https://showme.headstudios.com.au/courtenays-terminator","idString":"lnk_1LHi_2lgKw3","shortURL":"https://showme.headstudios.com.au/courtenays-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"karinas-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.713Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.713Z","secureShortURL":"https://showme.headstudios.com.au/karinas-terminator","idString":"lnk_1LHi_2lgKw4","shortURL":"https://showme.headstudios.com.au/karinas-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"lynettes-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.721Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.721Z","secureShortURL":"https://showme.headstudios.com.au/lynettes-terminator","idString":"lnk_1LHi_2lgKw5","shortURL":"https://showme.headstudios.com.au/lynettes-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"georges-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.740Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.740Z","secureShortURL":"https://showme.headstudios.com.au/georges-terminator","idString":"lnk_1LHi_2lgKw6","shortURL":"https://showme.headstudios.com.au/georges-terminator","duplicate":false,"success":true}]';
 //$r_array = json_decode($response,true);
 
-$connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+//$connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+
+
+
+
 
 $benew = new FeedMe($input_array);
 
@@ -44,7 +49,6 @@ $benew = new FeedMe($input_array);
 //$connector->OGLinkStatus('lnk_1LHi_2kV0L0', 'Not About Not Offending', 'Its not about not offending', $image_url);
 //$short_response = $connector->short_It('https://www.google.com', 'your-search-man');
 
-//var_dump($short_response);
 
 class FeedMe {
 
@@ -54,20 +58,24 @@ class FeedMe {
 
   // function to return number of clicks
   if($input_array[0]['action'] == 'linkupdater') {
-    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
+    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/', $input_array);
     $connector->click_updater($input_array);
     return;  
   }
   if($input_array[0]['action'] == 'linkcreator') {
     unset($input_array[0]);
-    
-    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
-    $injection = $connector->bulk_link_create($input_array);
-    $response = $connector->multi_short_it($injection);
-    $return_airtable = $connector->link_combinator($response, $injection);
+    $input_array = array_values($input_array);
+    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/', $input_array);
+    $connector->bulk_link_create($input_array);
+    $response = $connector->multi_short_it('something');
+    MyFun::console_log('Response from multi short it is: ');
+    MyFun::console_log($response);
+    $return_airtable = $connector->link_combinator($response, 'nothing');
     $connector->og_combinator($return_airtable);
-    array_unshift($return_airtable, array('action' => 'linkcreator'));
-    echo json_encode($return_airtable);
+    MyFun::console_log('Updated input array');
+    MyFun::console_log($connector->input_token);
+    //array_unshift($this->return_airtable, array('action' => 'linkcreator'));
+    echo json_encode($connector->airtable_return);
     return;  
   }
   
@@ -82,10 +90,18 @@ class ConnectorForMe extends ConcreteFoundation {
     public $url = "http://147.182.192.192/";
     public $domain_id = '421680';
     public $domain_path = 'showme.headstudios.com.au';
-    
-    function image_create($name) {
+    public $input_token = array();
 
-        $image = \WideImage\WideImage::loadFromFile('og_pizza.jpg');
+    // Leaving values inside the function
+    public $response = [];
+    public $return_airtable = [];
+    public $shortit_injection = [];
+
+    
+    
+    function image_create($name, $url='og_pizza.jpg') {
+
+        $image = \WideImage\WideImage::loadFromFile($url);
         $canvas = $image->getCanvas();
         $canvas->useFont('fonts/arialblack.ttf', 100, $image->allocateColor(76, 75, 75)); 
         $canvas->writeText('42', '135', $name);
@@ -127,8 +143,7 @@ class ConnectorForMe extends ConcreteFoundation {
     }
 
         function OGLinkStatus($link_id, $title, $description, $image) {
-            $log = "Inside OGLinkStatus function - link id is: ".$link_id;
-            //$this->console_log($log);
+            
             $shortio_secret = $this->short_api;
             $domainid = $this->domain_id;
             $post_url = 'https://api.short.io/links/opengraph/'.$domainid.'/'.$link_id;
@@ -173,6 +188,10 @@ class ConnectorForMe extends ConcreteFoundation {
 
         function multi_short_it($links_array) {
 
+          $links_array = $this->shortit_injection;
+
+          
+
           $client = new \GuzzleHttp\Client();
 
           $input_json = ['links' => $links_array, 'domain'=>'showme.headstudios.com.au'];
@@ -187,19 +206,53 @@ class ConnectorForMe extends ConcreteFoundation {
             ],
           ]);
 
-          return json_decode($response->getBody(),true);
+          
+          $response_a = json_decode($response->getBody(), true);
+
+          
 
 
+          
+          foreach($response_a as $res) {
+
+            if(isset($res['error'])) { continue; } else {
+            $key = array_search($res['path'], array_column($this->input_token, 'path')); }
+            MyFun::console_log('Individual res item is: ');
+            MyFun::console_log($res);
+          
+          MyFun::console_log("Inside response_a loop - res is: ");
+          MyFun::console_log($res);
+          if($key) {
+          $this->input_token[$key]['originalURL'] = $res['originalURL'];
+          $this->input_token[$key]['secureShortURL'] = $res['secureShortURL'];
+          }
         }
+          //return json_decode($response->getBody(),true);
+          MyFun::console_log('this->response is being set to: ');
+          MyFun::console_log(json_decode($response->getBody(), true));
+          $this->response = json_decode($response->getBody(),true);
+
+          
+
+          
+
+
+        
+
+      }
 
         function bulk_link_create($links_array) {
 
           $shortit_injection = array();
-          foreach($links_array as $record) {
 
-            
+          MyFun::console_log('Input token is: ');
+          MyFun::console_log($this->input_token);
 
+          foreach($this->input_token as $record) {
 
+            $key = array_search($record['Name'], array_column($this->input_token, 'Name'));
+
+            MyFun::console_log('Key number for '.$record['ID'].'is : '.$key);
             $name = $record['Name'];
             $name = strtok($name, " ");
             $display_name = $name;
@@ -207,53 +260,96 @@ class ConnectorForMe extends ConcreteFoundation {
             $name = $name.'s-terminator';
             $url = $record['URL'].'?name='.$name;
             $id = $record['ID'];
+            MyFun::console_log('Record full name is: '.$record['Name']);
+            MyFun::console_log('Record full name when pathed is: '.$this->input_token[$key]['Name']);
+            MyFun::console_log('The Path is: '.$name);
+            //$record['path'] = $name;
+            //$record['displayName'] = $display_name;
 
-            $shortit_injection[] = ['allowDuplicates'=> false, 'displayName' => $display_name, 'recordId'=> $id, 'domain' => 'showme.headstudios.com.au', 'originalURL' => $url, 'path'=>$name];
+            $shortit_injection[$key] = ['allowDuplicates'=> false, 'displayName' => $display_name, 'recordId'=> $id, 'domain' => 'showme.headstudios.com.au', 'originalURL' => $url, 'path'=>$name];
+            
+            
+            
 
 
           }
 
-          return $shortit_injection;
+          
+
+          $this->shortit_injection = $shortit_injection;
 
         }
 
         function link_combinator($response, $injector) {
-          
-          $airtable_return = [];
 
+          
+          $response = $this->response;
+          $injector = $this->shortit_injection;
+
+          MyFun::console_log('this->response is: ');
+          MyFun::console_log($this->response);
+          MyFun::console_log('Injector variable in link combinator is: ');
+          MyFun::console_log($this->shortit_injection);
+
+
+          
          
           foreach($injector as $key=>$value) {
 
-            
-
+            if(isset($response[$key]['error'])) { continue; }
             $recordId = $injector[$key]['recordId'];
+
+            
+            
+            
             $shortUrl = $response[$key]['secureShortURL'];
            
             $name = $injector[$key]['displayName'];
            
             $link_id = $response[$key]['idString'];
-
-            $log = "Inside link combinator function. The key is: ".$key." the Record ID is: ".$recordId." the secureShort URL is: ".$shortUrl. "the display name is: ".$name." the linkID is: ".$link_id;
-            //$this->console_log($log);
             
             if(isset($recordId)&&isset($shortUrl)&&isset($link_id)) {
             $airtable_return[$key] = array('recordID' => $recordId,'shortURL' => $shortUrl, 'linkID' => $link_id, 'displayName' => $name);
+            $this->input_token[$key]['shortURL'] = $shortUrl;
+            $this->input_token[$key]['LinkID'] = $link_id;
+            $this->input_token[$key]['displayName'] = $name;
+            MyFun::console_log('Airtable return[key] just got placed and it is here:');
+            MyFun::console_log($airtable_return[$key]);
+            MyFun::console_log('Interestingly enough the original input token key is: ');
+            MyFun::console_log($this->input_token[$key]);
+            MyFun::console_log('Do you see a match above?');
+          
             }
 
           }
 
-          return $airtable_return;
+          $this->airtable_return = $airtable_return;
+
+          MyFun::console_log('The final airtable return for $this->airtable_return is:');
+          MyFun::console_log($this->airtable_return);
         }
 
         function og_combinator($injector) {
 
+          MyFun::console_log('Input token is referenced below: ');
+          MyFun::console_log($this->input_token);
 
-          foreach($injector as $inject) {
+          $injector = $this->airtable_return;
 
-            if(isset($inject['displayName'])&&isset($inject['linkID'])) {
+          MyFun::console_log('Injector for og combinator prior to image create is: ');
+          MyFun::console_log($injector);
 
-            $img_url = $this->image_create($inject['displayName']);
-            $link_id = $inject['linkID'];
+          
+
+          foreach($this->input_token as $inject) {
+
+            MyFun::console_log('For some strange reason injector combinator is empty yet loop gets played... this is the individual $inject ');
+            MyFun::console_log($inject);
+
+            if(isset($inject['displayName'])&&isset($inject['LinkID'])) {
+
+            $img_url = $this->image_create($inject['displayName'],$inject['image']);
+            $link_id = $inject['LinkID'];
             $this->OGLinkStatus($link_id, 'Want some DFY Free Investor Leads?', 'What if I could generate you leads from your current past seller list to prioritise follow ups on AUTOPILOT', $img_url);
 
           }
@@ -332,10 +428,12 @@ abstract class ConcreteFoundation {
     public $domain_id; // Domain ID for Short.ai 
     public $domain_path; // Path of the Short.io domain without the http
     public $url; // URL for the instance of the app - we should fetch this from ENV.php
+    public $input_token; // this keeps track of the input array from AirTable for easy access
 
-    public function __construct($shortapi, $urla) {
+    public function __construct($shortapi, $urla, $input) {
         $this->short_api = $shortapi;
         $this->url = $urla;
+        $this->input_token = $input;
     }
 
     public function getUrl() {
@@ -345,7 +443,7 @@ abstract class ConcreteFoundation {
     
 
     // Create image - returns path to complete image using URL
-    abstract protected function image_create($name);
+    abstract protected function image_create($name, $url='og_pizza.jpg');
 
     // Short a URL with the given path - returns Guzzle response 
     abstract protected function short_It($url, $path);
@@ -385,6 +483,21 @@ abstract class ConcreteFoundation {
           }
           echo $js_code;
     }
+
+}
+
+class MyFun {
+
+  public static function console_log($output) {
+    //$output = 'complaining for no reason';
+    $with_script_tags = true;
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+    ');';
+        if ($with_script_tags) {
+            $js_code = '<script>' . $js_code . '</script>';
+        }
+        echo $js_code;
+  }
 
 }
 

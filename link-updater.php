@@ -1,5 +1,6 @@
 <?php
 
+
 //require_once("wp-load.php"); // Make sure there are enough dot dot dots
 require("connects.php");
 require("env.php"); // this is in Gitignore for security reasons, ask me for access and I can provide

@@ -10,10 +10,10 @@ const data = { title: blogTitle, function: 1, excerpt: 'The short version', cont
 Also this is where I will define all the variables to be used 
 */
 // Comment out the 3 lines below and uncomment everything underneath when doing testing directly at endpoint (vs sending from AirTable)
-$data = json_decode(file_get_contents('php://input'), true);
+//$data = json_decode(file_get_contents('php://input'), true);
 
-//$temp_data = '{"title":"AirBnBs Set to be Outlawed in Brisbane","name":"Bashir Ahmad","function":1,"excerpt":"The short version","content":"It seems like the time has come for AirBnBs to be banned in Queensland. \n\nWhat are the penalties to owning an AirBnB after the laws are introduced find out by clicking below. \n","bannerhead":"More Info","headline":"AirBnBs Set to be Outlawed in Brisbane","subheadline":"What You Need To Know","cta_text":"Find Out How to Keep Your Investment Safe","cta_link":"https://metrocity.com.au","short_path":"airbnb-protsdfaection-z"}';
-//$data = json_decode($temp_data, true);
+$temp_data = '{"title":"Justine Queen Announcement","name":"Justine the Queen of the Bee Hive","function":1,"excerpt":"The short version","content":"Looks like Justine is the Queen of the machine. \n\nThere are many cute world scenarios you must see. \t\n","bannerhead":"More Info","headline":"Justine Queen Announcement","subheadline":"Important Info about Justine","cta_text":"Click Here to Enter the Cute World","cta_link":"https://cute.com","short_path":"cute-world323"}';
+$data = json_decode($temp_data, true);
 
 // Below is just some code because I've noticed AirTable rich text formatting doesn't work if I have custom code - I need to test to see if I can remove this and have it still work
 //$double_q = array('"');
@@ -83,7 +83,8 @@ customFieldPush($id, $wp_custom);
 // Commenting out banner creation to save on API calls
 
 //$uid = '9e2VGL0qn6VVnr4m6EAv5mxr1';
-
+echo "Array";
+var_dump($link_result);
 
 //$arr['shortlink'] = short_It($arr['url'], $data['short_path']);
 $link_result = short_it($arr['url'], $data['short_path']);

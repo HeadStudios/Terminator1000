@@ -21,6 +21,10 @@ class ComposerStaticInitf4cd6c5259193ab5b7e01b69e02fb0e9
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'Whoops\\' => 7,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php72\\' => 23,
@@ -32,6 +36,7 @@ class ComposerStaticInitf4cd6c5259193ab5b7e01b69e02fb0e9
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
         ),
@@ -65,6 +70,10 @@ class ComposerStaticInitf4cd6c5259193ab5b7e01b69e02fb0e9
     );
 
     public static $prefixDirsPsr4 = array (
+        'Whoops\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
+        ),
         'Symfony\\Polyfill\\Php72\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
@@ -88,6 +97,10 @@ class ComposerStaticInitf4cd6c5259193ab5b7e01b69e02fb0e9
         'ShahariaAzam\\ZohoOAuth2\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/shahariaazam/zoho-oauth2/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
