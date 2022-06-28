@@ -5,16 +5,6 @@ require "../env.php";
 require "../error.php";*/
 
 
-$input = '[{"action":"linkupdater"},{"ID":"recTAFqIrRzfmpnln","Name":"Andrew Coronis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/andrews-terminator","LinkID":"lnk_1LHi_2kFs2G"},{"ID":"recrcYOIQtdyR1VVf","Name":"Rebecca Coronis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/rebeccas-terminator","LinkID":"lnk_1LHi_2kFlZW"},{"ID":"recuzRFg2qineOdif","Name":"Greg Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/gregs-terminator","LinkID":"lnk_1LHi_2kFlZV"}]';
-$input = json_decode($input, true);
-unset($input[0]); 
-$input = array_values($input);
-global $env;
-$parser = new ShortLinkParser($env);
-$parser->getRawClicks()->filterClicks();
-$parser->getClicks($input);
-$parser->output();
-
 class ShortLinkParser {
 
     protected $client;
