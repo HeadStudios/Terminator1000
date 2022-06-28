@@ -12,7 +12,7 @@ class ShortLinkParser {
     protected $env;
     protected $airtable_io;
 
-    function __construct(array $env) {
+    function __construct($env) {
         $this->client = new GuzzleHttp\Client();
         $this->env = $env;
     }
