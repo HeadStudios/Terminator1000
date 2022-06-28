@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ERROR | E_PARSE);
@@ -9,7 +9,7 @@ require "click-vars.php";
 require "error.php";
 require "inc/shortlink_parser.php";
 
-//header('Content-type: application/json');
+
 
 
 
