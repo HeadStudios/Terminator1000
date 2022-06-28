@@ -41,7 +41,8 @@ class ShortLinkParser {
     function filterClicks() {
 
         foreach($this->raw_clicks as $key=>$data) {
-            if($this->raw_clicks[$key]['human'] == false || str_contains($this->raw_clicks[$key]['path'], '.well-known') || $this->raw_clicks[$key]['path'] == '/') {
+            //if($this->raw_clicks[$key]['human'] == false || str_contains($this->raw_clicks[$key]['path'], '.well-known') || $this->raw_clicks[$key]['path'] == '/') {
+                if($this->raw_clicks[$key]['human'] == false || strpos($this->raw_clicks[$key]['path'], '.well-known') !== false || $this->raw_clicks[$key]['path'] == '/') {    
             unset($this->raw_clicks[$key]); }
         }
 
