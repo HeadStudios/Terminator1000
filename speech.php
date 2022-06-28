@@ -11,8 +11,8 @@ require "inc/shortlink_parser.php";
 
 
 global $env;
-MyFun::pre_dump($env);
-
+//MyFun::pre_dump($env);
+var_dump($env);
 die();
 
 //header('Content-type: application/json');
