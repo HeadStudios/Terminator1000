@@ -8,9 +8,6 @@ $json = '[{"action":"smssender"},{"ID":"recpuIDwtkOxhYyLO","Name":"Kosta  Kondra
 
     
 DB::$user = 'root';
-DB::$password = 'root';
-DB::query("use holder");
-DB::query("SELECT * FROM tasks");
 
 $results = DB::query("SELECT * FROM tasks");
 var_dump($results);
