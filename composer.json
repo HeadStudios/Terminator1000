@@ -11,5 +11,8 @@
         "shahariaazam/zoho-oauth2": "^1.0",
         "filp/whoops": "^2.14",
         "hellosign/hellosign-php-sdk": "^3.0"
+    },
+    "config": {
+        "platform-check": false
     }
 }
