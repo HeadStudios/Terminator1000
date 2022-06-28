@@ -7,7 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'DB' => $vendorDir . '/sergeytsalkov/meekrodb/db.class.php',
+    'DBTransaction' => $vendorDir . '/sergeytsalkov/meekrodb/db.class.php',
     'Datamatrix' => $vendorDir . '/tecnickcom/tcpdf/include/barcodes/datamatrix.php',
+    'MeekroDB' => $vendorDir . '/sergeytsalkov/meekrodb/db.class.php',
+    'MeekroDBEval' => $vendorDir . '/sergeytsalkov/meekrodb/db.class.php',
+    'MeekroDBException' => $vendorDir . '/sergeytsalkov/meekrodb/db.class.php',
+    'MeekroDBWalk' => $vendorDir . '/sergeytsalkov/meekrodb/db.class.php',
     'Normalizer' => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
     'PDF417' => $vendorDir . '/tecnickcom/tcpdf/include/barcodes/pdf417.php',
     'QRcode' => $vendorDir . '/tecnickcom/tcpdf/include/barcodes/qrcode.php',
@@ -22,4 +28,5 @@ return array(
     'TCPDF_IMPORT' => $vendorDir . '/tecnickcom/tcpdf/tcpdf_import.php',
     'TCPDF_PARSER' => $vendorDir . '/tecnickcom/tcpdf/tcpdf_parser.php',
     'TCPDF_STATIC' => $vendorDir . '/tecnickcom/tcpdf/include/tcpdf_static.php',
+    'WhereClause' => $vendorDir . '/sergeytsalkov/meekrodb/db.class.php',
 );
