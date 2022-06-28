@@ -8,6 +8,8 @@ require "click-vars.php";
 require "error.php";
 require "inc/shortlink_parser.php";
 
+header('Content-type: application/json');
+
 
 
 $input_array = json_decode(file_get_contents('php://input'), true);
