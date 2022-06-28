@@ -5,49 +5,18 @@
 require "vendor/autoload.php"; 
 require "env.php";
 require "click-vars.php";
+require "error.php";
+require "inc/shortlink_parser.php";
 
 
 
-//$input_array = json_decode(file_get_contents('php://input'), true);
-$input_json = '[{"action":"linkcreator"},{"ID":"recfxg2gyjjHdb8t6","Name":"Adam  Scott","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recOoVKL01n7BKtIX","Name":"Greg  Brewster","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recCOirpr3oQ7Wcce","Name":"Maxine Pemble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recW8Del9vgmSwvtj","Name":"George  Savva","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recYI0ceAZkBQNHdS","Name":"Greg  McKinley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"rec69N1WoIfzlUXJ1","Name":"Courtney  Rumble","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recZcTBdD9lYaKbhS","Name":"James  Harvey","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"rec9qtv4uWW3IR5cR","Name":"Tammy Stringer","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recXpbdiYnzJkPMLC","Name":"Melina Brawley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recoiUCZq5x70Ebo6","Name":"Richard Whiteley","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"rec2VnfgbyosRz4Py","Name":"Rory McElwee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recUV9XFREY8USsCM","Name":"Peter  Darcy","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recT0i6B1deicfQ3A","Name":"Jonzun Lee","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"reckFTxKxzqWHxH4t","Name":"Fiona  Greene","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recjDpkCmvVQcq3hj","Name":"Imogen Callister","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"},{"ID":"recb7oQIaUx3573lS","Name":"Michael Mills","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/faaeedf7c2d0b7bd0bd3334102037634/f5036edf/andrew_coronis.jpg"}]';
-$input_array = json_decode($input_json, true);
-
-
-
-// Class to handle incoming PHP endpoint requests 
-
-//$response = '[{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"courtenays-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.708Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.708Z","secureShortURL":"https://showme.headstudios.com.au/courtenays-terminator","idString":"lnk_1LHi_2lgKw3","shortURL":"https://showme.headstudios.com.au/courtenays-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"karinas-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.713Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.713Z","secureShortURL":"https://showme.headstudios.com.au/karinas-terminator","idString":"lnk_1LHi_2lgKw4","shortURL":"https://showme.headstudios.com.au/karinas-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"lynettes-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.721Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.721Z","secureShortURL":"https://showme.headstudios.com.au/lynettes-terminator","idString":"lnk_1LHi_2lgKw5","shortURL":"https://showme.headstudios.com.au/lynettes-terminator","duplicate":false,"success":true},{"clicksLimit":null,"icon":null,"title":null,"iphoneURL":null,"androidURL":null,"expiresAt":null,"expiredURL":null,"source":"api","splitURL":null,"splitPercent":null,"integrationGA":null,"integrationGTM":null,"integrationFB":null,"integrationAdroll":null,"originalURL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","DomainId":421680,"archived":false,"path":"georges-terminator","cloaking":null,"redirectType":null,"createdAt":"2022-06-19T10:41:23.740Z","OwnerId":458432,"updatedAt":"2022-06-19T10:41:23.740Z","secureShortURL":"https://showme.headstudios.com.au/georges-terminator","idString":"lnk_1LHi_2lgKw6","shortURL":"https://showme.headstudios.com.au/georges-terminator","duplicate":false,"success":true}]';
-//$r_array = json_decode($response,true);
-
-//$connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
-
-
-
+$input_array = json_decode(file_get_contents('php://input'), true);
+//$input_json = '[{"action":"linkupdater"},{"ID":"recTAFqIrRzfmpnln","Name":"Andrew Coronis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/andrews-terminator","LinkID":"lnk_1LHi_2kFs2G"},{"ID":"recrcYOIQtdyR1VVf","Name":"Rebecca Coronis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/rebeccas-terminator","LinkID":"lnk_1LHi_2kFlZW"},{"ID":"recuzRFg2qineOdif","Name":"Greg Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/gregs-terminator","LinkID":"lnk_1LHi_2kFlZV"}]';
+//$input_json = '[{"action":"linkcreator"},{"ID":"recuzRFg2qineOdif","Name":"Greg Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"rec8TYEXKv0JIkWI5","Name":"Ben Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"receW4MHxewRxP66u","Name":"Kylie Squire","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recdtbmdoq5yGWocB","Name":"Randal Wilson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recF0HUGaZLidAztD","Name":"Steve Gott","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recqhk5JxvtQUyDGp","Name":"Teng Li","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recSnLBenVGQ24o0i","Name":"Bill Kondylis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recEcYXyeEK3al4tR","Name":"Adrian Garcia","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"}]';
+//$input_array = json_decode($input_json, true);
 
 
 $benew = new FeedMe($input_array);
-
-//$connector->SMS_Voyage_Guzzle('Sometimes you have to cheat, stay ahead', '61412826569');
-
-//$connector->printOut('We have a problem - things work');
-
-
-//$injection = $connector->bulk_link_create($input_array);
-//$response = $connector->multi_short_it($injection);
-//$return_airtable = $connector->link_combinator($response, $injection);
-//$connector->og_combinator($return_airtable);
-
-
-//echo json_encode($return_airtable); 
-
-
-
-//$connector->multi_short_it($links_array);
-
-//echo "Domain path is: ".$connector->domain_path;
-//$image_url = $connector->image_create('Blake_Lively');
-//$connector->OGLinkStatus('lnk_1LHi_2kV0L0', 'Not About Not Offending', 'Its not about not offending', $image_url);
-//$short_response = $connector->short_It('https://www.google.com', 'your-search-man');
 
 
 class FeedMe {
@@ -58,16 +27,25 @@ class FeedMe {
 
   // function to return number of clicks
   if($input_array[0]['action'] == 'linkupdater') {
-    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/', $input_array);
-    $connector->click_updater($input_array);
-    return;  
+    //$connector = new ConnectorForMe($input_array, $env);
+    //$connector->click_updater($input_array);
+
+    unset($input_array[0]); 
+    $input_array = array_values($input_array);
+    global $env;
+    $parser = new ShortLinkParser($env);
+    $parser->getRawClicks()->filterClicks();
+    $parser->getClicks($input_array);
+    $parser->output();
+    return;   
   }
   if($input_array[0]['action'] == 'linkcreator') {
     unset($input_array[0]);
     $input_array = array_values($input_array);
-    $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/', $input_array);
-    $connector->bulk_link_create($input_array);
-    $response = $connector->multi_short_it('something');
+    global $env;
+    $connector = new ConnectorForMe($input_array, $env);
+    $connector->bulk_link_create();
+    $response = $connector->multi_short_it();
     MyFun::console_log('Response from multi short it is: ');
     MyFun::console_log($response);
     $return_airtable = $connector->link_combinator($response, 'nothing');
@@ -96,6 +74,7 @@ class ConnectorForMe extends ConcreteFoundation {
     public $response = [];
     public $return_airtable = [];
     public $shortit_injection = [];
+    protected $env = [];
 
     
     
@@ -186,15 +165,15 @@ class ConnectorForMe extends ConcreteFoundation {
             
         }
 
-        function multi_short_it($links_array) {
+        function multi_short_it() {
 
           $links_array = $this->shortit_injection;
 
-          
-
+          if(!isset($this->env['shortio_domain'])) { throw new Exception('Make sure that the class env has the shortio_domain paramater set during construction phase'); }
+          $domain = $this->env['shortio_domain'];
           $client = new \GuzzleHttp\Client();
 
-          $input_json = ['links' => $links_array, 'domain'=>'showme.headstudios.com.au'];
+          $input_json = ['links' => $links_array, 'domain'=> $domain];
 
           $response = $client->request('POST', 'https://api.short.io/links/bulk', [
             //'body' => '{"links":[{"tags":["campaign1"],"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"https://headstudios.com.au/2022/03/15/5-just-around-the-corner-trends-that-will-make-99-of-property-management-companies-obsolete-in-5-years-and-how-you-can-ride-these-trends-to-complete-market-domination-for-your-real-estate-agency/","path":"johns-help"},{"allowDuplicates":false,"domain":"showme.headstudios.com.au","originalURL":"https://headstudios.com.au/2022/03/15/5-just-around-the-corner-trends-that-will-make-99-of-property-management-companies-obsolete-in-5-years-and-how-you-can-ride-these-trends-to-complete-market-domination-for-your-real-estate-agency/","path":"michaels-help"}],"domain":"showme.headstudios.com.au"}',
@@ -241,7 +220,9 @@ class ConnectorForMe extends ConcreteFoundation {
 
       }
 
-        function bulk_link_create($links_array) {
+        function bulk_link_create() {
+
+          if(!isset($this->input_token)) { throw new Exception('Make sure to setup input array in constructor which sets input token before calling the bulk link create function'); }
 
           $shortit_injection = array();
 
@@ -258,7 +239,7 @@ class ConnectorForMe extends ConcreteFoundation {
             $display_name = $name;
             $name = strtolower($name);
             $name = $name.'s-terminator';
-            $url = $record['URL'].'?name='.$name;
+            $url = $record['URL'].'?name='.$display_name;
             $id = $record['ID'];
             MyFun::console_log('Record full name is: '.$record['Name']);
             MyFun::console_log('Record full name when pathed is: '.$this->input_token[$key]['Name']);
@@ -383,7 +364,7 @@ class ConnectorForMe extends ConcreteFoundation {
 
         $connector = new ConnectorForMe('sk_dr6h17exR4jZwOM7', 'http://147.182.192.192/');
          global $click_data;
-        $click_data = json_decode($click_data, true);
+         $click_data = json_decode($click_data, true);
         
     
 
@@ -405,7 +386,7 @@ class ConnectorForMe extends ConcreteFoundation {
           $input_index = array_search($click['path'], array_column($input_array, 'Shortlink'));
         
           if ( $input_index ) {
-            $input_array[$input_index]['clicks'] ++;
+            $input_array[$input_index]['clicks']++;
           }
         
         }
@@ -429,10 +410,14 @@ abstract class ConcreteFoundation {
     public $domain_path; // Path of the Short.io domain without the http
     public $url; // URL for the instance of the app - we should fetch this from ENV.php
     public $input_token; // this keeps track of the input array from AirTable for easy access
+    protected $env = [];
 
-    public function __construct($shortapi, $urla, $input) {
-        $this->short_api = $shortapi;
-        $this->url = $urla;
+    public function __construct($input, array $env) {
+      try {
+        $this->short_api = $env['shortio_secret'];
+        $this->url = $env['url'];
+      } catch(Exception $e) { throw new Exception('Short API  and URL are not defined..'); }
+        $this->env = $env;
         $this->input_token = $input;
     }
 
@@ -452,10 +437,10 @@ abstract class ConcreteFoundation {
     abstract protected function OGLinkStatus($link_id, $title, $description, $image);
 
     // This takes an array and calls the Short.io multi short function and returns the return array
-    abstract protected function multi_short_it($links_array);
+    abstract protected function multi_short_it();
 
     // This function takes in an AirTable JSON with RecordID's and returns Array for input into short multi link create funciton
-    abstract protected function bulk_link_create($links_array);
+    abstract protected function bulk_link_create();
 
     // This function combines short.io bulk link response and original injection with AirTable record id for a full JSON string to return to AirTable
     abstract protected function link_combinator($response, array $injector);
@@ -486,41 +471,4 @@ abstract class ConcreteFoundation {
 
 }
 
-class MyFun {
 
-  public static function console_log($output) {
-    //$output = 'complaining for no reason';
-    $with_script_tags = true;
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
-    ');';
-        if ($with_script_tags) {
-            $js_code = '<script>' . $js_code . '</script>';
-        }
-        echo $js_code;
-  }
-
-}
-
-
-
-/*
-
-<?php
-require_once('vendor/autoload.php');
-
-
-$response = $client->request('PUT', 'https://api.short.io/links/opengraph/421680/lnk_1LHi_2kV0L0', [
-  'body' => '[["title","Is there anybody out there"],["description","Something is wrong I can feel it"]]',
-  'headers' => [
-    'Accept' => 'application/json',
-    'Authorization' => 'sk_dr6h17exR4jZwOM7',
-    'Content-Type' => 'application/json',
-  ],
-]);
-
-echo $response->getBody();
-echo $response->getBody();
-
-*/
-
-// Class to handle eating of JSON passes

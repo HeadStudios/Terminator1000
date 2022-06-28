@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'WideImage' => array($vendorDir . '/smottt/wideimage/lib'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'HelloSign\\' => array($vendorDir . '/hellosign/hellosign-php-sdk/library'),
 );
