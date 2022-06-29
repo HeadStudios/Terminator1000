@@ -25,6 +25,8 @@ for (let record of query.records) {
     json_payload.push(individual_injection);
 }
 
+console.log(json_payload);
+
 let response = await remoteFetchAsync('http://147.182.192.192/speech.php', {
     method: 'POST',
     body: JSON.stringify(json_payload)
