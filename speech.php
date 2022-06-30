@@ -249,7 +249,7 @@ class ConnectorForMe extends ConcreteFoundation {
             $display_name = $name;
             $name = strtolower($name);
             $name = $name.'s-terminator';
-            $url = $record['URL'].'?name='.$display_name;
+            $url = $record['URL'].'?fname='.$display_name;
             $id = $record['ID'];
             MyFun::console_log('Record full name is: '.$record['Name']);
             MyFun::console_log('Record full name when pathed is: '.$this->input_token[$key]['Name']);

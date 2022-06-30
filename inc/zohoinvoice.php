@@ -142,7 +142,7 @@ class ZohoInvoice {
 
             if(!isset($line_item['item_id'])) {
                 //$line_items[$key]['item_id'] = '20028000001168016';
-                $line_items[$key]['item_id'] = '20028000001168016';
+                $line_items[$key]['item_id'] = '20028000001175105';
             }
             if(!isset($line_item['rate'])) {
                 //$line_items[$key]['item_id'] = '20028000001168016';

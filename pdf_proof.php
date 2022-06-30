@@ -3,6 +3,7 @@ require "vendor/autoload.php";
 require "env.php";
 require "error.php";
 require "inc/zohoinvoice.php";
+error_reporting(error_reporting() & ~E_DEPRECATED);
 
 $Parsedown = new Parsedown();
 //$Parsedown = new Parsedown();
@@ -37,12 +38,13 @@ $Parsedown = new Parsedown();
 require 'vendor/autoload.php';
 //require 'fpdf/fpdf.php';
 
-$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-21T09%3A57%3A10.6132917Z\'\"","Clientcompany":"Brombie Place","CommentsOrQuestions":"WHat do you think?","Clientname":"John Michaels","WebsiteURL":"https://yourclientco.com.au","Products":[{"Id":"GVyrm","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","ItemNumber":1},{"Id":"4v4amR","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","ItemNumber":2}],"Emailbody":"Hi John,\n\nReady to get started *are you ready sir?*\n\nBecause the _party has just begun_ .\n\nGood luck!","Execsummary":"At John Michaels bad things are happening - and we are fixing those bad things!","Clientaddress":"132 Ashford Lane, Ashworth QLD 2000","Date":"2022-06-21","Stakeholders":[{"Id":"6ISd2","Name":"Michael","Position":"CEO","Contact":"Michael Brombery","Responsibility":"Look after everything","ItemNumber":1}],"Schedule":[{"Id":"1yYLtu","Activity":"Get it done","Description":"Get the whole thing done","Date2":"2022-06-21","ItemNumber":1}],"Terms":[{"Id":"GBtS0","Headline":"Video Length","Description":"Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.","Terms":"Video Length","ItemNumber":1},{"Id":"3CaZ5D","Headline":"Satisfaction Guarantee","Description":"As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I’ll even let you keep the sub brand.","Terms":"Satisfaction Guarantee","ItemNumber":2},{"Id":"2rvFN8","Headline":"Termination","Description":"This Agreement may be terminated by either Party at any time for any cause deemed reasonable,\nprovided that the terminating Party issues a termination notice to the other Party by email. Any\nlanding pages and domains created as part of this agreement then become property of Head\nStudios.","Terms":"Termination","ItemNumber":3}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/8","DateCreated":"2022-06-21T09:50:47.843Z","DateSubmitted":"2022-06-21T09:50:47.796Z","DateUpdated":"2022-06-21T09:57:10.38Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#VaTmgvSFTKhmt0ZnjpXnHv2-7YxG0fE7W4d-l3Rg1HI$*","IsBeta":true,"LastPageViewed":null,"Number":8,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-21T09:50:47.796Z","Version":2,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ww_b3bF2m-Zz7a78Jib2clcgkjzdJaNZV6MffK5fkUE$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=rAMNd0qOssIFsORUPVcdP4UsKDwJGyuI0nO5CZ_DrQ0$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=wAwdbhFarOZCZQUDPBbK4GestDhaLuO-bDKxyWRKYiE$"},"Id":"1-8"}';
+$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-21T09%3A57%3A10.6132917Z\'\"","Clientcompany":"Brombie Place","CommentsOrQuestions":"WHat do you think?","Clientname":"Brian Gumble","WebsiteURL":"https://yourclientco.com.au","Products":[{"Id":"GVyrm","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","ItemNumber":1},{"Id":"4v4amR","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","ItemNumber":2}],"Emailbody":"Hi John,\n\nReady to get started *are you ready sir?*\n\nBecause the _party has just begun_ .\n\nGood luck!","Execsummary":"At John Michaels bad things are happening - and we are fixing those bad things!","Clientaddress":"132 Ashford Lane, Ashworth QLD 2000","Date":"2022-06-21","Stakeholders":[{"Id":"6ISd2","Name":"Michael","Position":"CEO","Contact":"Michael Brombery","Responsibility":"Look after everything","ItemNumber":1}],"Schedule":[{"Id":"1yYLtu","Activity":"Get it done","Description":"Get the whole thing done","Date2":"2022-06-21","ItemNumber":1}],"Terms":[{"Id":"GBtS0","Headline":"Video Length","Description":"Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.","Terms":"Video Length","ItemNumber":1},{"Id":"3CaZ5D","Headline":"Satisfaction Guarantee","Description":"As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I’ll even let you keep the sub brand.","Terms":"Satisfaction Guarantee","ItemNumber":2},{"Id":"2rvFN8","Headline":"Termination","Description":"This Agreement may be terminated by either Party at any time for any cause deemed reasonable,\nprovided that the terminating Party issues a termination notice to the other Party by email. Any\nlanding pages and domains created as part of this agreement then become property of Head\nStudios.","Terms":"Termination","ItemNumber":3}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/8","DateCreated":"2022-06-21T09:50:47.843Z","DateSubmitted":"2022-06-21T09:50:47.796Z","DateUpdated":"2022-06-21T09:57:10.38Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#VaTmgvSFTKhmt0ZnjpXnHv2-7YxG0fE7W4d-l3Rg1HI$*","IsBeta":true,"LastPageViewed":null,"Number":8,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-21T09:50:47.796Z","Version":2,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ww_b3bF2m-Zz7a78Jib2clcgkjzdJaNZV6MffK5fkUE$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=rAMNd0qOssIFsORUPVcdP4UsKDwJGyuI0nO5CZ_DrQ0$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=wAwdbhFarOZCZQUDPBbK4GestDhaLuO-bDKxyWRKYiE$"},"Id":"1-8"}';
 //$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-21T10%3A10%3A47.5734419Z\'\"","Clientcompany":"Brombie Place","CommentsOrQuestions":"WHat do you think?","Clientname":"John Michaels","WebsiteURL":"https://yourclientco.com.au","Products":[{"Id":"GVyrm","ProductName":null,"ProductFeature":null,"ProductBenefit":null,"Items":"Product 1","ItemNumber":1},{"Id":"4v4amR","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","ItemNumber":2}],"Emailbody":"Hi John,\n\nReady to get started *are you ready sir?*\n\nBecause the _party has just begun_ .\n\nGood luck!","Execsummary":"At John Michaels bad things are happening - and we are fixing those bad things!","Clientaddress":"132 Ashford Lane, Ashworth QLD 2000","Date":"2022-06-21","Stakeholders":[{"Id":"6ISd2","Name":"Michael","Position":"CEO","Contact":"Michael Brombery","Responsibility":"Look after everything","ItemNumber":1}],"Schedule":[{"Id":"1yYLtu","Activity":"Get it done","Description":"Get the whole thing done","Date2":"2022-06-21","ItemNumber":1}],"Terms":[{"Id":"GBtS0","Headline":"Video Length","Description":"Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.","Terms":"Video Length","ItemNumber":1},{"Id":"3CaZ5D","Headline":"Satisfaction Guarantee","Description":"As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I’ll even let you keep the sub brand.","Terms":"Satisfaction Guarantee","ItemNumber":2},{"Id":"2rvFN8","Headline":"Termination","Description":"This Agreement may be terminated by either Party at any time for any cause deemed reasonable,\nprovided that the terminating Party issues a termination notice to the other Party by email. Any\nlanding pages and domains created as part of this agreement then become property of Head\nStudios.","Terms":"Termination","ItemNumber":3}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/8","DateCreated":"2022-06-21T09:50:47.843Z","DateSubmitted":"2022-06-21T09:50:47.796Z","DateUpdated":"2022-06-21T10:10:47.349Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#VaTmgvSFTKhmt0ZnjpXnHv2-7YxG0fE7W4d-l3Rg1HI$*","IsBeta":true,"LastPageViewed":null,"Number":8,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-21T09:50:47.796Z","Version":3,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ww_b3bF2m-Zz7a78Jib2clcgkjzdJaNZV6MffK5fkUE$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=siTZBVno24isiSbO1Il59n0aEs7v9xFK4V2LTCb1sLg$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=iyjaJ2pZCxIObZQpWQ89_4SJX3I9A7v-dlrNwdeoHvc$"},"Id":"1-8"}';
 $json_loader = json_decode($json_loader, true);
+//$json_loader = json_decode(file_get_contents('php://input'), true);
 $json_loader = array_change_key_case($json_loader,CASE_LOWER);
 
-$zoho = new ZohoInvoice('1000.d74f07f00178cb4b190a8fb84e88a098.61e0f79a6df6de6a5e48340570f7985e');
+$zoho = new ZohoInvoice('1000.05ce10e0f7cc73eadd257a107de66154.39f84e9f39a12c1b01c7bf4b09676706');
 $contact_id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
 $filtered = $zoho->lineItemParser($json_loader['products']);
 $id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
@@ -526,8 +528,36 @@ $pdf->lastPage();
 
 //Close and output PDF document
 $pdf->Output(__DIR__.'/verynice.pdf', 'F');
-$pdf->Output('example_006.pdf', 'I');
+//$pdf->Output('example_006.pdf', 'I');
+$client = new HelloSign\Client('2db138074a1580285659e1f4b87ca25944f66b5c8c6723d7719f14b0a585ecd3');
+$request = new HelloSign\SignatureRequest;
+$request->enableTestMode();
+$request->setTitle('NDA with Acme Co.');
+$request->setSubject('The NDA we talked about');
+$request->setMessage('Please sign this NDA and then we can discuss more. Let me know if you have any questions.');
+$request->addSigner('enquiries@headstudios.com.au', 'Bobley');
+$request->addFile('verynice.pdf');
+$response = $client->sendSignatureRequest($request);
 
+$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+  ->setUsername('kosta@headstudios.com.au')
+  ->setPassword('qtyukdpcwupqiczw')
+;
+$mailer = new Swift_Mailer($transport);
+
+$message = (new Swift_Message())
+ ->setSubject('Here should be a subject')
+->setFrom(['kosta@headstudios.com.au'])
+ ->setTo(['kostakondratenko@gmail.com' => 'My Alter Ego'])
+->setCc([
+'enquiries@headstudios.com.au' => 'My Inner Alter'
+]);
+$message->setBody(
+'<b>Your contract is here.</b>'
+);
+$message->addPart('This is some plain text', 'text/plain');
+$message->attach(Swift_Attachment::fromPath('verynice.pdf'));
+$mailer->send($message);
 
 //============================================================+
 // END OF FILE
