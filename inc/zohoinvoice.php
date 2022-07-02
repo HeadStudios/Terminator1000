@@ -51,17 +51,38 @@ class ZohoInvoice {
     public $org_id;
     
 
-    function __construct($token) {
-        $this->access_token = $token;
+    function __construct($env) {
+
         $this->client = new GuzzleHttp\Client();
+
+        $url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token='.$env['zoho_refresh_token'].'&client_id='.$env['zoho_client_id'].'&client_secret='.$env['zoho_client_secret'].'&redirect_uri=http://www.zoho.com/books&grant_type=refresh_token';
+        try {
+            $response = $this->client->post($url); } catch(Exception $e) {
+                throw new Exception("Your token is most likely wrong - this is the URL passed to Zoho: ".$url);
+            }
+    
+        $response = json_decode($response->getBody(),true);
+
+        
+       
+
+        $this->access_token = $response['access_token'];
+        
         $this->headers = [
-            'Authorization' => 'Zoho-oauthtoken '.$token,
+            'Authorization' => 'Zoho-oauthtoken '.$this->access_token,
             'Content-Type' => 'application/json'
         ];
         $this->org_id = $this->getID();
 
       
+
         
+    }
+
+    function cleanseFormidableArray(array $input) {
+        unset($input['form']);
+        $input = array_values($input);
+        return $input;
     }
 
     function getID() {
@@ -77,7 +98,9 @@ class ZohoInvoice {
 
         
 
-        return $response['organizations'][0]['organization_id'];
+        //return $response['organizations'][1]['organization_id'];
+
+        return '637404798';
     }
 
     function getContacts() {
@@ -131,18 +154,20 @@ class ZohoInvoice {
     }
 
     function lineItemParser($line_items) {
+
+        $line_items = $this->cleanseFormidableArray($line_items);
         
         $finished_line_items = [];
         foreach($line_items as $line_item) {
 
-            if($line_item['ProductName']) {
-                $key = array_search($line_item['ProductName'], array_column($line_items, 'ProductName'));
+            if($line_item['productname']) {
+                $key = array_search($line_item['productname'], array_column($line_items, 'productname'));
             } else {
             $key = array_search($line_item['name'], array_column($line_items, 'name')); }
 
             if(!isset($line_item['item_id'])) {
                 //$line_items[$key]['item_id'] = '20028000001168016';
-                $line_items[$key]['item_id'] = '20028000001175105';
+                $line_items[$key]['item_id'] = '451794000000518005';
             }
             if(!isset($line_item['rate'])) {
                 //$line_items[$key]['item_id'] = '20028000001168016';

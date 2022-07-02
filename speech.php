@@ -9,16 +9,17 @@ require "click-vars.php";
 require "error.php";
 require "inc/shortlink_parser.php";
 require "inc/sms_class.php";
+require "inc/shortlink_parser.php";
 
 
 
 
 
-$input_array = json_decode(file_get_contents('php://input'), true);
-//$input_json = '[{"action":"linkupdater"},{"ID":"recTAFqIrRzfmpnln","Name":"Andrew Coronis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/andrews-terminator","LinkID":"lnk_1LHi_2kFs2G"},{"ID":"recrcYOIQtdyR1VVf","Name":"Rebecca Coronis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/rebeccas-terminator","LinkID":"lnk_1LHi_2kFlZW"},{"ID":"recuzRFg2qineOdif","Name":"Greg Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/gregs-terminator","LinkID":"lnk_1LHi_2kFlZV"}]';
+//$input_array = json_decode(file_get_contents('php://input'), true);
+$input_json = '[{"action":"linkcreator"},{"ID":"recpuIDwtkOxhYyLO","Name":"Kosta  Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["0412 826 569"]},{"ID":"rec2nv7qKlwU5jmbV","Name":"Kostya Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["+61412 826 569"]},{"ID":"recHeks3mMpdTZnvE","Name":"Konstantin Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["4128 265 69"]}]';
 //$input_json = '[{"action":"linkcreator"},{"ID":"recuzRFg2qineOdif","Name":"Greg Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"rec8TYEXKv0JIkWI5","Name":"Ben Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"receW4MHxewRxP66u","Name":"Kylie Squire","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recdtbmdoq5yGWocB","Name":"Randal Wilson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recF0HUGaZLidAztD","Name":"Steve Gott","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recqhk5JxvtQUyDGp","Name":"Teng Li","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recSnLBenVGQ24o0i","Name":"Bill Kondylis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recEcYXyeEK3al4tR","Name":"Adrian Garcia","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"}]';
 //$input_json = '[{"action":"smssender"},{"ID":"recpuIDwtkOxhYyLO","Name":"Kosta  Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/kostas-terminator","LinkID":"lnk_1LHi_2mHMTF","Mobile":["0412 826 569"]},{"ID":"rec2nv7qKlwU5jmbV","Name":"Kostya Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/kostyas-terminator","LinkID":"lnk_1LHi_2mHMTG","Mobile":["+61412 826 569"]},{"ID":"recHeks3mMpdTZnvE","Name":"Konstantin Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/konstantins-terminator","LinkID":"lnk_1LHi_2mHMTH","Mobile":["4128 265 69"]}]';
-//$input_array = json_decode($input_json, true);
+$input_array = json_decode($input_json, true);
 
 
 $benew = new FeedMe($input_array);
@@ -53,18 +54,12 @@ class FeedMe {
     unset($input_array[0]);
     $input_array = array_values($input_array);
     global $env;
-    $connector = new ConnectorForMe($input_array, $env);
-    $connector->bulk_link_create();
-    $response = $connector->multi_short_it();
-    MyFun::console_log('Response from multi short it is: ');
-    MyFun::console_log($response);
-    $return_airtable = $connector->link_combinator($response, 'nothing');
-    $connector->og_combinator($return_airtable);
-    MyFun::console_log('Updated input array');
-    MyFun::console_log($connector->input_token);
-    //array_unshift($this->return_airtable, array('action' => 'linkcreator'));
-    echo json_encode($connector->airtable_return);
-    return;  
+
+    $parser = new ShortlinkParser($input_array, $env);
+    $parser->createShortLinks();
+    $parser->og_setup();
+    $parser->input_array = array('action'=>'linkcreator','data'=>$parser->input_array);
+    echo json_encode($parser->input_array);
   }
   
   
@@ -80,8 +75,10 @@ class ConnectorForMe extends ConcreteFoundation {
     public $domain_path = 'showme.headstudios.com.au';
     public $input_token = array();
 
+
     // Leaving values inside the function
     public $response = [];
+    public $airtable_return = [];
     public $return_airtable = [];
     public $shortit_injection = [];
     protected $env = [];
@@ -313,7 +310,11 @@ class ConnectorForMe extends ConcreteFoundation {
             }
 
           }
-
+          //
+          var_dump($this->airtable_return);
+          echo "And the other one is: ";
+          var_dump($airtable_return);
+          die();
           $this->airtable_return = $airtable_return;
 
           MyFun::console_log('The final airtable return for $this->airtable_return is:');

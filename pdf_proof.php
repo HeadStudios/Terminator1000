@@ -37,14 +37,16 @@ $Parsedown = new Parsedown();
 // Include the main TCPDF library (search for installation path).
 require 'vendor/autoload.php';
 //require 'fpdf/fpdf.php';
-
-$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-21T09%3A57%3A10.6132917Z\'\"","Clientcompany":"Brombie Place","CommentsOrQuestions":"WHat do you think?","Clientname":"Brian Gumble","WebsiteURL":"https://yourclientco.com.au","Products":[{"Id":"GVyrm","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","ItemNumber":1},{"Id":"4v4amR","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","ItemNumber":2}],"Emailbody":"Hi John,\n\nReady to get started *are you ready sir?*\n\nBecause the _party has just begun_ .\n\nGood luck!","Execsummary":"At John Michaels bad things are happening - and we are fixing those bad things!","Clientaddress":"132 Ashford Lane, Ashworth QLD 2000","Date":"2022-06-21","Stakeholders":[{"Id":"6ISd2","Name":"Michael","Position":"CEO","Contact":"Michael Brombery","Responsibility":"Look after everything","ItemNumber":1}],"Schedule":[{"Id":"1yYLtu","Activity":"Get it done","Description":"Get the whole thing done","Date2":"2022-06-21","ItemNumber":1}],"Terms":[{"Id":"GBtS0","Headline":"Video Length","Description":"Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.","Terms":"Video Length","ItemNumber":1},{"Id":"3CaZ5D","Headline":"Satisfaction Guarantee","Description":"As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I’ll even let you keep the sub brand.","Terms":"Satisfaction Guarantee","ItemNumber":2},{"Id":"2rvFN8","Headline":"Termination","Description":"This Agreement may be terminated by either Party at any time for any cause deemed reasonable,\nprovided that the terminating Party issues a termination notice to the other Party by email. Any\nlanding pages and domains created as part of this agreement then become property of Head\nStudios.","Terms":"Termination","ItemNumber":3}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/8","DateCreated":"2022-06-21T09:50:47.843Z","DateSubmitted":"2022-06-21T09:50:47.796Z","DateUpdated":"2022-06-21T09:57:10.38Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#VaTmgvSFTKhmt0ZnjpXnHv2-7YxG0fE7W4d-l3Rg1HI$*","IsBeta":true,"LastPageViewed":null,"Number":8,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-21T09:50:47.796Z","Version":2,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ww_b3bF2m-Zz7a78Jib2clcgkjzdJaNZV6MffK5fkUE$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=rAMNd0qOssIFsORUPVcdP4UsKDwJGyuI0nO5CZ_DrQ0$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=wAwdbhFarOZCZQUDPBbK4GestDhaLuO-bDKxyWRKYiE$"},"Id":"1-8"}';
+global $env;
+//$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-21T09%3A57%3A10.6132917Z\'\"","Clientcompany":"Brombie Place","CommentsOrQuestions":"WHat do you think?","Clientname":"Brian Gumble","WebsiteURL":"https://yourclientco.com.au","Products":[{"Id":"GVyrm","ProductName":"Product 1 Name","ProductFeature":"Product 1 Feature","ProductBenefit":"Product 1 Benefit","Items":"Product 1","ItemNumber":1},{"Id":"4v4amR","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","ItemNumber":2}],"Emailbody":"Hi John,\n\nReady to get started *are you ready sir?*\n\nBecause the _party has just begun_ .\n\nGood luck!","Execsummary":"At John Michaels bad things are happening - and we are fixing those bad things!","Clientaddress":"132 Ashford Lane, Ashworth QLD 2000","Date":"2022-06-21","Stakeholders":[{"Id":"6ISd2","Name":"Michael","Position":"CEO","Contact":"Michael Brombery","Responsibility":"Look after everything","ItemNumber":1}],"Schedule":[{"Id":"1yYLtu","Activity":"Get it done","Description":"Get the whole thing done","Date2":"2022-06-21","ItemNumber":1}],"Terms":[{"Id":"GBtS0","Headline":"Video Length","Description":"Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.","Terms":"Video Length","ItemNumber":1},{"Id":"3CaZ5D","Headline":"Satisfaction Guarantee","Description":"As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I’ll even let you keep the sub brand.","Terms":"Satisfaction Guarantee","ItemNumber":2},{"Id":"2rvFN8","Headline":"Termination","Description":"This Agreement may be terminated by either Party at any time for any cause deemed reasonable,\nprovided that the terminating Party issues a termination notice to the other Party by email. Any\nlanding pages and domains created as part of this agreement then become property of Head\nStudios.","Terms":"Termination","ItemNumber":3}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/8","DateCreated":"2022-06-21T09:50:47.843Z","DateSubmitted":"2022-06-21T09:50:47.796Z","DateUpdated":"2022-06-21T09:57:10.38Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#VaTmgvSFTKhmt0ZnjpXnHv2-7YxG0fE7W4d-l3Rg1HI$*","IsBeta":true,"LastPageViewed":null,"Number":8,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-21T09:50:47.796Z","Version":2,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ww_b3bF2m-Zz7a78Jib2clcgkjzdJaNZV6MffK5fkUE$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=rAMNd0qOssIFsORUPVcdP4UsKDwJGyuI0nO5CZ_DrQ0$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=wAwdbhFarOZCZQUDPBbK4GestDhaLuO-bDKxyWRKYiE$"},"Id":"1-8"}';
+$formidable_loader = '[{"id":"22","item_key":"s9br8","name":["Brian Gumble","Jessica Almond"],"description":["Get all the info","Get the ball moving","Kick the ball out of the park"],"ip":"202.0.188.100","form_id":"3","post_id":"0","user_id":"1","parent_item_id":"0","is_draft":"0","updated_by":"1","created_at":"2022-07-02 05:25:35","updated_at":"2022-07-02 05:25:35","clientname":"Michael Berner","dgh33":"m.berner@gmail.com","clientcompany":"Berner Company & Co","websiteurl":"https:\/\/bernercandles.com.au","date":"July 13, 2022","date-value":"2022-07-13","clientaddress":"34 Berner Avenue, Bromengham 2012 QLD","emailbody":"Hey Joh,\r\n\r\nAre you ready for the real? \r\n\r\nThen let\'s do it!","execsummary":"It seems that we are in a strange position - the issue is:\r\n\r\n*Issue here*\r\nAnd we will fix it!","products":{"form":"4","i11":{"productname":"Product Name #1","productfeature":"Product Feature #1 - Description here and here.","productbenefit":"Product Benefit #1 - Description here and here. "},"i12":{"productname":"Product Name #2","productfeature":"Product Feature #2 - Description here and here.","productbenefit":"Product Benefit #2 - Description here and here."},"i13":{"productname":"Product Name #3","productfeature":"Product Feature #3 - Description here and here. ","productbenefit":"Product Benefit #3 - Description here and here. "}},"productname":["Product Name #1","Product Name #2","Product Name #3"],"productfeature":["Product Feature #1 - Description here and here. ","Product Feature #2 - Description here and here. Description here and here. Description here and here. Description here and here. Description here and here. Description here and here.","Product Feature #3 - Description here and here. Description here and here. Description here and here. Description here and here. Description here and here. Description here and here."],"productbenefit":["Product Benefit #1 - Description here and here. Description here and here. Description here and here. Description here and here. Description here and here. Description here and here.","Product Benefit #2 - Description here and here. Description here and here. Description here and here. Description here and here. Description here and here. Description here and here.","Product Benefit #3 - Description here and here. Description here and here. Description here and here. Description here and here. Description here and here. Description here and here."],"stakeholders":{"form":"5","i14":{"name":"Brian Gumble","position":"Principal","contact":"0415932797 \/ j.smith@gmail.com","responsibility":"Make it real"},"i15":{"name":"Jessica Almond","position":"Property Manager","contact":"0432 451 332 \/ j.almond@headstudios.com.au","responsibility":"Oversee and make sure everything works well"}},"position":["Principal","Property Manager"],"contact":["0415932797 \/ j.smith@gmail.com","0432 451 332 \/ j.almond@headstudios.com.au"],"responsibility":["Make it real","Oversee and make sure everything works well"],"schedule":{"form":"7","i16":{"activity":"Start the Ball","description":"Get all the info","date2":"July 8, 2022","date2-value":"2022-07-08"},"i17":{"activity":"Roll the Ball","description":"Get the ball moving","date2":"July 14, 2022","date2-value":"2022-07-14"},"i18":{"activity":"Ball the Wall","description":"Kick the ball out of the park","date2":"July 22, 2022","date2-value":"2022-07-22"}},"activity":["Start the Ball","Roll the Ball","Ball the Wall"],"date2":["July 8, 2022","July 14, 2022","July 22, 2022"],"date2-value":["2022-07-08","2022-07-14","2022-07-22"],"terms":{"form":"6","i19":{"headline":"Headline #1","description2":"Make sure you play ball"},"i20":{"headline":"Headline #2","description2":"Make sure you dunk the ball in"},"i21":{"headline":"Headline #3","description2":"Make sure you don\'t stumble"}},"headline":["Headline #1","Headline #2","Headline #3"],"description2":["Make sure you play ball","Make sure you dunk the ball in","Make sure you don\'t stumble"],"6ecxf":"username","6ecxf-value":"1"}]';
 //$json_loader = '{"Form":{"Id":"1","InternalName":"BasicContactForm","Name":"Basic Contact Form"},"$version":7,"$etag":"W/\"datetime\'2022-06-21T10%3A10%3A47.5734419Z\'\"","Clientcompany":"Brombie Place","CommentsOrQuestions":"WHat do you think?","Clientname":"John Michaels","WebsiteURL":"https://yourclientco.com.au","Products":[{"Id":"GVyrm","ProductName":null,"ProductFeature":null,"ProductBenefit":null,"Items":"Product 1","ItemNumber":1},{"Id":"4v4amR","ProductName":"Product 2 Name","ProductFeature":"Product 2 Feature","ProductBenefit":"Product 2 Benefit","Items":"Product 2","ItemNumber":2}],"Emailbody":"Hi John,\n\nReady to get started *are you ready sir?*\n\nBecause the _party has just begun_ .\n\nGood luck!","Execsummary":"At John Michaels bad things are happening - and we are fixing those bad things!","Clientaddress":"132 Ashford Lane, Ashworth QLD 2000","Date":"2022-06-21","Stakeholders":[{"Id":"6ISd2","Name":"Michael","Position":"CEO","Contact":"Michael Brombery","Responsibility":"Look after everything","ItemNumber":1}],"Schedule":[{"Id":"1yYLtu","Activity":"Get it done","Description":"Get the whole thing done","Date2":"2022-06-21","ItemNumber":1}],"Terms":[{"Id":"GBtS0","Headline":"Video Length","Description":"Video content is charged by video length. This agreement assumed a total length of up to 30 seconds per video for 5 videos.","Terms":"Video Length","ItemNumber":1},{"Id":"3CaZ5D","Headline":"Satisfaction Guarantee","Description":"As this is the first project - if at any point you feel your expectations are not met simply email through and request a refund and it will be granted - I’ll even let you keep the sub brand.","Terms":"Satisfaction Guarantee","ItemNumber":2},{"Id":"2rvFN8","Headline":"Termination","Description":"This Agreement may be terminated by either Party at any time for any cause deemed reasonable,\nprovided that the terminating Party issues a termination notice to the other Party by email. Any\nlanding pages and domains created as part of this agreement then become property of Head\nStudios.","Terms":"Termination","ItemNumber":3}],"Entry":{"AdminLink":"https://www.cognitoforms.com/HeadStudios1/1/entries/8","DateCreated":"2022-06-21T09:50:47.843Z","DateSubmitted":"2022-06-21T09:50:47.796Z","DateUpdated":"2022-06-21T10:10:47.349Z","EditLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#VaTmgvSFTKhmt0ZnjpXnHv2-7YxG0fE7W4d-l3Rg1HI$*","IsBeta":true,"LastPageViewed":null,"Number":8,"Order":null,"Origin":{"City":null,"CountryCode":null,"IpAddress":"202.0.188.100","IsImported":false,"Region":null,"Timezone":null,"UserAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36"},"Timestamp":"2022-06-21T09:50:47.796Z","Version":3,"ViewLink":"https://www.cognitoforms.com/HeadStudios1/BasicContactForm#ww_b3bF2m-Zz7a78Jib2clcgkjzdJaNZV6MffK5fkUE$*","Status":"Submitted","Document1":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=siTZBVno24isiSbO1Il59n0aEs7v9xFK4V2LTCb1sLg$","Document2":"https://www.cognitoforms.com/d/T-ePMCsVsEGSeY9MIsr5kA?code=iyjaJ2pZCxIObZQpWQ89_4SJX3I9A7v-dlrNwdeoHvc$"},"Id":"1-8"}';
-$json_loader = json_decode($json_loader, true);
+$json_loader = json_decode($formidable_loader, true);
 //$json_loader = json_decode(file_get_contents('php://input'), true);
 $json_loader = array_change_key_case($json_loader,CASE_LOWER);
+$json_loader = $json_loader[0]; // remove this if not using Formidable Forms
 
-$zoho = new ZohoInvoice('1000.05ce10e0f7cc73eadd257a107de66154.39f84e9f39a12c1b01c7bf4b09676706');
+$zoho = new ZohoInvoice($env);
 $contact_id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
 $filtered = $zoho->lineItemParser($json_loader['products']);
 $id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
@@ -98,6 +100,12 @@ class In_n_Out {
     
     }
 
+    function cleanseFormidableArray(array $input) {
+        unset($input['form']);
+        $input = array_values($input);
+        return $input;
+    }
+
     function talk_your_shit() {
 
         var_dump($this->its_all_mine);
@@ -106,12 +114,13 @@ class In_n_Out {
 
     function terms_spit($terms_array) {
 
+        $terms_array = $this->cleanseFormidableArray($terms_array);
         $terms_html = '';
 
         foreach($terms_array as $term) {
 
-            $headline = $term['Headline'];
-            $description = $term['Description'];
+            $headline = $term['headline'];
+            $description = $term['description2'];
 
             $terms_html .= '<h3>'.$headline.'</h3>
             <p>'.$description.'</p>';
@@ -123,15 +132,17 @@ class In_n_Out {
 
     function table_spit($table_array,$num=1) {
 
+        $table_array = $this->cleanseFormidableArray($table_array);
+
        //$table = '<table>';
        if($num==1) {
        $table = '';
        foreach($table_array as $keybit) {
 
             $table .= '<tr>';
-            $table .= '<td>'.$keybit['ProductName'].'</td>';
-            $table .= '<td>'.$keybit['ProductFeature'].'</td>';
-            $table .= '<td>'.$keybit['ProductBenefit'].'</td>';
+            $table .= '<td>'.$keybit['productname'].'</td>';
+            $table .= '<td>'.$keybit['productfeature'].'</td>';
+            $table .= '<td>'.$keybit['productbenefit'].'</td>';
             $table .= '</tr>';
 
         }
@@ -143,10 +154,10 @@ class In_n_Out {
         foreach($table_array as $keybit) {
 
             $table .= '<tr>';
-            $table .= '<td>'.$keybit['Name'].'</td>';
-            $table .= '<td>'.$keybit['Position'].'</td>';
-            $table .= '<td>'.$keybit['Contact'].'</td>';
-            $table .= '<td>'.$keybit['Responsibility'].'</td>';
+            $table .= '<td>'.$keybit['name'].'</td>';
+            $table .= '<td>'.$keybit['position'].'</td>';
+            $table .= '<td>'.$keybit['contact'].'</td>';
+            $table .= '<td>'.$keybit['responsibility'].'</td>';
             $table .= '</tr>';
 
         }
@@ -158,9 +169,9 @@ class In_n_Out {
             foreach($table_array as $keybit) {
     
                 $table .= '<tr>';
-                $table .= '<td>'.$keybit['Activity'].'</td>';
-                $table .= '<td>'.$keybit['Description'].'</td>';
-                $table .= '<td>'.$keybit['Date2'].'</td>';
+                $table .= '<td>'.$keybit['activity'].'</td>';
+                $table .= '<td>'.$keybit['description'].'</td>';
+                $table .= '<td>'.$keybit['date2'].'</td>';
                 $table .= '</tr>';
     
             }
@@ -541,8 +552,7 @@ $response = $client->sendSignatureRequest($request);
 
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
   ->setUsername('kosta@headstudios.com.au')
-  ->setPassword('qtyukdpcwupqiczw')
-;
+  ->setPassword($env['smtp_pass']);
 $mailer = new Swift_Mailer($transport);
 
 $message = (new Swift_Message())
