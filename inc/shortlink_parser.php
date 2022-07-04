@@ -1,18 +1,5 @@
 <?php
 
-
-$input_json = '[{"action":"linkcreator"},{"ID":"recpuIDwtkOxhYyLO","Name":"Kosta  Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["0412 826 569"]},{"ID":"rec2nv7qKlwU5jmbV","Name":"Kostya Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["+61412 826 569"]},{"ID":"recHeks3mMpdTZnvE","Name":"Konstantin Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["4128 265 69"]}]';
-$input = json_decode($input_json, true);
-unset($input[0]);
-$input = array_values($input);
-global $env;
-
-$parser = new ShortlinkParser($input, $env);
-$parser->createShortLinks();
-$parser->og_setup();
-$parser->input_array = array('action'=>'linkcreator','data'=>$parser->input_array);
-echo json_encode($parser->input_array);
-
 class ShortlinkParser {
 
     protected $short_api;
@@ -137,7 +124,8 @@ class ShortlinkParser {
 
         $image = \WideImage\WideImage::loadFromFile($url);
         $canvas = $image->getCanvas();
-        $canvas->useFont('../fonts/arialblack.ttf', 100, $image->allocateColor(76, 75, 75)); 
+        $font_url = $_SERVER['DOCUMENT_ROOT'].'/fonts/airalblack.ttf';
+        $canvas->useFont($font_url, 100, $image->allocateColor(76, 75, 75)); 
         $canvas->writeText('42', '135', $name);
         $file = '../images/'.$name.rand(1,100).'.jpg';
         $file = str_replace(' ', '_', $file);
