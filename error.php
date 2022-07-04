@@ -1,6 +1,9 @@
 <?php
 namespace Whoops\Example;
 
+$error_url = $_SERVER['DOCUMENT_ROOT'].'/errors/php-error.log';
+ini_set("error_log", "/tmp/php-error.log");
+
 /* Please change the commented out lines to JsonResponseHandler() when pushing API live for AirTable integration */
 
 use Exception as BaseException;
