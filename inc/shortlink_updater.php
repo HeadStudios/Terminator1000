@@ -12,9 +12,10 @@ class ShortLinkUpdater {
     protected $env;
     protected $airtable_io;
 
-    function __construct($env) {
+    function __construct($input_array, $env) {
         $this->client = new GuzzleHttp\Client();
         $this->env = $env;
+        $this->airtable_io = $input_array;
     }
 
     function getRawClicks() {
