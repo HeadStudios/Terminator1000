@@ -15,11 +15,11 @@ require "inc/shortlink_parser.php";
 
 
 
-//$input_array = json_decode(file_get_contents('php://input'), true);
-$input_json = '[{"action":"linkcreator"},{"ID":"recpuIDwtkOxhYyLO","Name":"Kosta  Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["0412 826 569"]},{"ID":"rec2nv7qKlwU5jmbV","Name":"Kostya Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["+61412 826 569"]},{"ID":"recHeks3mMpdTZnvE","Name":"Konstantin Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["4128 265 69"]}]';
+$input_array = json_decode(file_get_contents('php://input'), true);
+//$input_json = '[{"action":"linkcreator"},{"ID":"recpuIDwtkOxhYyLO","Name":"Kosta  Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["0412 826 569"]},{"ID":"rec2nv7qKlwU5jmbV","Name":"Kostya Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["+61412 826 569"]},{"ID":"recHeks3mMpdTZnvE","Name":"Konstantin Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","Mobile":["4128 265 69"]}]';
 //$input_json = '[{"action":"linkcreator"},{"ID":"recuzRFg2qineOdif","Name":"Greg Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"rec8TYEXKv0JIkWI5","Name":"Ben Jackson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"receW4MHxewRxP66u","Name":"Kylie Squire","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recdtbmdoq5yGWocB","Name":"Randal Wilson","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recF0HUGaZLidAztD","Name":"Steve Gott","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recqhk5JxvtQUyDGp","Name":"Teng Li","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recSnLBenVGQ24o0i","Name":"Bill Kondylis","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"},{"ID":"recEcYXyeEK3al4tR","Name":"Adrian Garcia","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"","LinkID":"","image":"https://dl.airtable.com/.attachments/5e04257d3c3a726f89b969731a36ffc8/6bfeb562/Courtney54.jpg"}]';
 //$input_json = '[{"action":"smssender"},{"ID":"recpuIDwtkOxhYyLO","Name":"Kosta  Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/kostas-terminator","LinkID":"lnk_1LHi_2mHMTF","Mobile":["0412 826 569"]},{"ID":"rec2nv7qKlwU5jmbV","Name":"Kostya Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/kostyas-terminator","LinkID":"lnk_1LHi_2mHMTG","Mobile":["+61412 826 569"]},{"ID":"recHeks3mMpdTZnvE","Name":"Konstantin Kondratenko","URL":"https://headstudios.com.au/for_you/sales-terminator-army-generator/","Shortlink":"https://showme.headstudios.com.au/konstantins-terminator","LinkID":"lnk_1LHi_2mHMTH","Mobile":["4128 265 69"]}]';
-$input_array = json_decode($input_json, true);
+$input_array = json_decode($input_array, true);
 
 
 $benew = new FeedMe($input_array);
@@ -203,19 +203,13 @@ class ConnectorForMe extends ConcreteFoundation {
 
             if(isset($res['error'])) { continue; } else {
             $key = array_search($res['path'], array_column($this->input_token, 'path')); }
-            MyFun::console_log('Individual res item is: ');
-            MyFun::console_log($res);
-          
-          MyFun::console_log("Inside response_a loop - res is: ");
-          MyFun::console_log($res);
+
           if($key) {
           $this->input_token[$key]['originalURL'] = $res['originalURL'];
           $this->input_token[$key]['secureShortURL'] = $res['secureShortURL'];
           }
         }
           //return json_decode($response->getBody(),true);
-          MyFun::console_log('this->response is being set to: ');
-          MyFun::console_log(json_decode($response->getBody(), true));
           $this->response = json_decode($response->getBody(),true);
 
           
@@ -233,14 +227,9 @@ class ConnectorForMe extends ConcreteFoundation {
 
           $shortit_injection = array();
 
-          MyFun::console_log('Input token is: ');
-          MyFun::console_log($this->input_token);
-
           foreach($this->input_token as $record) {
 
             $key = array_search($record['Name'], array_column($this->input_token, 'Name'));
-
-            MyFun::console_log('Key number for '.$record['ID'].'is : '.$key);
             $name = $record['Name'];
             $name = strtok($name, " ");
             $display_name = $name;
@@ -248,9 +237,6 @@ class ConnectorForMe extends ConcreteFoundation {
             $name = $name.'s-terminator';
             $url = $record['URL'].'?fname='.$display_name;
             $id = $record['ID'];
-            MyFun::console_log('Record full name is: '.$record['Name']);
-            MyFun::console_log('Record full name when pathed is: '.$this->input_token[$key]['Name']);
-            MyFun::console_log('The Path is: '.$name);
             //$record['path'] = $name;
             //$record['displayName'] = $display_name;
 
@@ -274,11 +260,6 @@ class ConnectorForMe extends ConcreteFoundation {
           $response = $this->response;
           $injector = $this->shortit_injection;
 
-          MyFun::console_log('this->response is: ');
-          MyFun::console_log($this->response);
-          MyFun::console_log('Injector variable in link combinator is: ');
-          MyFun::console_log($this->shortit_injection);
-
 
           
          
@@ -301,11 +282,6 @@ class ConnectorForMe extends ConcreteFoundation {
             $this->input_token[$key]['shortURL'] = $shortUrl;
             $this->input_token[$key]['LinkID'] = $link_id;
             $this->input_token[$key]['displayName'] = $name;
-            MyFun::console_log('Airtable return[key] just got placed and it is here:');
-            MyFun::console_log($airtable_return[$key]);
-            MyFun::console_log('Interestingly enough the original input token key is: ');
-            MyFun::console_log($this->input_token[$key]);
-            MyFun::console_log('Do you see a match above?');
           
             }
 
@@ -316,27 +292,16 @@ class ConnectorForMe extends ConcreteFoundation {
           var_dump($airtable_return);
           die();
           $this->airtable_return = $airtable_return;
-
-          MyFun::console_log('The final airtable return for $this->airtable_return is:');
-          MyFun::console_log($this->airtable_return);
         }
 
         function og_combinator($injector) {
 
-          MyFun::console_log('Input token is referenced below: ');
-          MyFun::console_log($this->input_token);
-
           $injector = $this->airtable_return;
 
-          MyFun::console_log('Injector for og combinator prior to image create is: ');
-          MyFun::console_log($injector);
 
           
 
           foreach($this->input_token as $inject) {
-
-            MyFun::console_log('For some strange reason injector combinator is empty yet loop gets played... this is the individual $inject ');
-            MyFun::console_log($inject);
 
             if(isset($inject['displayName'])&&isset($inject['LinkID'])) {
 
