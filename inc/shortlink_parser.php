@@ -124,10 +124,10 @@ class ShortlinkParser {
 
         $image = \WideImage\WideImage::loadFromFile($url);
         $canvas = $image->getCanvas();
-        $font_url = $_SERVER['DOCUMENT_ROOT'].'/fonts/airalblack.ttf';
+        $font_url = $_SERVER['DOCUMENT_ROOT'].'/fonts/arialblack.ttf';
         $canvas->useFont($font_url, 100, $image->allocateColor(76, 75, 75)); 
         $canvas->writeText('42', '135', $name);
-        $file = '../images/'.$name.rand(1,100).'.jpg';
+        $file = $_SERVER['DOCUMENT_ROOT'].'/images/'.$name.rand(1,100).'.jpg';
         $file = str_replace(' ', '_', $file);
         $image->saveToFile($file);
         $complete = $this->env['url'].$file;
