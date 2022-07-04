@@ -43,7 +43,7 @@ class FeedMe {
     unset($input_array[0]); 
     $input_array = array_values($input_array);
     global $env;
-    $parser = new ShortLinkParser($input_array, $env);
+    $parser = new ShortLinkUpdater($input_array, $env);
     $parser->getRawClicks()->filterClicks();
     $parser->getClicks($input_array);
     $parser->output();
