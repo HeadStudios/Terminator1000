@@ -1,6 +1,6 @@
 let table = base.getTable("SMS");
-let view = table.getView("All");
-let query = await view.selectRecordsAsync({fields: ["Contact","Shortlink","URL","LinkID","Image"]});
+let view = await input.viewAsync("Pick a view", "SMS");
+let query = await view.selectRecordsAsync({fields: ["Contact","Mobile","Shortlink","URL","LinkID","Image"]});
 
 var json_payload = [];
 
@@ -9,7 +9,8 @@ let action = await input.buttonsAsync(
     [
         
         {label: 'Create Shortlinks', value: 'linkcreator', variant: 'primary'},
-        {label: 'Update Link Clicks', value: 'linkupdater', variant: 'secondary' }
+        {label: 'Update Link Clicks', value: 'linkupdater', variant: 'secondary' },
+        {label: 'Send SMS', value: 'smssender', variant: 'secondary' }
         
     ],
 );
@@ -28,6 +29,7 @@ for (let record of query.records) {
     let URL = record.getCellValueAsString("URL");
     let linkID = record.getCellValueAsString("LinkID");
     let imageURL = record.getCellValue("Image");
+    let mobile = record.getCellValue("Mobile");
 
     individual_injection = {
         'ID': record.id,
@@ -35,7 +37,8 @@ for (let record of query.records) {
         'URL': URL,
         'Shortlink' : shortlink,
         'LinkID' : linkID,
-        'image' : imageURL[0]['url']
+        'Mobile' : mobile
+        //'image' : imageURL[0]?.url //['url']
     };
 
     json_payload.push(individual_injection);
@@ -45,8 +48,6 @@ for (let record of query.records) {
 
 
 console.log(JSON.stringify(json_payload));
-
-throw new Error('Check stringify')
 
 let response = await remoteFetchAsync('http://147.182.192.192/speech.php', {
     method: 'POST',
@@ -63,28 +64,47 @@ let response = await remoteFetchAsync('http://147.182.192.192/speech.php', {
     console.log("The length of body is: " + body.length);
     console.log(JSON.stringify(body));
 
-    switch(body[0]['action']) {
-    case 'linkcreator':
-    console.log("I'm within the switch statement");
-    delete body[0];
-    console.log(JSON.stringify(body));
-    for (var key in body) {
-        console.log("We are in loop number " + key);
-        RecordID = body[key].recordID;
-        console.log("Record ID is: " + RecordID);
-        ShortLink = body[key].shortURL;
-        console.log("Shortlink is :" + ShortLink);
-        LinkID = body[key].linkID;
-        console.log("LinkID is: " + LinkID);
-        Clicks = body[key].clicks;
-        await table.updateRecordAsync(RecordID, {
-            "LinkID": LinkID,
-            "Shortlink": ShortLink
-            //"Clicks": Clicks
+    let data = body['data'];
+    action = body['action'];
 
-        });       
-      }
+    switch(action) {
+    case 'linkcreator':
+        console.log("We are in link creator");
+         console.log(JSON.stringify(body));
+        for (var key in data) {
+            console.log("We are in loop number " + key);
+            RecordID = data[key].ID;
+            console.log("Record ID is: " + RecordID);
+            ShortLink = data[key].secureShortURL;
+            console.log("Shortlink is :" + ShortLink);
+            LinkID = data[key].LinkID;
+            console.log("LinkID is: " + LinkID);
+            //Clicks = data[key].clicks;
+            await table.updateRecordAsync(RecordID, {
+                "LinkID": LinkID,
+                "Shortlink": ShortLink,
+
+            });       
+        }
       break;
+      case 'linkupdater':
+        console.log("We are in link updater");
+        console.log(JSON.stringify(body));
+        for (var key in data) {
+            console.log("We are in loop number " + key);
+            RecordID = data[key].ID;
+            console.log("Record ID is: " + RecordID);
+            ShortLink = data[key].secureShortURL;
+            console.log("Shortlink is :" + ShortLink);
+            LinkID = data[key].LinkID;
+            console.log("LinkID is: " + LinkID);
+            //Clicks = data[key].clicks;
+            await table.updateRecordAsync(RecordID, {
+                "LinkID": LinkID,
+                "Shortlink": ShortLink,
+
+            });       
+        }
     }
 
     console.log("If you see this we have made it home Master Wayne");

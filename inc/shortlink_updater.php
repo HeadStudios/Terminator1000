@@ -77,6 +77,7 @@ class ShortLinkUpdater {
     }
 
     function output() {
+        $this->airtable_io = array('action'=>'linkupdater', 'data' => $this->airtable_io);
         echo json_encode($this->airtable_io);
     }
 
