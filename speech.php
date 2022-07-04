@@ -9,7 +9,6 @@ require "click-vars.php";
 require "error.php";
 require "inc/shortlink_parser.php";
 require "inc/sms_class.php";
-require "inc/shortlink_parser.php";
 
 
 
