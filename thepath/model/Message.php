@@ -740,47 +740,48 @@ class Message extends Entity implements JsonSerializable
                         $groupMessagesCount = 0;
                         foreach ($messagesChunksDevice as $simSlotIndex => $messagesSim) {
                             foreach ($messagesSim as $message) {
-                                if (empty($message["number"]) || (!(isset($message["message"]) && trim($message["message"]) !== ''))) {
+                                if (!isset($message["message"]) || trim($message["message"]) === '') {
+                                    if ($message["type"] === 'sms' || ($message["type"] === 'mms' && empty($message["attachments"]))) {
+                                        throw new Exception(__("error_invalid_request_format"));
+                                    }
+                                } elseif (empty($message["number"])) {
                                     throw new Exception(__("error_invalid_request_format"));
+                                } elseif (!isValidMobileNumber($message["number"])) {
+                                    throw new Exception(__("error_use_valid_number"));
+                                }
+                                $obj = new Message();
+                                $obj->setNumber($message["number"]);
+                                if (isset($footerText)) {
+                                    $messageText = $message["message"];
+                                    $messageText .= "\n\n{$footerText}";
+                                    $obj->setMessage($messageText);
                                 } else {
-                                    if (isValidMobileNumber($message["number"])) {
-                                        $obj = new Message();
-                                        $obj->setNumber($message["number"]);
-                                        if (isset($footerText)) {
-                                            $messageText = $message["message"];
-                                            $messageText .= "\n\n{$footerText}";
-                                            $obj->setMessage($messageText);
-                                        } else {
-                                            $obj->setMessage($message["message"]);
-                                        }
-                                        if (is_null($schedule)) {
-                                            $obj->setStatus("Pending");
-                                        } else {
-                                            $obj->setStatus("Scheduled");
-                                            $obj->setSchedule($schedule);
-                                        }
-                                        $obj->setPrioritize($prioritize);
-                                        if (isset($message["type"])) {
-                                            $obj->setType($message["type"]);
-                                            if (isset($message["attachments"]) && $message["type"] === "mms") {
-                                                $obj->setAttachments($message["attachments"]);
-                                            }
-                                        }
-                                        $obj->setDeviceID($deviceID);
-                                        $obj->setExpiryDate($user->getExpiryDate());
-                                        $obj->setUserID($user->getID());
-                                        $obj->setGroupID($groupID);
-                                        if ($simSlotIndex !== "") {
-                                            $obj->setSimSlot($simSlotIndex);
-                                        }
-                                        $obj->setSentDate(date("Y-m-d H:i:s"));
-                                        $obj->save();
-                                        $msgObjects[] = $obj;
-                                        $groupMessagesCount++;
-                                    } else {
-                                        throw new Exception(__("error_use_valid_number"));
+                                    $obj->setMessage($message["message"]);
+                                }
+                                if (is_null($schedule)) {
+                                    $obj->setStatus("Pending");
+                                } else {
+                                    $obj->setStatus("Scheduled");
+                                    $obj->setSchedule($schedule);
+                                }
+                                $obj->setPrioritize($prioritize);
+                                if (isset($message["type"])) {
+                                    $obj->setType($message["type"]);
+                                    if (isset($message["attachments"]) && $message["type"] === "mms") {
+                                        $obj->setAttachments($message["attachments"]);
                                     }
                                 }
+                                $obj->setDeviceID($deviceID);
+                                $obj->setExpiryDate($user->getExpiryDate());
+                                $obj->setUserID($user->getID());
+                                $obj->setGroupID($groupID);
+                                if ($simSlotIndex !== "") {
+                                    $obj->setSimSlot($simSlotIndex);
+                                }
+                                $obj->setSentDate(date("Y-m-d H:i:s"));
+                                $obj->save();
+                                $msgObjects[] = $obj;
+                                $groupMessagesCount++;
                             }
                         }
                         $groups[$deviceID]["count"] = $groupMessagesCount;

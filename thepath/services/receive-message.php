@@ -5,7 +5,7 @@ require_once __DIR__ . "/../config.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
 date_default_timezone_set(TIMEZONE);
-set_time_limit(20);
+set_time_limit(60);
 
 try {
     if (isset($_POST["androidId"]) && isset($_POST["userId"]) && isset($_POST["messages"])) {

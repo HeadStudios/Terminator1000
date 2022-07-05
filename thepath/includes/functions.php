@@ -219,6 +219,13 @@ function sendEmail(array $from, array $to, string $subject, string $body, array 
                     $mail->Username = Setting::get("smtp_username");
                     $mail->Password = Setting::get("smtp_password");
                 }
+                $mail->SMTPOptions = [
+                    'ssl' => [
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    ]
+                ];
             }
         }
         $mail->isHTML(true);

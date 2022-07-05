@@ -6,12 +6,19 @@
 try {
     require_once __DIR__ . "/../includes/login.php";
 
-    if (empty($_POST["mobileNumber"]) || empty($_POST["devices"]) || empty($_POST["message"])) {
+    if (empty($_POST["mobileNumber"]) || empty($_POST["devices"]) || ($_POST["type"] === 'sms' && empty($_POST["message"]))) {
         throw new Exception(__("error_missing_fields"));
     } else {
         $messages = [];
         $attachments = $logged_in_user->upload("attachments");
-        $attachments = count($attachments) > 0 ? implode(',', $attachments) : null;
+        if (count($attachments) > 0) {
+            $attachments = implode(',', $attachments);
+        } else {
+            if ($_POST["type"] === 'mms' && empty($_POST["message"])) {
+                throw new Exception(__("error_missing_fields"));
+            }
+            $attachments = null;
+        }
         $mobileNumbers = explode(",", $_POST["mobileNumber"]);
         foreach ($mobileNumbers as $mobileNumber) {
             $messages[] = ['number' => $mobileNumber, 'message' => $_POST["message"], 'attachments' => $attachments, 'type' => $_POST["type"]];

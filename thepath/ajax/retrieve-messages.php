@@ -100,7 +100,7 @@ try {
                     $path = rawurldecode($attachment);
                     $fileName = substr(basename($path), 5);
                     if (filter_var($attachment, FILTER_VALIDATE_URL)) {
-                        $messageText .= "<a href='{$attachment}' target='_blank'><i style='font-size: 20px' class='ion ion-android-attach'></i>&nbsp;{$attachment}</a>";
+                        $messageText .= "<a href='{$attachment}' target='_blank'><i style='font-size: 20px' class='fa fa-paperclip'></i>&nbsp;{$attachment}</a>";
                     } else if (file_exists(__DIR__ . "/../{$path}")) {
                         $attr = '';
                         if (isset($_COOKIE["DEVICE_ID"])) {
