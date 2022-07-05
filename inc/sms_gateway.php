@@ -7,7 +7,7 @@ define("USE_ALL_DEVICES", 1);
 define("USE_ALL_SIMS", 2);
 
 $attachments = __DIR__."/og_pizza.jpg";
-$attachments = 'https://dl.airtable.com/.attachments/4ff36e38a676b3bb9f4faae5f04aab97/457660e5/og_pizza.jpg';
+$attachments = 'http://147.182.192.192/videos/shortest_video.mp4';
 $msg = sendSingleMessage("0412826569", "This is a test of single message.", 1, null, true, $attachments);
 
 /**
