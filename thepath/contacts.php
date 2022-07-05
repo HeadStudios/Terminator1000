@@ -194,7 +194,7 @@ require_once __DIR__ . "/includes/header.php";
                                                 class="fa fa-info-circle"
                                                 data-toggle="tooltip"
                                                 title="<?= __('tooltip_attachments'); ?>"></i></label>
-                                    <input type="file" name="attachments[]" accept=".jpg,.jpeg,.png,.gif,.aac,.3gp,.amr,.mp3,.m4a,.wav,.mp4,.txt,.vcf"
+                                    <input type="file" name="attachments[]" accept=".jpg,.jpeg,.png,.gif"
                                            id="attachmentsInput" multiple>
                                 </div>
                                 <div class="form-group">
@@ -212,7 +212,8 @@ require_once __DIR__ . "/includes/header.php";
                                 <div class="form-group">
                                     <label for="messageInput"><?= __("message"); ?></label>
                                     <textarea class="form-control" id="messageInput" name="message" rows="4"
-                                              placeholder="<?= __("contacts_message_placeholder"); ?>"></textarea>
+                                              placeholder="<?= __("contacts_message_placeholder"); ?>"
+                                              required="required"></textarea>
                                 </div>
                                 <ul id="sms-counter" hidden="hidden">
                                     <li>Encoding: <span class="encoding"></span></li>

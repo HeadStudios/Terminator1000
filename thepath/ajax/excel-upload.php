@@ -16,10 +16,11 @@ try {
             require_once __DIR__ . "/../includes/read-excel.php";
             /** @var string $tempFilePath */
             $messages = array();
+            $requiredColumns = 1;
             $attachments = $logged_in_user->upload("attachments");
             $attachments = count($attachments) > 0 ? implode(',', $attachments) : null;
-            if (empty($_POST["message"]) && ($_POST["type"] === 'sms' || ($_POST["type"] === 'mms' && empty($attachments)))) {
-                throw new Exception(__("error_missing_fields"));
+            if (empty($_POST["message"])) {
+                $requiredColumns = 2;
             }
             $reader = ReaderEntityFactory::createReaderFromFile($_FILES['file']['name']);
             $reader->open($tempFilePath);
@@ -33,11 +34,15 @@ try {
                         $headers = $columns;
                         array_walk_recursive($headers, 'sanitizeByReference');
                     }
-                    if (count($columns) >= 1) {
+                    if (count($columns) >= $requiredColumns) {
                         $number = sanitize($columns[0]);
                         if (isValidMobileNumber($number)) {
-                            $message = $_POST["message"];
-                            if (!empty($message)) {
+                            if (empty($_POST["message"])) {
+                                if (trim($columns[1]) !== '') {
+                                    array_push($messages, array("number" => $number, "message" => $columns[1], "attachments" => $attachments, 'type' => $_POST["type"]));
+                                }
+                            } else {
+                                $message = $_POST["message"];
                                 for ($i = 0; $i < count($columns); $i++) {
                                     $currentColumn = sanitize($columns[$i]);
                                     $columnNumber = $i + 1;
@@ -50,8 +55,8 @@ try {
                                         $message = str_ireplace("%col-{$columnNumber}%", $currentColumn, $message);
                                     }
                                 }
+                                array_push($messages, array("number" => $number, "message" => $message, "attachments" => $attachments, 'type' => $_POST["type"]));
                             }
-                            array_push($messages, array("number" => $number, "message" => $message, "attachments" => $attachments, 'type' => $_POST["type"]));
                         }
                     }
                     unset($columns);

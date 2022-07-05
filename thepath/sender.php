@@ -93,7 +93,7 @@ require_once __DIR__ . "/includes/header.php";
                             <label for="attachmentsInput"><?= __("attachments"); ?>&nbsp;<i class="fa fa-info-circle"
                                                                                             data-toggle="tooltip"
                                                                                             title="<?= __('tooltip_attachments'); ?>"></i></label>
-                            <input type="file" name="attachments[]" accept=".jpg,.jpeg,.png,.gif,.aac,.3gp,.amr,.mp3,.m4a,.wav,.mp4,.txt,.vcf" id="attachmentsInput"
+                            <input type="file" name="attachments[]" accept=".jpg,.jpeg,.png,.gif" id="attachmentsInput"
                                    multiple>
                         </div>
                         <div class="form-group">
@@ -111,7 +111,8 @@ require_once __DIR__ . "/includes/header.php";
                         <div class="form-group">
                             <label for="messageInput"><?= __("message"); ?></label>
                             <textarea class="form-control" id="messageInput" data-counter="#smsCounter" name="message" rows="4"
-                                      placeholder="<?= __("message"); ?>"></textarea>
+                                      placeholder="<?= __("message"); ?>"
+                                      required="required"></textarea>
                         </div>
                         <ul id="smsCounter" hidden="hidden">
                             <li>Encoding: <span class="encoding"></span></li>
@@ -198,7 +199,7 @@ require_once __DIR__ . "/includes/header.php";
                                 <label for="attachmentsMultipleInput"><?= __("attachments"); ?>&nbsp;<i
                                             class="fa fa-info-circle" data-toggle="tooltip"
                                             title="<?= __('tooltip_attachments'); ?>"></i></label>
-                                <input type="file" name="attachments[]" accept=".jpg,.jpeg,.png,.gif,.aac,.3gp,.amr,.mp3,.m4a,.wav,.mp4,.txt,.vcf"
+                                <input type="file" name="attachments[]" accept=".jpg,.jpeg,.png,.gif"
                                        id="attachmentsMultipleInput" multiple>
                             </div>
                             <div class="form-group">

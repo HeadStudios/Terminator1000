@@ -7,7 +7,7 @@ try {
     require_once __DIR__ . "/../includes/ajax_protect.php";
     require_once __DIR__ . "/../includes/login.php";
 
-    if (empty($_POST["contactsList"]) || empty($_POST["devices"]) || ($_POST["type"] === 'sms' && empty($_POST["message"]))) {
+    if (empty($_POST["contactsList"]) || empty($_POST["devices"]) || empty($_POST["message"])) {
         throw new Exception(__("error_missing_fields"));
     } else {
         if (ContactsList::getContactsList($_POST["contactsList"], $_SESSION["userID"])) {
@@ -19,14 +19,7 @@ try {
             } else {
                 $messages = [];
                 $attachments = $logged_in_user->upload("attachments");
-                if (count($attachments) > 0) {
-                    $attachments = implode(',', $attachments);
-                } else {
-                    if ($_POST["type"] === 'mms' && empty($_POST["message"])) {
-                        throw new Exception(__("error_missing_fields"));
-                    }
-                    $attachments = null;
-                }
+                $attachments = count($attachments) > 0 ? implode(',', $attachments) : null;
                 foreach ($contacts as $contact) {
                     $number = $contact->getNumber();
                     $message = $contact->getMessage($_POST["message"]);
