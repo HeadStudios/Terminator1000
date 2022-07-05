@@ -287,8 +287,7 @@ require_once __DIR__ . "/includes/header.php";
                                 <label for="messageReplyInput"><?= __("message"); ?></label>
                                 <textarea class="form-control" id="messageReplyInput" data-counter="#smsCounter"
                                           name="message" rows="4"
-                                          placeholder="<?= __("message"); ?>"
-                                          required="required"></textarea>
+                                          placeholder="<?= __("message"); ?>"></textarea>
                             </div>
                             <ul id="smsCounter" hidden="hidden">
                                 <li>Encoding: <span class="encoding"></span></li>

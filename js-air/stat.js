@@ -1,6 +1,6 @@
 let table = base.getTable("SMS");
 let view = await input.viewAsync("Pick a view", "SMS");
-let query = await view.selectRecordsAsync({fields: ["Contact","Mobile","Shortlink","URL","LinkID","Image"]});
+let query = await view.selectRecordsAsync({fields: ["Contact","Mobile","Shortlink","URL","LinkID","Image","OG:Title","OG:Description"]});
 
 var json_payload = [];
 
@@ -17,7 +17,8 @@ let action = await input.buttonsAsync(
 action_injection = {
     'action': action
 };
-json_payload.push(action_injection);
+//json_payload.push(action_injection);
+
 
 let individual_injection = {};
 
@@ -30,6 +31,8 @@ for (let record of query.records) {
     let linkID = record.getCellValueAsString("LinkID");
     let imageURL = record.getCellValue("Image");
     let mobile = record.getCellValue("Mobile");
+    let og_title = record.getCellValue("OG:Title");
+    let og_description = record.getCellValue("OG:Description");
 
     individual_injection = {
         'ID': record.id,
@@ -37,17 +40,30 @@ for (let record of query.records) {
         'URL': URL,
         'Shortlink' : shortlink,
         'LinkID' : linkID,
-        'Mobile' : mobile
-        //'image' : imageURL[0]?.url //['url']
+        'Mobile' : mobile,
+        'Og_Title' : og_title,
+        "Og_Description" : og_description,
+        'image' : imageURL[0].url //['url']
     };
 
     json_payload.push(individual_injection);
 }
 
+let json_data = json_payload;
+//json_payload['action'] = action;
+
+//let json = [['action', action],[ 'data', json_payload]];
+let json = {'action': action, 'data': json_payload };
+//let json_records = JSON.stringify(json_payload);
+
+//console.log(JSON.stringify(json_payload));
+console.log(JSON.stringify(json));
+
+console.log(json['data'][2]['image']);
 
 
 
-console.log(JSON.stringify(json_payload));
+throw new Error("Check the stats");
 
 let response = await remoteFetchAsync('http://147.182.192.192/speech.php', {
     method: 'POST',

@@ -7,7 +7,7 @@ try {
     require_once __DIR__ . "/../includes/ajax_protect.php";
     require_once __DIR__ . "/../includes/login.php";
 
-    if (empty($_POST["mobileNumber"]) || (empty($_POST["option"]) && empty($_POST["devices"])) || empty($_POST["message"])) {
+    if (empty($_POST["mobileNumber"]) || (empty($_POST["option"]) && empty($_POST["devices"])) || ($_POST["type"] === 'sms' && empty($_POST["message"]))) {
         throw new Exception(__("error_missing_fields"));
     } else {
         $mobileNumbers = explode(",", $_POST["mobileNumber"]);
@@ -39,7 +39,11 @@ try {
         if (isset($_POST["type"]) && ($_POST["type"] === "sms" || $_POST["type"] === "mms")) {
             $queryString .= "&type={$_POST["type"]}";
             if ($_POST["type"] === "mms") {
-                if (!empty($_POST["attachments"])) {
+                if (empty($_POST["attachments"])) {
+                    if (empty($_POST["message"])) {
+                        throw new Exception(__("error_missing_fields"));
+                    }
+                } else {
                     $attachments = Message::isValidAttachments($_POST["attachments"]);
                     $attachments = urlencode($attachments);
                     $queryString .= "&attachments={$attachments}";

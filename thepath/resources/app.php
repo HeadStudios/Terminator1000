@@ -3,7 +3,7 @@
 $app_specific = [
     'application_title' => 'SMS Gateway',
     'application_description' => 'Use Your Phone as SMS Gateway',
-    'application_version' => '9.0.1',
+    'application_version' => '9.0.2',
     'app_version_code' => 33,
     'company_name' => 'RBSoft',
     'company_url' => 'https://rbsoft.org',

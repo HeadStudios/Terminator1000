@@ -764,7 +764,7 @@ class User extends Entity
      * @return array
      * @throws Exception
      */
-    public function upload(string $fieldName, array $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif']): array
+    public function upload(string $fieldName, array $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif', 'aac', '3gp', 'amr', 'mp3', 'm4a', 'wav', 'mp4', 'txt', 'vcf']): array
     {
         $attachments = [];
         if (isset($_FILES[$fieldName]['name'])) {

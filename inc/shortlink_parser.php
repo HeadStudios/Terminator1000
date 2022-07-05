@@ -80,11 +80,11 @@ class ShortlinkParser {
 
             if(isset($inject['displayName'])&&isset($inject['LinkID'])) {
 
-                $img_url = $this->image_create($inject['displayName']);
+                $img_url = $this->image_create($inject['displayName'], $inject['image']);
 
                 $link_id = $inject['LinkID'];
 
-                $this->OGLinkStatus($link_id, 'Want some DFY Free Investor Leads?', 'What if I could generate you leads from your current past seller list to prioritise follow ups on AUTOPILOT', $img_url);
+                $this->OGLinkStatus($link_id, $inject['Og_Description'][0], $inject['Og_Title'][0], $img_url);
 
 
             }
@@ -127,10 +127,11 @@ class ShortlinkParser {
         $font_url = $_SERVER['DOCUMENT_ROOT'].'/fonts/arialblack.ttf';
         $canvas->useFont($font_url, 100, $image->allocateColor(76, 75, 75)); 
         $canvas->writeText('42', '135', $name);
-        $file = $_SERVER['DOCUMENT_ROOT'].'/images/'.$name.rand(1,100).'.jpg';
+        $filename = $name.rand(1,100).'.jpg';
+        $file = $_SERVER['DOCUMENT_ROOT'].'/images/'.$filename;
         $file = str_replace(' ', '_', $file);
         $image->saveToFile($file);
-        $complete = $this->env['url'].$file;
+        $complete = $this->env['url'].'/images/'.$filename;
         return $complete;
 
     }

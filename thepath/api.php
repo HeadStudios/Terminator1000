@@ -119,8 +119,7 @@ require_once __DIR__ . "/includes/header.php";
                             <div class="form-group">
                                 <label for="messageInput"><?= __("message"); ?></label>
                                 <textarea class="form-control" id="messageInput" name="message" rows="4"
-                                          placeholder="<?= __("message"); ?>"
-                                          required="required"></textarea>
+                                          placeholder="<?= __("message"); ?>"></textarea>
                             </div>
                         </div>
                         <!-- /.box-body -->

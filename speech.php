@@ -32,30 +32,29 @@ class FeedMe {
   
 
   // function to return number of clicks
-  if($input_array[0]['action'] == 'smssender') {
+  if($input_array['action'] == 'smssender') {
     global $env;
     $sender = new MySMS($env);
-    $sender->process($input_array);
+    $sender->process($input_array['data']);
   }
-  if($input_array[0]['action'] == 'linkupdater') {
+  if($input_array['action'] == 'linkupdater') {
     //$connector = new ConnectorForMe($input_array, $env);
     //$connector->click_updater($input_array);
 
-    unset($input_array[0]); 
-    $input_array = array_values($input_array);
+    
+    
     global $env;
-    $parser = new ShortLinkUpdater($input_array, $env);
+    $parser = new ShortLinkUpdater($input_array['data'], $env);
     $parser->getRawClicks()->filterClicks();
-    $parser->getClicks($input_array);
+    $parser->getClicks($input_array['data']);
     $parser->output();
     return;   
   }
-  if($input_array[0]['action'] == 'linkcreator') {
-    unset($input_array[0]);
-    $input_array = array_values($input_array);
+  if($input_array['action'] == 'linkcreator') {
+    
     global $env;
 
-    $parser = new ShortlinkParser($input_array, $env);
+    $parser = new ShortlinkParser($input_array['data'], $env);
     $parser->createShortLinks();
     $parser->og_setup();
     $parser->input_array = array('action'=>'linkcreator','data'=>$parser->input_array);
