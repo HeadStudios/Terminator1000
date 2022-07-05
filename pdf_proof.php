@@ -568,8 +568,10 @@ $message = (new Swift_Message())
 $message->setBody(
 '<b>Your contract is here.</b>'
 );
-$message->addPart('This is some plain text', 'text/plain');
+$message->addPart('This is some <b>plain</b> text', 'text/plain');
 $message->attach(Swift_Attachment::fromPath('verynice.pdf'));
+$message->attach(Swift_Attachment::fromPath('how-to-accept.pdf'));
+$message->attach(Swift_Attachment::fromPath('guarantee.pdf'));
 $mailer->send($message);
 
 //============================================================+
