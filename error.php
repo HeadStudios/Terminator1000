@@ -1,6 +1,8 @@
 <?php
 namespace Whoops\Example;
 
+
+
 /*$error_url = $_SERVER['DOCUMENT_ROOT']
 ini_set("error_log", "/tmp/php-error.log");*/
 
@@ -61,3 +63,4 @@ $run->pushHandler(function ($exception, $inspector, $run) {
 });
 
 $run->register();
+  

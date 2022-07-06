@@ -61,24 +61,24 @@ console.log(JSON.stringify(json));
 
 console.log(json['data'][2]['image']);
 
-
-
-throw new Error("Check the stats");
-
 let response = await remoteFetchAsync('http://147.182.192.192/speech.php', {
     method: 'POST',
-    body: JSON.stringify(json_payload),
+    body: JSON.stringify(json),
     headers: {
-        'Content-Type': 'application/json',
-        'Authorization' : 'Basic d2h5d29udHlvdWNvbm5lY3Q6Y2N1WSAxWWhkIDdsTmkgMzdWSSB5MVlyIDYySEs='
+        'Content-Type': 'application/json'
     },
     });
 
+    console.log(response);
+
+    
     let body = await response.json();
 
     
     console.log("The length of body is: " + body.length);
     console.log(JSON.stringify(body));
+
+    if(body['status'] == 'error') { console.log("Yes, the error is picked up, and it is: " + body['data']); throw "Over"; }
 
     let data = body['data'];
     action = body['action'];

@@ -3,3 +3,4 @@ http_build.php
 ftp-sync.json
 images/
 errors/
+.DS_Store
