@@ -122,6 +122,8 @@ class ShortlinkParser {
 
     function image_create($name, $url='og_pizza.jpg') {
 
+        global $env;
+
         $image = \WideImage\WideImage::loadFromFile($url);
         $canvas = $image->getCanvas();
         $font_url = $_SERVER['DOCUMENT_ROOT'].'/fonts/arialblack.ttf';

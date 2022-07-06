@@ -12,7 +12,7 @@ require "inc/shortlink_updater.php";
 require "inc/sms_class.php";
 
 
-MyFun::throw_json('This is an error that is passed, you can see it in AirTable no?');
+
 
 
 $input_array = json_decode(file_get_contents('php://input'), true);
