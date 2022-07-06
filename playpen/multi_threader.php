@@ -11,7 +11,7 @@ for($i=0;$i<20;$i++) {
         "imgurl" => 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Basketball.png'
     ];
     echo "We are ".$i."</br>";
-    $promises[] = $client->requestAsync('POST', 'http://127.0.0.1:8000/playpen/image_create.php', [
+    $promises[] = $client->requestAsync('POST', 'http://147.182.192.192/playpen/image_create.php', [
         'headers' => [
             'Content-Type' => 'application/json'
         ],
