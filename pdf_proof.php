@@ -41,18 +41,265 @@ global $env;
 //$json_loader = '[{"id":"22","item_key":"s9br8","name":["Brian Gumble","Jessica Almond"],"description":["Get all the info","Get the ball moving","Kick the ball out of the park","This is the process by which we kick the ball over the wall"],"ip":"202.0.188.100","form_id":"3","post_id":"0","user_id":"1","parent_item_id":"0","is_draft":"0","updated_by":"1","created_at":"2022-07-02 05:25:35","updated_at":"2022-07-04 09:43:25","clientname":"Michael Berner","dgh33":"m.berner@gmail.com","clientcompany":"Berner Company & Co","websiteurl":"https:\/\/bernercandles.com.au","date":"July 13, 2022","date-value":"2022-07-13","clientaddress":"34 Berner Avenue, Bromengham 2012 QLD","emailbody":"Hey Joh,\r\n\r\nAre you ready for the real? \r\n\r\nThen let\'s do it!","execsummary":"It seems that we are in a strange position - the issue is:\r\n\r\n*Issue here*\r\nAnd we will fix it!","products":{"form":"4","i11":{"productname":"Product Name #1","productfeature":"Product Feature #1","productbenefit":"Product Benefit #1"},"i12":{"productname":"Product Name #2","productfeature":"Product Feature #2 - Description here","productbenefit":"Product Benefit #2 - Description here and here."},"i13":{"productname":"Product Name #3","productfeature":"Product Feature #3 - Description here and here.","productbenefit":"Product Benefit #3 - Description here and here."}},"productname":["Product Name #1","Product Name #2","Product Name #3"],"productfeature":["Product Feature #1","Product Feature #2 - Description here","Product Feature #3 - Description here and here."],"productbenefit":["Product Benefit #1","Product Benefit #2 - Description here and here.","Product Benefit #3 - Description here and here."],"stakeholders":{"form":"5","i14":{"name":"Brian Gumble","position":"Principal","contact":"0415932797 \/ j.smith@gmail.com","responsibility":"Make it real"},"i15":{"name":"Jessica Almond","position":"Property Manager","contact":"0432 451 332 \/ j.almond@headstudios.com.au","responsibility":"Oversee and make sure everything works well"}},"position":["Principal","Property Manager"],"contact":["0415932797 \/ j.smith@gmail.com","0432 451 332 \/ j.almond@headstudios.com.au"],"responsibility":["Make it real","Oversee and make sure everything works well"],"schedule":{"form":"7","i16":{"activity":"Start the Ball","description":"Get all the info","date2":"July 8, 2022","date2-value":"2022-07-08"},"i17":{"activity":"Roll the Ball","description":"Get the ball moving","date2":"July 14, 2022","date2-value":"2022-07-14"},"i18":{"activity":"Ball the Wall","description":"Kick the ball out of the park","date2":"July 22, 2022","date2-value":"2022-07-22"},"i31":{"activity":"Kick the ball over the wall","description":"This is the process by which we kick the ball over the wall","date2":"July 21, 2022","date2-value":"2022-07-21"}},"activity":["Start the Ball","Roll the Ball","Ball the Wall","Kick the ball over the wall"],"date2":["July 8, 2022","July 14, 2022","July 22, 2022","July 21, 2022"],"date2-value":["2022-07-08","2022-07-14","2022-07-22","2022-07-21"],"terms":{"form":"6","i19":{"headline":"Headline #1","description2":"Make sure you play ball"},"i20":{"headline":"Headline #2","description2":"Make sure you dunk the ball in"},"i21":{"headline":"Headline #3","description2":"Make sure you don\'t stumble"}},"headline":["Headline #1","Headline #2","Headline #3"],"description2":["Make sure you play ball","Make sure you dunk the ball in","Make sure you don\'t stumble"],"6ecxf":"username","6ecxf-value":"1"}]';
 //$json_loader = json_decode(file_get_contents('php://input'), true);
 //$formidable_loader = json_decode($json_loader);
-$json_loader = '[{"id":"22","item_key":"s9br8","name":["Brian Gumble\n","Jessica Almond\n"],"description":["Get all the info\n","Get the ball moving\n","Kick the ball out of the park\n","This is the process by which we kick the ball over the wall\n"],"ip":"202.0.188.100","form_id":"3","post_id":"0","user_id":"1","parent_item_id":"0","is_draft":"0","updated_by":"1","created_at":"2022-07-02 05:25:35","updated_at":"2022-07-05 09:13:44","clientname":"Michael Canotstandit","dgh33":"m.berner@gmail.com","clientcompany":"Berner Company & Co","websiteurl":"https:\/\/bernercandles.com.au","date":"July 13, 2022","date-value":"2022-07-13","clientaddress":"34 Berner Avenue, Bromengham 2012 QLD","emailbody":"Hey Joh,\nAre you ready for the real? \nThen let\'s do it!\n","emailbody-value":"Hey Joh,\r\n\r\nAre you ready for the real? \r\n\r\nThen let\'s do it!","execsummary":"It seems that we are in a strange position - the issue is:\n*Issue here*\nAnd we will fix it!\n","execsummary-value":"It seems that we are in a strange position - the issue is:\r\n\r\n*Issue here*\r\nAnd we will fix it!","products":{"form":"4","i11":{"productname":"Product Name #1\n","productname-value":"Product Name #1","productfeature":"Product Feature #1 - 5 July\n","productfeature-value":"Product Feature #1 - 5 July","productbenefit":"Product Benefit #1\n","productbenefit-value":"Product Benefit #1"},"i12":{"productname":"Product Name #2\n","productname-value":"Product Name #2","productfeature":"Product Feature #2 - Description here\n","productfeature-value":"Product Feature #2 - Description here","productbenefit":"Product Benefit #2 - Description here and here.\n","productbenefit-value":"Product Benefit #2 - Description here and here."},"i13":{"productname":"Product Name #3\n","productname-value":"Product Name #3","productfeature":"Product Feature #3 - Description here and here.\n","productfeature-value":"Product Feature #3 - Description here and here.","productbenefit":"Product Benefit #3 - Description here and here.\n","productbenefit-value":"Product Benefit #3 - Description here and here."}},"productname":["Product Name #1\n","Product Name #2\n","Product Name #3\n"],"productname-value":["Product Name #1","Product Name #2","Product Name #3"],"productfeature":["Product Feature #1 - 5 July\n","Product Feature #2 - Description here\n","Product Feature #3 - Description here and here.\n"],"productfeature-value":["Product Feature #1 - 5 July","Product Feature #2 - Description here","Product Feature #3 - Description here and here."],"productbenefit":["Product Benefit #1\n","Product Benefit #2 - Description here and here.\n","Product Benefit #3 - Description here and here.\n"],"productbenefit-value":["Product Benefit #1","Product Benefit #2 - Description here and here.","Product Benefit #3 - Description here and here."],"stakeholders":{"form":"5","i14":{"name":"Brian Gumble\n","name-value":"Brian Gumble","position":"Principal\n","position-value":"Principal","contact":"0415932797 \/ j.smith@gmail.com\n","contact-value":"0415932797 \/ j.smith@gmail.com","responsibility":"Make it real\n","responsibility-value":"Make it real"},"i15":{"name":"Jessica Almond\n","name-value":"Jessica Almond","position":"Property Manager\n","position-value":"Property Manager","contact":"0432 451 332 \/ j.almond@headstudios.com.au\n","contact-value":"0432 451 332 \/ j.almond@headstudios.com.au","responsibility":"Oversee and make sure everything works well\n","responsibility-value":"Oversee and make sure everything works well"}},"name-value":["Brian Gumble","Jessica Almond"],"position":["Principal\n","Property Manager\n"],"position-value":["Principal","Property Manager"],"contact":["0415932797 \/ j.smith@gmail.com\n","0432 451 332 \/ j.almond@headstudios.com.au\n"],"contact-value":["0415932797 \/ j.smith@gmail.com","0432 451 332 \/ j.almond@headstudios.com.au"],"responsibility":["Make it real\n","Oversee and make sure everything works well\n"],"responsibility-value":["Make it real","Oversee and make sure everything works well"],"schedule":{"form":"7","i16":{"activity":"Start the Ball\n","activity-value":"Start the Ball","description":"Get all the info\n","description-value":"Get all the info","date2":"July 8, 2022","date2-value":"2022-07-08"},"i17":{"activity":"Roll the Ball\n","activity-value":"Roll the Ball","description":"Get the ball moving\n","description-value":"Get the ball moving","date2":"July 14, 2022","date2-value":"2022-07-14"},"i18":{"activity":"Ball the Wall\n","activity-value":"Ball the Wall","description":"Kick the ball out of the park\n","description-value":"Kick the ball out of the park","date2":"July 22, 2022","date2-value":"2022-07-22"},"i31":{"activity":"Kick the ball over the wall\n","activity-value":"Kick the ball over the wall","description":"This is the process by which we kick the ball over the wall\n","description-value":"This is the process by which we kick the ball over the wall","date2":"July 21, 2022","date2-value":"2022-07-21"}},"activity":["Start the Ball\n","Roll the Ball\n","Ball the Wall\n","Kick the ball over the wall\n"],"activity-value":["Start the Ball","Roll the Ball","Ball the Wall","Kick the ball over the wall"],"description-value":["Get all the info","Get the ball moving","Kick the ball out of the park","This is the process by which we kick the ball over the wall"],"date2":["July 8, 2022","July 14, 2022","July 22, 2022","July 21, 2022"],"date2-value":["2022-07-08","2022-07-14","2022-07-22","2022-07-21"],"terms":{"form":"6","i19":{"headline":"Headline #1\n","headline-value":"Headline #1","description2":"Make sure you play ball\n","description2-value":"Make sure you play ball"},"i20":{"headline":"Headline #2\n","headline-value":"Headline #2","description2":"Make sure you dunk the ball in\n","description2-value":"Make sure you dunk the ball in"},"i21":{"headline":"Headline #3\n","headline-value":"Headline #3","description2":"Make sure you don\'t stumble\n","description2-value":"Make sure you don\'t stumble"}},"headline":["Headline #1\n","Headline #2\n","Headline #3\n"],"headline-value":["Headline #1","Headline #2","Headline #3"],"description2":["Make sure you play ball\n","Make sure you dunk the ball in\n","Make sure you don\'t stumble\n"],"description2-value":["Make sure you play ball","Make sure you dunk the ball in","Make sure you don\'t stumble"],"6ecxf":"username","6ecxf-value":"1"}]';
+$json_loader = '[
+    {
+      "id": "22",
+      "item_key": "s9br8",
+      "name": [
+        "Brian Gumble\n",
+        "Jessica Almond\n"
+      ],
+      "description": [
+        "Get all the info\n",
+        "Get the ball moving\n",
+        "Kick the ball out of the park\n",
+        "This is the process by which we kick the ball over the wall\n"
+      ],
+      "ip": "202.0.188.100",
+      "form_id": "3",
+      "post_id": "0",
+      "user_id": "1",
+      "parent_item_id": "0",
+      "is_draft": "0",
+      "updated_by": "1",
+      "created_at": "2022-07-02 05:25:35",
+      "updated_at": "2022-07-07 07:09:29",
+      "clientname": "Michael Canotstandit",
+      "dgh33": "m.berner@gmail.com",
+      "clientcompany": "Berner Company & Co",
+      "websiteurl": "https://bernercandles.com.au",
+      "date": "July 13, 2022",
+      "date-value": "2022-07-13",
+      "clientaddress": "34 Berner Avenue, Bromengham 2012 QLD",
+      "emailbody": "Hey Joh,\nAre you ready for the real? \nThen let\'s do it!\n",
+      "emailbody-value": "Hey Joh,\r\n\r\nAre you ready for the real? \r\n\r\nThen let\'s do it!",
+      "execsummary": "It seems that we are in a strange position - the issue is:\n*Issue here*\nAnd we will fix it!\n",
+      "execsummary-value": "It seems that we are in a strange position - the issue is:\r\n\r\n*Issue here*\r\nAnd we will fix it!",
+      "products": {
+        "form": "4",
+        "i11": {
+          "productname": "Product Name #1\n",
+          "productname-value": "Product Name #1",
+          "productfeature": "Product Feature #1 - 5 July\n",
+          "productfeature-value": "Product Feature #1 - 5 July",
+          "productbenefit": "Product Benefit #1\n",
+          "productbenefit-value": "Product Benefit #1"
+        },
+        "i12": {
+          "productname": "Product Name #2\n",
+          "productname-value": "Product Name #2",
+          "productfeature": "Product Feature #2 - Description here\n",
+          "productfeature-value": "Product Feature #2 - Description here",
+          "productbenefit": "Product Benefit #2 - Description here and here.\n",
+          "productbenefit-value": "Product Benefit #2 - Description here and here."
+        },
+        "i13": {
+          "productname": "Product Name #3\n",
+          "productname-value": "Product Name #3",
+          "productfeature": "Product Feature #3 - Description here and here.\n",
+          "productfeature-value": "Product Feature #3 - Description here and here.",
+          "productbenefit": "Product Benefit #3 - Description here and here.\n",
+          "productbenefit-value": "Product Benefit #3 - Description here and here."
+        }
+      },
+      "productname": [
+        "Product Name #1\n",
+        "Product Name #2\n",
+        "Product Name #3\n"
+      ],
+      "productname-value": [
+        "Product Name #1",
+        "Product Name #2",
+        "Product Name #3"
+      ],
+      "productfeature": [
+        "Product Feature #1 - 5 July\n",
+        "Product Feature #2 - Description here\n",
+        "Product Feature #3 - Description here and here.\n"
+      ],
+      "productfeature-value": [
+        "Product Feature #1 - 5 July",
+        "Product Feature #2 - Description here",
+        "Product Feature #3 - Description here and here."
+      ],
+      "productbenefit": [
+        "Product Benefit #1\n",
+        "Product Benefit #2 - Description here and here.\n",
+        "Product Benefit #3 - Description here and here.\n"
+      ],
+      "productbenefit-value": [
+        "Product Benefit #1",
+        "Product Benefit #2 - Description here and here.",
+        "Product Benefit #3 - Description here and here."
+      ],
+      "stakeholders": {
+        "form": "5",
+        "i14": {
+          "name": "Brian Gumble\n",
+          "name-value": "Brian Gumble",
+          "position": "Principal\n",
+          "position-value": "Principal",
+          "contact": "0415932797 / j.smith@gmail.com\n",
+          "contact-value": "0415932797 / j.smith@gmail.com",
+          "responsibility": "Make it real\n",
+          "responsibility-value": "Make it real"
+        },
+        "i15": {
+          "name": "Jessica Almond\n",
+          "name-value": "Jessica Almond",
+          "position": "Property Manager\n",
+          "position-value": "Property Manager",
+          "contact": "0432 451 332 / j.almond@headstudios.com.au\n",
+          "contact-value": "0432 451 332 / j.almond@headstudios.com.au",
+          "responsibility": "Oversee and make sure everything works well\n",
+          "responsibility-value": "Oversee and make sure everything works well"
+        }
+      },
+      "name-value": [
+        "Brian Gumble",
+        "Jessica Almond"
+      ],
+      "position": [
+        "Principal\n",
+        "Property Manager\n"
+      ],
+      "position-value": [
+        "Principal",
+        "Property Manager"
+      ],
+      "contact": [
+        "0415932797 / j.smith@gmail.com\n",
+        "0432 451 332 / j.almond@headstudios.com.au\n"
+      ],
+      "contact-value": [
+        "0415932797 / j.smith@gmail.com",
+        "0432 451 332 / j.almond@headstudios.com.au"
+      ],
+      "responsibility": [
+        "Make it real\n",
+        "Oversee and make sure everything works well\n"
+      ],
+      "responsibility-value": [
+        "Make it real",
+        "Oversee and make sure everything works well"
+      ],
+      "schedule": {
+        "form": "7",
+        "i16": {
+          "activity": "Start the Ball\n",
+          "activity-value": "Start the Ball",
+          "description": "Get all the info\n",
+          "description-value": "Get all the info",
+          "date2": "July 8, 2022",
+          "date2-value": "2022-07-08"
+        },
+        "i17": {
+          "activity": "Roll the Ball\n",
+          "activity-value": "Roll the Ball",
+          "description": "Get the ball moving\n",
+          "description-value": "Get the ball moving",
+          "date2": "July 14, 2022",
+          "date2-value": "2022-07-14"
+        },
+        "i18": {
+          "activity": "Ball the Wall\n",
+          "activity-value": "Ball the Wall",
+          "description": "Kick the ball out of the park\n",
+          "description-value": "Kick the ball out of the park",
+          "date2": "July 22, 2022",
+          "date2-value": "2022-07-22"
+        },
+        "i31": {
+          "activity": "Kick the ball over the wall\n",
+          "activity-value": "Kick the ball over the wall",
+          "description": "This is the process by which we kick the ball over the wall\n",
+          "description-value": "This is the process by which we kick the ball over the wall",
+          "date2": "July 21, 2022",
+          "date2-value": "2022-07-21"
+        }
+      },
+      "activity": [
+        "Start the Ball\n",
+        "Roll the Ball\n",
+        "Ball the Wall\n",
+        "Kick the ball over the wall\n"
+      ],
+      "activity-value": [
+        "Start the Ball",
+        "Roll the Ball",
+        "Ball the Wall",
+        "Kick the ball over the wall"
+      ],
+      "description-value": [
+        "Get all the info",
+        "Get the ball moving",
+        "Kick the ball out of the park",
+        "This is the process by which we kick the ball over the wall"
+      ],
+      "date2": [
+        "July 8, 2022",
+        "July 14, 2022",
+        "July 22, 2022",
+        "July 21, 2022"
+      ],
+      "date2-value": [
+        "2022-07-08",
+        "2022-07-14",
+        "2022-07-22",
+        "2022-07-21"
+      ],
+      "terms": {
+        "form": "6",
+        "i19": {
+          "headline": "Headline #1\n",
+          "headline-value": "Headline #1",
+          "description2": "Make sure you play ball\n",
+          "description2-value": "Make sure you play ball"
+        },
+        "i20": {
+          "headline": "Headline #2\n",
+          "headline-value": "Headline #2",
+          "description2": "Make sure you dunk the ball in\n",
+          "description2-value": "Make sure you dunk the ball in"
+        },
+        "i21": {
+          "headline": "Headline #3\n",
+          "headline-value": "Headline #3",
+          "description2": "Make sure you don\'t stumble\n",
+          "description2-value": "Make sure you don\'t stumble"
+        }
+      },
+      "headline": [
+        "Headline #1\n",
+        "Headline #2\n",
+        "Headline #3\n"
+      ],
+      "headline-value": [
+        "Headline #1",
+        "Headline #2",
+        "Headline #3"
+      ],
+      "description2": [
+        "Make sure you play ball\n",
+        "Make sure you dunk the ball in\n",
+        "Make sure you don\'t stumble\n"
+      ],
+      "description2-value": [
+        "Make sure you play ball",
+        "Make sure you dunk the ball in",
+        "Make sure you don\'t stumble"
+      ],
+      "6ecxf": "username",
+      "6ecxf-value": "1"
+    }
+  ]';
 $json_loader = json_decode($json_loader, true);
 //$json_loader = json_decode($json_loader, true);
 
 $json_loader = array_change_key_case($json_loader,CASE_LOWER);
 $json_loader = $json_loader[0]; // remove this if not using Formidable Forms
 
-$zoho = new ZohoInvoice($env);
-$contact_id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
-$filtered = $zoho->lineItemParser($json_loader['products']);
-$id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
-$zoho->createInvoiceDraft($filtered, $id);
+
 //var_dump($json_loader);
 //die();
 /* echo '<pre>';
@@ -553,6 +800,14 @@ $request->addSigner('enquiries@headstudios.com.au', 'Bobley');
 $request->addFile('verynice.pdf');
 $response = $client->sendSignatureRequest($request); */
 
+$zoho = new ZohoInvoice($env);
+$contact_id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
+$filtered = $zoho->lineItemParser($json_loader['products']);
+$id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
+$inv_id = $zoho->createInvoiceDraft($filtered, $id);
+$inv_file = 'images/inv-'.$inv_id.'.pdf';
+$zoho->getAndSaveInv($inv_id, $inv_file);
+
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
   ->setUsername('kosta@headstudios.com.au')
   ->setPassword($env['smtp_pass']);
@@ -573,6 +828,7 @@ $message->setBody(
 $message->attach(Swift_Attachment::fromPath('verynice.pdf'));
 $message->attach(Swift_Attachment::fromPath('how-to-accept.pdf'));
 $message->attach(Swift_Attachment::fromPath('guarantee.pdf'));
+$message->attach(Swift_Attachment::fromPath($inv_file));
 $mailer->send($message);
 
 //============================================================+

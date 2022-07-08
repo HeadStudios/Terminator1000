@@ -149,7 +149,14 @@ class ZohoInvoice {
         } catch(Exception $e) {
                 throw new Exception("Invoice creation has gone wrong - here is what we know: ".$e->getMessage().json_encode($line_items));
             }
-        
+        //echo $response->getBody()->getContents();
+        $json = $response->getBody()->getContents();
+        $array = json_decode($json, true);
+        $id = $array['invoice']['invoice_id'];
+
+        return $id;
+       
+            
 
     }
 
@@ -190,6 +197,22 @@ class ZohoInvoice {
         }
 
         return $line_items;
+    }
+
+    function getAndSaveInv($inv_id, $save_path) {
+        
+        $directory = $save_path;
+        $url = 'https://books.zoho.com/api/v3/invoices/'.$inv_id.'?organization_id=637404798&accept=pdf&print=true';
+        $auth = 'Zoho-oauthtoken '.$this->access_token;
+        $client = new GuzzleHttp\Client();
+        $client->request('GET', $url, [
+            'sink' => $directory,
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' => $auth
+            ],
+        ]);
+
     }
 
 }
