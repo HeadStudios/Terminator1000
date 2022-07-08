@@ -791,7 +791,7 @@ $pdf->lastPage();
 //Close and output PDF document
 $pdf->Output(__DIR__.'/verynice.pdf', 'F');
 //$pdf->Output('example_006.pdf', 'I');
-/*
+
 $client = new HelloSign\Client('2db138074a1580285659e1f4b87ca25944f66b5c8c6723d7719f14b0a585ecd3');
 $request = new HelloSign\SignatureRequest;
 $request->enableTestMode();
@@ -800,7 +800,7 @@ $request->setSubject('The NDA we talked about');
 $request->setMessage('Please sign this NDA and then we can discuss more. Let me know if you have any questions.');
 $request->addSigner('enquiries@headstudios.com.au', 'Bobley');
 $request->addFile('verynice.pdf');
-$response = $client->sendSignatureRequest($request); */
+$response = $client->sendSignatureRequest($request); 
 
 $zoho = new ZohoInvoice($env);
 $contact_id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
