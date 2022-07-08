@@ -215,4 +215,19 @@ class ZohoInvoice {
 
     }
 
+    function formExists($form_id) {
+        $qry = "SELECT * FROM `forms` WHERE form_id = ".$form_id;
+        $results = DB::query($qry);
+        MyFun::pre_dump($results);
+        if(empty($results)) { 
+    
+            $query = "INSERT INTO defaultdb.forms (form_id) VALUES ('".$form_id."')";
+            echo "results are empty - fromt eh formExists function";
+            DB::query($query);
+    
+            return false; } 
+            else { return true; }
+    
+    }
+
 }

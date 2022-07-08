@@ -300,6 +300,8 @@ $json_loader = array_change_key_case($json_loader,CASE_LOWER);
 $json_loader = $json_loader[0]; // remove this if not using Formidable Forms
 
 
+
+
 //var_dump($json_loader);
 //die();
 /* echo '<pre>';
@@ -802,8 +804,12 @@ $response = $client->sendSignatureRequest($request); */
 
 $zoho = new ZohoInvoice($env);
 $contact_id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
+$form_id = $json_loader['id'];
+$form_exists = $zoho->formExists($form_id);
 $filtered = $zoho->lineItemParser($json_loader['products']);
 $id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');
+MyFun::console_log('Here are the products passed to the lineItemParser');
+MyFun::console_log($filtered);
 $inv_id = $zoho->createInvoiceDraft($filtered, $id);
 $inv_file = 'images/inv-'.$inv_id.'.pdf';
 $zoho->getAndSaveInv($inv_id, $inv_file);
@@ -846,9 +852,11 @@ $message = (new Swift_Message())
 'enquiries@headstudios.com.au' => 'My Inner Alter'
 ]);
 $message->setContentType('text/html');
+if($form_exists) {
+  $message->setBody(
+    '<p>Hey John,</p>Just making some updates to the agreement.</b>'); } else {
 $message->setBody(
-'<p>Hello there,</p>Do you see a space in your movements? <b>Your contract is here.</b>'
-);
+'<p>Hello John,</p>This is a brand new agreement. <b>Your contract is here.</b>'); }
 //$message->addPart('This is some <b>plain</b> text', 'text/plain');
 $message->attach(Swift_Attachment::fromPath('verynice.pdf'));
 $message->attach(Swift_Attachment::fromPath('how-to-accept.pdf'));
