@@ -808,6 +808,31 @@ $inv_id = $zoho->createInvoiceDraft($filtered, $id);
 $inv_file = 'images/inv-'.$inv_id.'.pdf';
 $zoho->getAndSaveInv($inv_id, $inv_file);
 
+/* 
+DEVELOPERS! Job #1 - Setup Gmail Draft
+Problem: At the moment my code is creating and sending an email with a contract, invoice, guarantees and all sorts of things automatically
+when I fill out a form which sends data to this end point. This is great but... I want to be able to review the email before it is sent -
+just in case I want to touch up some text - make sure everything is setup correctly etc. At the moment I am using SwiftMailer PHP library 
+to connect to my Google Workspace Gmail account which is great - however I can't find a guide or a solution to create a Gmail draft
+with this library. 
+
+Solution: Using - what has been recommended to me - the Gmail API - you will need to change the code below to basically do everything 
+it is doing now (attach files, set some HTML in the body)... but have it be saved as a 'Draft' which I can then review before sending. 
+That's it! Same functionality - just as a Draft message.
+
+Let me know if you would like me to give you an app password for my Gmail if you would like to test with me live (or use your own Gmail for testing)
+Let me know if you would like to do a standalone 'proof of concept' script or if you would like to update the script below for my review
+
+Deliverables:
+- Emails can be created as drafts in my Gmail with rich text
+- Draft emails have attachments
+- That's it
+
+Time Estimate: 30 minutes
+
+
+*/
+
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
   ->setUsername('kosta@headstudios.com.au')
   ->setPassword($env['smtp_pass']);
