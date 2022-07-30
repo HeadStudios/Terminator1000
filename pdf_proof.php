@@ -558,10 +558,10 @@ $pdf->AddPage();
 $html = '<h1>We are on a new page</h1>';
 //  $pdf->writeHTML($html, true, false, true, false, '');
 //$pdf->AddPage();
-$html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleration System</strong></span></p>
+$html = '<h1><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleration System</strong></span></h1>
 <h3>PREPARED FOR</h3>
-<p><span style="color: #424242;">{{client_name}}</span></p>
-<p><span style="color: #424242;">{{client_company}}</span></p>
+<span style="color: #424242;">{{client_name}}</span><br />
+<span style="color: #424242;">{{client_company}}</span>
 <h3>PREPARED BY</h3>
 <p><span style="color: #424242;">Kosta Kondratenko</span></p>
 <p style="text-align: right;"><span style="color: #424242;">{{date}}</span></p>
@@ -570,23 +570,10 @@ $html = '<p><span style="color: #0b6374;"><strong>Video AI Rent Roll Acceleratio
 <p style="text-align: right;"><span style="color: #31394d;">{{client_address}}</span></p>
 <p><span style="color: #424242;">Dear {{client_name}},</span></p>
 <p><span style="color: #424242;">{{email_body}}</span></p>
-<p><span style="color: #424242;">Yours Truly,</span><span style="color: #424242;">Kosta Kondratenko</span></p>
+<p><span style="color: #424242;">Yours Truly,</span><br /><span style="color: #424242;">Kosta Kondratenko</span></p>
 <p><span style="color: #0b6374;"><strong>EXECUTIVE SUMMARY</strong></span></p>
 <p><span style="color: #424242;">{{executive_summary}}</span></p>
 <div>
-<table>
-<tbody>
-<tr>
-<td>
-<h3>Signed as accepted by client:</h3>
-</td>
-</tr>
-<tr>
-<td><span style="color: #232a3c;">{{client_name}}, Shot Caller&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
-<td><span style="color: #232a3c;">[DATE]</span></td>
-</tr>
-</tbody>
-</table>
 </div>
 <style>table, th, td {
     border: 0px solid black;
@@ -792,7 +779,7 @@ $pdf->lastPage();
 $pdf->Output(__DIR__.'/verynice.pdf', 'F');
 //$pdf->Output('example_006.pdf', 'I');
 
-$client = new HelloSign\Client('2db138074a1580285659e1f4b87ca25944f66b5c8c6723d7719f14b0a585ecd3');
+/*$client = new HelloSign\Client('2db138074a1580285659e1f4b87ca25944f66b5c8c6723d7719f14b0a585ecd3');
 $request = new HelloSign\SignatureRequest;
 $request->enableTestMode();
 $request->setTitle('NDA with Acme Co.');
@@ -800,7 +787,7 @@ $request->setSubject('The NDA we talked about');
 $request->setMessage('Please sign this NDA and then we can discuss more. Let me know if you have any questions.');
 $request->addSigner('enquiries@headstudios.com.au', 'Bobley');
 $request->addFile('verynice.pdf');
-$response = $client->sendSignatureRequest($request); 
+$response = $client->sendSignatureRequest($request); */
 
 $zoho = new ZohoInvoice($env);
 $contact_id = $zoho->getContactIDByEmail('enquiries@headstudios.com.au');

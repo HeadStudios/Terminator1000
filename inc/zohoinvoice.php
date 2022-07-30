@@ -139,9 +139,13 @@ class ZohoInvoice {
         if(!isset($line_items['customer_id'])) {
             $line_items = ['customer_id' => $customer_id, 'line_items' => $line_items];
         }
+
+        
         
         try {
             $url = 'https://books.zoho.com/api/v3/invoices?organization_id='.$this->org_id;
+            MyFun::console_log('JSON passed to '.$url.' is: ');
+            MyFun::console_log($line_items);
             $response = $this->client->post($url, [
                 'headers' => $this->headers,
                 'json' => $line_items
@@ -184,10 +188,10 @@ class ZohoInvoice {
                 //$line_items[$key]['item_id'] = '20028000001168016';
                 $line_items[$key]['quantity'] = 1;
             }
-            if(isset($line_item['ProductName'])) {
-                $line_items[$key]['name'] = $line_item['ProductName'];
+            if(isset($line_item['productname'])) {
+                $line_items[$key]['name'] = $line_item['productname'];
                 try {
-                $line_items[$key]['description'] = $line_item['ProductFeature'].' - '.$line_item['ProductBenefit'];
+                $line_items[$key]['description'] = $line_item['productfeature'].' - '.$line_item['productbenefit'];
                 } catch(Exception $e) {
                     throw new Exception("Check to make sure ProductFeature and ProductBenefit is set");
                 }
